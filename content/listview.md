@@ -1,5 +1,7 @@
 ---
-title: "Listview"
+metaDescription: A ListView is a graphical screen control or widget provided by UI libraries in a majority of modern operating systems to show items in a list form.
+metaTitle: Listview
+title: Listview
 ---
 
 Although there are many types of ListView controls across platforms and operating-systems, generally it is considered to be a type of enhanced list control with support for features such as columns (and column headers) and per-item images.

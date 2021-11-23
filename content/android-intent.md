@@ -1,5 +1,7 @@
 ---
-title: "Android Intent"
+metaDescription: Questions regarding practical and advanced use of Intents, Intent Extras and Pending Intents to start an Activity, Service or to respond to a system or application event/notification via a BroadcastReceiver. (refer to info for basic familiarity)
+metaTitle: Android Intent
+title: Android Intent
 ---
 
 **From the [Android Developers reference site](https://developer.android.com/reference/android/content/Intent.html):**

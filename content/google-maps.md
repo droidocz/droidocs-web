@@ -1,5 +1,7 @@
 ---
-title: "Google Maps"
+metaDescription: Google Maps is a desktop and mobile web mapping service application and technology provided by Google, offering satellite imagery, street maps, and Street View perspectives. Also supported are maps embedded on third-party websites via the Google Maps API, and a locator for urban businesses and other organizations in numerous countries around the world.
+metaTitle: Google Maps
+title: Google Maps
 ---
 
 [Google Maps](https://maps.google.com/) is a web, mobile and standalone mapping service application and technology provided by Google LLC, that powers many map-based services, including the [Google Maps website](https://maps.google.com), [Google Transit](https://transit.google.com) and maps embedded on third-party websites and mobile applications through their various APIs.

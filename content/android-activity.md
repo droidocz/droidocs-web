@@ -1,5 +1,7 @@
 ---
-title: "Android Activity"
+metaDescription: 'Questions about creating or managing Activities in Android. In Android Applications, an Activity is a Component that provides a user interface allowing the user to do something. Simple examples are: dial the phone, take a photo, send an email, or view a map.'
+metaTitle: Android Activity
+title: Android Activity
 ---
 
 **Introduction**

@@ -1,5 +1,7 @@
 ---
-title: "Android Fragments"
+metaDescription: Fragments represent reusable behaviors or portions of the user interface in an Android app.
+metaTitle: Android Fragments
+title: Android Fragments
 ---
 
 

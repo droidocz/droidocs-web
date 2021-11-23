@@ -1,5 +1,7 @@
 ---
-title: "Android Recyclerview"
+metaDescription: The RecyclerView widget is a more advanced and flexible version of ListView and GridView.
+metaTitle: Android Recyclerview
+title: Android Recyclerview
 ---
 
 The **[RecyclerView](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html)** widget is a more advanced and flexible version of `ListView` and `GridView`. This widget is a container for displaying large datasets that can be scrolled very efficiently by maintaining a limited number of views. Use the `RecyclerView` widget when you have data collections whose elements change at runtime based on user action or network events.

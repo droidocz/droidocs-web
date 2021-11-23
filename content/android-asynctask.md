@@ -1,5 +1,7 @@
 ---
-title: "Android Asynctask"
+metaDescription: Use for questions on android.os.AsyncTask
+metaTitle: Android Asynctask
+title: Android Asynctask
 ---
 
 `AsyncTask` enables proper and easy use of the UI thread. This class allows to perform background operations and publish results on the UI thread without having to manipulate threads and/or handlers.

@@ -1,5 +1,7 @@
 ---
-title: "Android Actionbar"
+metaDescription: The ActionBar is Android's window feature that identifies the application and user location, and provides user actions and navigation modes.
+metaTitle: Android Actionbar
+title: Android Actionbar
 ---
 
 The action bar is a window feature at the top of the activity that may display the activity title, navigation modes, and other interactive items.

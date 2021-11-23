@@ -1,5 +1,7 @@
 ---
-title: "Android Layout"
+metaDescription: A layout defines the visual structure for a user interface, such as the UI for an activity, fragment or app widget.
+metaTitle: Android Layout
+title: Android Layout
 ---
 
 An Android layout defines everything the user can see and touch. A layout is made up of [`View`](http://developer.android.com/guide/topics/ui/controls.html) (like buttons and text) and [`ViewGroup`](http://developer.android.com/guide/topics/ui/declaring-layout.html) (like lists, tables, or more Views) objects, all combined to make a **View Hierarchy**:  

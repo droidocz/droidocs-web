@@ -1,0 +1,222 @@
+---
+metaTitle: How to add dividers and spaces between items in RecyclerView
+tags:
+- divider
+title: How to add dividers and spaces between items in RecyclerView
+---
+
+**October 2016 Update**
+
+
+The version 25.0.0 of Android Support Library introduced the [`DividerItemDecoration`](https://developer.android.com/reference/android/support/v7/widget/DividerItemDecoration.html) class:
+
+
+
+> 
+> DividerItemDecoration is a RecyclerView.ItemDecoration that can be used as a divider between items of a `LinearLayoutManager`. It supports both `HORIZONTAL` and `VERTICAL` orientations.
+> 
+> 
+> 
+
+
+Usage:
+
+
+
+```
+DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+    layoutManager.getOrientation());
+recyclerView.addItemDecoration(dividerItemDecoration);
+
+```
+
+
+
+---
+
+
+**Previous answer**
+
+
+Some answers either use methods that have since become deprecated, or don't give a complete solution, so I tried to do a short, up-to-date wrap-up.
+
+
+
+
+---
+
+
+Unlike `ListView`, the `RecyclerView` class doesn't have any divider-related parameters. Instead, you need to extend [`ItemDecoration`](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemDecoration.html), a `RecyclerView`'s inner class:
+
+
+
+> 
+> An `ItemDecoration` allows the application to add a special drawing and layout offset to specific item views from the adapter's data set. This can be useful for drawing dividers between items, highlights, visual grouping boundaries and more.
+> 
+> 
+> All `ItemDecorations` are drawn in the order they were added, before the item views (in `onDraw()`) and after the items (in onDrawOver(`Canvas`, `RecyclerView`, `RecyclerView.State)`.
+> 
+> 
+> 
+
+
+`Vertical` spacing `ItemDecoration`
+-----------------------------------
+
+
+Extend `ItemDecoration`, add a custom constructor which takes space `height` as a parameter and override the `getItemOffsets()` method:
+
+
+
+```
+public class VerticalSpaceItemDecoration extends RecyclerView.ItemDecoration {
+
+    private final int verticalSpaceHeight;
+
+    public VerticalSpaceItemDecoration(int verticalSpaceHeight) {
+        this.verticalSpaceHeight = verticalSpaceHeight;
+    }
+
+    @Override
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+            RecyclerView.State state) {
+        outRect.bottom = verticalSpaceHeight;
+    }
+}
+
+```
+
+If you don't want to insert space below the last item, add the following condition:
+
+
+
+```
+if (parent.getChildAdapterPosition(view) != parent.getAdapter().getItemCount() - 1) {
+            outRect.bottom = verticalSpaceHeight;
+}
+
+```
+
+Note: you can also modify `outRect.top`, `outRect.left` and `outRect.right` properties for the desired effect.
+
+
+Divider `ItemDecoration`
+------------------------
+
+
+Extend `ItemDecoration` and override the `onDraw()` method:
+
+
+
+```
+public class DividerItemDecoration extends RecyclerView.ItemDecoration {
+
+    private static final int[] ATTRS = new int[]{android.R.attr.listDivider};
+
+    private Drawable divider;
+
+    /**
+     * Default divider will be used
+     */
+    public DividerItemDecoration(Context context) {
+        final TypedArray styledAttributes = context.obtainStyledAttributes(ATTRS);
+        divider = styledAttributes.getDrawable(0);
+        styledAttributes.recycle();
+    }
+
+    /**
+     * Custom divider will be used
+     */
+    public DividerItemDecoration(Context context, int resId) {
+        divider = ContextCompat.getDrawable(context, resId);
+    }
+
+    @Override
+    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+        int left = parent.getPaddingLeft();
+        int right = parent.getWidth() - parent.getPaddingRight();
+
+        int childCount = parent.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View child = parent.getChildAt(i);
+
+            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
+
+            int top = child.getBottom() + params.bottomMargin;
+            int bottom = top + divider.getIntrinsicHeight();
+
+            divider.setBounds(left, top, right, bottom);
+            divider.draw(c);
+        }
+    }
+}
+
+```
+
+You can either call the first constructor that uses the default Android divider attributes, or the second one that uses your own drawable, for example *drawable/divider.xml*:
+
+
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle">
+    <size android:height="1dp" />
+    <solid android:color="#ff992900" />
+</shape>
+
+```
+
+Note: if you want the divider to be drawn *over* your items, override the `onDrawOver()` method instead.
+
+
+Usage
+-----
+
+
+To use your new class, add `VerticalSpaceItemDecoration` or `DividerSpaceItemDecoration` to `RecyclerView`, for example in your fragment's `onCreateView()` method:
+
+
+
+```
+private static final int VERTICAL_ITEM_SPACE = 48;
+private RecyclerView recyclerView;
+private LinearLayoutManager linearLayoutManager;
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        Bundle savedInstanceState) {
+    View rootView = inflater.inflate(R.layout.fragment_feed, container, false);
+
+    recyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_home_recycler_view);
+    linearLayoutManager = new LinearLayoutManager(getActivity());
+    recyclerView.setLayoutManager(linearLayoutManager);
+
+    //add ItemDecoration
+    recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(VERTICAL_ITEM_SPACE));
+    //or
+    recyclerView.addItemDecoration(new DividerItemDecoration(getActivity()));
+    //or
+    recyclerView.addItemDecoration(
+            new DividerItemDecoration(getActivity(), R.drawable.divider));
+
+    recyclerView.setAdapter(...);
+
+    return rootView;
+}
+
+```
+
+
+
+---
+
+
+There's also [Lucas Rocha's library](https://github.com/lucasr/twoway-view) which is supposed to simplify the item decoration process. I haven't tried it though.
+
+
+Among its [features](https://github.com/lucasr/twoway-view#features) are:
+
+
+* A collection of stock item decorations including:
+* Item spacing Horizontal/vertical dividers.
+* List item
