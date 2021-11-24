@@ -5,6 +5,41 @@ tags:
 title: How to add dividers and spaces between items in RecyclerView
 ---
 
+## Context
+
+This is an example of how it could have been done previously in the `ListView` class, using the **divider** and **dividerHeight** parameters:
+
+
+
+```
+<ListView
+    android:id="@+id/activity_home_list_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="8dp"/>
+
+```
+
+However, I don't see such possibility in the `RecyclerView` class.
+
+
+
+```
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/activity_home_recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"/>
+
+```
+
+In that case, is it ok to define margins and/or add a custom divider view directly into a list item's layout or is there a better way to achieve my goal?
+
+
+
+---
+
 **October 2016 Update**
 
 

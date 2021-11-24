@@ -5,30 +5,39 @@ tags:
 title: How do I pass data between Activities in Android application
 ---
 
-In your current Activity, create a new `Intent`:
+## Context
+
+I have a scenario where, after logging in through a login page, there will be a sign-out `button` on each `activity`.
+
+
+On clicking `sign-out`, I will be passing the `session id` of the signed in user to sign-out. Can anyone guide me on how to keep `session id` available to all `activities`?
+
+
+Any alternative to this case 
+
+
+
+---
+
+The easiest way to do this would be to pass the session id to the signout activity in the `Intent` you're using to start the activity:
 
 
 
 ```
-String value="Hello world";
-Intent i = new Intent(CurrentActivity.this, NewActivity.class);    
-i.putExtra("key",value);
-startActivity(i);
+Intent intent = new Intent(getBaseContext(), SignoutActivity.class);
+intent.putExtra("EXTRA_SESSION_ID", sessionId);
+startActivity(intent);
 
 ```
 
-Then in the new Activity, retrieve those values:
+Access that intent on next activity:
 
 
 
 ```
-Bundle extras = getIntent().getExtras();
-if (extras != null) {
-    String value = extras.getString("key");
-    //The key argument here must match that used in the other activity
-}
+String sessionId = getIntent().getStringExtra("EXTRA_SESSION_ID");
 
 ```
 
-Use this technique to pass variables from one Activity to the other.
+The [docs](http://developer.android.com/guide/topics/intents/intents-filters.html) for Intents has more information (look at the section titled "Extras").
 

@@ -6,6 +6,14 @@ tags:
 title: Android map v2 zoom to show all the markers
 ---
 
+## Context
+
+I have 10 markers in the `GoogleMap`. I want to zoom in as much as possible and keep all markers in view? In the earlier version this can be achieved from `zoomToSpan()` but in v2 I have no idea how about doing that. Further, I know the radius of the circle that needs to be visible.
+
+
+
+---
+
 You should use the `CameraUpdate` class to do (probably) all programmatic map movements.
 
 

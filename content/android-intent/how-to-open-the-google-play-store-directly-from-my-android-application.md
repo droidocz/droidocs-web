@@ -5,6 +5,25 @@ tags:
 title: How to open the Google Play Store directly from my Android application
 ---
 
+## Context
+
+I have open the Google Play store using the following code 
+
+
+
+```
+Intent i = new Intent(android.content.Intent.ACTION_VIEW);
+i.setData(Uri.parse("https://play.google.com/store/apps/details?id=my packagename "));
+startActivity(i);.
+
+```
+
+But it shows me a Complete Action View as to select the option (browser/play store). I need to open the application in Play Store directly.
+
+
+
+---
+
 You can do this using the [`market://` prefix](https://developer.android.com/distribute/tools/promote/linking.html).
 
 

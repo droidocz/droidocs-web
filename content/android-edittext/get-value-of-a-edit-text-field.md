@@ -3,6 +3,23 @@ metaTitle: Get Value of a Edit Text field
 title: Get Value of a Edit Text field
 ---
 
+## Context
+
+I am learning how to create UI elements. I have created a few EditText input fields. On the click of a Button I want to capture the content typed into that input field.
+
+
+
+```
+<EditText android:id="@+id/name" android:width="220px" />
+
+```
+
+That's my field. How can I get the content?
+
+
+
+---
+
 By using getText():
 
 

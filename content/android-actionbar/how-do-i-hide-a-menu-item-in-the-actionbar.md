@@ -6,18 +6,97 @@ tags:
 title: How do I hide a menu item in the actionbar
 ---
 
-Get a `MenuItem` pointing to such item, call `setVisible` on it to adjust its visibility and then call `invalidateOptionsMenu()` on your activity so the ActionBar menu is adjusted accordingly.
+## Context
+
+I have an action bar with a menuitem. How can I hide/show that menu item?
 
 
-**Update:** A `MenuItem` is not a regular view that's part of your layout. Its something special, completely different. Your code returns `null` for `item` and that's causing the crash. What you need instead is to do:
+This is what I'm trying to do:
 
 
 
 ```
-MenuItem item = menu.findItem(R.id.addAction);
+MenuItem item = (MenuItem) findViewById(R.id.addAction);
+item.setVisible(false);
+this.invalidateOptionsMenu();
 
 ```
 
-Here is the sequence in which you should call:
-first call `invalidateOptionsMenu()` and then inside `onCreateOptionsMenu(Menu)` obtain a reference to the MenuItem (by calling `menu.findItem()`) and call `setVisible()` on it
 
+---
+
+I was looking for an answer with a little more context. Now that I have figured it out, I will add that answer.
+
+
+Hide button by default in menu xml
+==================================
+
+
+By default the share button will be hidden, as set by `android:visible="false"`.
+
+
+[![enter image description here](https://i.stack.imgur.com/cQWRl.png)](https://i.stack.imgur.com/cQWRl.png)
+
+
+*main\_menu.xml*
+
+
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- hide share button by default -->
+    <item
+        android:id="@+id/menu_action_share"
+        android:icon="@drawable/ic_share_white_24dp"
+        android:visible="false"     
+        android:title="Share"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_action_settings"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:title="Setting"
+        app:showAsAction="ifRoom"/>
+
+</menu>
+
+```
+
+Show button in code
+===================
+
+
+But the share button can optionally be shown based on some condition.
+
+
+[![enter image description here](https://i.stack.imgur.com/6nfyr.png)](https://i.stack.imgur.com/6nfyr.png)
+
+
+*MainActivity.java*
+
+
+
+```
+public boolean onCreateOptionsMenu(Menu menu) {
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.main_menu, menu);
+    MenuItem shareItem = menu.findItem(R.id.menu_action_share);
+
+    // show the button when some condition is true
+    if (someCondition) {        
+        shareItem.setVisible(true);
+    }
+
+    return true;
+}
+
+```
+
+See also
+========
+
+
+* [Setting Up the App Bar](https://developer.android.com/training/appbar/setting-up.html) (Android docs for help getting the app/action bar set up)

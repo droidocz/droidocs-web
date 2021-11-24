@@ -6,6 +6,18 @@ tags:
 title: Simple Android grid example using RecyclerView with GridLayoutManager (like the old GridView)
 ---
 
+## Context
+
+I know that `RecyclerView` has replaced the functionality of the old `ListView` and `GridView`. I am looking for a very basic example that shows a minimal grid setup using `RecyclerView`. I am not looking for long tutorial style explanations, just a minimal example. I imagine the simplest grid that mimics the old GridView would consist of the following features:
+
+
+* multiple cells per row
+* single view in each cell
+* responds to click events
+
+
+---
+
 Short answer
 ============
 

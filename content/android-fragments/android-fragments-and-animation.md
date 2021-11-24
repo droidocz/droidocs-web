@@ -5,6 +5,17 @@ tags:
 title: Android Fragments and animation
 ---
 
+## Context
+
+How should you implement the sort of sliding that for example the Honeycomb Gmail client uses?
+
+
+Can `TransactionManager` handle this automatically by adding and removing the Fragments, it's kind of difficult to test this due to the emulator being a slideshow :)
+
+
+
+---
+
 To animate the transition between fragments, or to animate the process of showing or hiding a fragment you use the `Fragment Manager` to create a `Fragment Transaction`.
 
 
