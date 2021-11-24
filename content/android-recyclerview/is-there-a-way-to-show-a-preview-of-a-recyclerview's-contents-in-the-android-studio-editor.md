@@ -1,0 +1,30 @@
+---
+metaTitle: Is there a way to show a preview of a RecyclerView's contents in the Android Studio editor
+tags:
+- android-studio
+- android-tools-namespace
+title: Is there a way to show a preview of a RecyclerView's contents in the Android Studio editor
+---
+
+## Context
+
+When I add the RecyclerView to the layout, it shows up as a blank screen. Is there a way, such as through the `tools` namespace, to show a preview of the content of the RecyclerView?
+
+
+
+---
+
+@oRRs is right !
+
+
+I'm using Android Studio 1.4 RC2 and you can now specify any custom layout.
+
+
+I tried a custom CardView and it works.
+
+
+
+```
+tools:listitem="@android:layout/simple_list_item_checked"
+
+```
