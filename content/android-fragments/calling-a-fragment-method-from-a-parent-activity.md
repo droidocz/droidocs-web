@@ -37,3 +37,39 @@ var fragment = supportFragmentManager.findFragmentById(R.id.frameLayoutCW) as We
 fragment.callAboutUsActivity()
 
 ```
+
+
+---
+
+## Notes:
+
+- Now the hard part is I can't seem to get a reference to the fragment in the first place. It's not defined in an XML layout, so I can't use findFragmentById(). And it's not clear to me from the code I'm following (ref above) how/where the fragment is even created. If it were I could just add a tag and use findFragmentByTag(). The AccountListActivity part of the example does have a call to beginTransaction().add(), but per my trace it's never called.
+
+
+- By doing this i ended up in a null object reference!
+
+
+- getFragmentManger is now deprecated , Use FragmentActivity.getSupportFragmentManager()
+
+
+- The code pattern I am following is [FragmentTabsPager](http://developer.android.com/resources/samples/Support4Demos/src/com/example/android/supportv4/app/FragmentTabsPager.html).
+
+
+- java.lang.NullPointerException: Attempt to invoke virtual method ...
+
+
+- look in your **<fragment tag** in the xml file. It would be "example\_fragment" to match the example code given.
+
+
+- The situation will be different when neither u are having the ID nor the TAG associated with the fragment .
+
+
+- In Kotlin use such syntax to suppress "this cast can never success" warning
+
+
+`val fragm : MyFragment = fragmentManager.findFragmentById(R.id.my_fragment) as MyFragment`
+
+
+- **search through your XML files**
+
+

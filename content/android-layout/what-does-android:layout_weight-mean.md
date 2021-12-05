@@ -194,3 +194,12 @@ Here is the xml layout for the top image:
 </LinearLayout>
 
 ```
+
+
+---
+
+## Notes:
+
+- I always wonder why more people don't post images to accompany their XML. It's much easier to understand visuals than code.
+
+

@@ -35,3 +35,12 @@ look here in these links **[Link1](https://stackoverflow.com/questions/2023669/j
 
 After following these steps you will be easily able to do your application. The only condition is, you will have to read it and understand it, because like magic its not going to be complete in a click.
 
+
+
+---
+
+## Notes:
+
+- If any of the links fail to open please do comment here,Will change it with the best example/blog available.
+
+

@@ -97,3 +97,64 @@ this 16 variants are possible:
 </resources>
 
 ```
+
+
+---
+
+## Notes:
+
+- It would be nice if Google had this in their documentation in an easy to find place, say for the documentation of `android:fontFamily` on TextView.
+
+
+- The definitive list of fonts can be found in [system\_fonts.xml](https://android.googlesource.com/platform/frameworks/base/+/master/data/fonts/system_fonts.xml) as explained [here](http://stackoverflow.com/a/24072492/598094)
+
+
+- I saw a variant called "black small caps" in the [roboto specimen book](http://commondatastorage.googleapis.com/androiddevelopers/design/Roboto_Specimen_Book_20111129.pdf), but I don't manage to use it. Using `android:fontFamily="sans-serif-black-small-caps"` doesnt work.
+
+
+- i am not able to find any of these font-family what have you typed here .i am not able to find "sans-serif" together.
+
+
+- This would be great information for, oh I don't know, how about **the `TextView` API Javadocs**. Apparently [this is the only official reference](http://developer.android.com/about/versions/android-4.1.html).
+
+
+- Best way is to look at the source: https://android.googlesource.com/platform/frameworks/base/+/lollipop-release/data/fonts/system\_fonts.xml and https://android.googlesource.com/platform/frameworks/base/+/master/data/fonts/fonts.xml , which means you want to use "sans-serif-condensed-light"
+
+
+- What if you use sans-serif-thin on Android 4.1?
+
+
+- Where can I find in the documentation about the available font-families ?
+
+
+- I cant find a way to make my app use Noto as default font family
+
+
+- I have updated this answer with details of where the source of this information comes from and how to get a definitive list of `android:fontFamily` values, even vendor ones, from your devices.
+
+
+- Is it accurate to say that `fontFamily` supercedes `typeface`? Are we now no longer able to use serif or monospace? I don't think `typeface` is formally deprecated, just ignored when `fontFamily` is also present.
+
+
+- How can I use roboto condensed light?
+
+
+- To use Roboto API level 16 is required otherwise, you will get an error.
+
+
+- So I guess the only font I can't get (without using the RobotoTextView library) is condensed light? right?
+
+
+- You can check out this project, for checking font compatibility on TextViews and in WebViews on different platform versions
+https://github.com/JeppeLeth/android\_font\_compat\_tester
+
+
+- Just a quick quesrtion, if I use android:fontFamily in versions prior to (< 4.1) Jelly Bean, will it crash my app or just be ignored?
+
+
+- there's a link for a full view of Roboto: https://fonts.google.com/specimen/Roboto
+
+
+- List is also available here: http://androidxref.com/6.0.1\_r10/xref/frameworks/base/data/fonts/system\_fonts.xml
+
+

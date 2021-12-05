@@ -23,3 +23,15 @@ This is how it looks now in my code.![enter image description here](https://i.st
 
 I am assuming that you are using a `LinearLayoutManager` with a `RecyclerView` for a `ListView`-style effect. In that case, use a `horizontal` `LinearLayout` for each row, with `android:gravity="center"` to center its contents.
 
+
+
+---
+
+## Notes:
+
+- I presume that there would be some way to do that via `GridLayoutManager`, or else via a custom `RecyclerView.LayoutManager`. I do not see, at a quick glance, how to do it with `GridLayoutManager`.
+
+
+- For my project using recycler view with grid layout, where items are centered using gravity attribute works fine.
+
+

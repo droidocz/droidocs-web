@@ -495,3 +495,147 @@ But also consider that your needs may change. For example, `DownloadManager` [do
 > 
 > 
 
+
+
+---
+
+## Notes:
+
+- Don't hardcode /`sdcard/` use `Environment.getExternalStorageDirectory()` instead.
+
+
+- Use AsyncTask and show the download progress in a dialog**" does connection.connect(); then InputStream input = new BufferedInputStream(url.openStream()); code makes 2 connections to the server. I have managed to change this behavior by updating the code as follows InputStream input = new BufferedInputStream(connection.getInputStream());
+
+
+- Suggested to `close()` the streams (`input` and `output`) in `finally` instead of `try`, otherwise if any exception is thrown before `close()`, you have unclosed streams hanging around.
+
+
+- DownloadManager is part of the OS, which means it will always be available in GB+ and cannot be uninstalled.
+
+
+- Can you please tell me how to implement pause and resume feature in this? Since I am downloading large files, internet connection might break in between or the user may want to pause the download and resume later.
+
+
+- I've used your "Download from Service" approach, but mProgressDialog, created in activity, is not getting updated.
+
+
+- I want to learn how to achieve resume, pause and retry in AsyncTask for downloading ?
+
+
+- Why is the size of the byte buffer 4096 in the AsyncTask example? This means the buffer can store up to 4096 bytes at a time right?
+
+
+- You will need to query that data using a content provider
+
+
+- take a look at this: http://stackoverflow.com/questions/16067199/determining-appropriate-buffer-size there are more threads, if you want to expand on that.
+
+
+- I just found that it might be a bug on android <= 2.2 http://code.google.com/p/android/issues/detail?id=15503
+
+
+- Take note that when using the 3rd option within a Java library separated from app, you will need to pass the Context object to the function that will use the method getSystemService. Using this statement alone will work only inside an Activity.
+
+
+- I'm not even using this code, but +1 for putting in the effort of making such a good answer!
+
+
+- Still considering the performance stuff, using progressDialog.setMax(lenghtOfFile), and publishProgress(total) wouldn't be more efficient? As there are lots of divisions and multiplications in (int)(total*100/lenghtOfFile).* *Edit**: As i double check long data type is deal breaker here, as progress bar demans int, but connection.getContentLength() returns int, which makes long data type seems useless.
+
+
+- I used the example you gave and it works great (file downloads) but I never get a progress bar.
+
+
+- Om the first version of the answer, can someone explain me why I get a NullPointerException on "connection.connect();"? I can't understand the problem!
+
+
+- I have some problems with `https` urls after `conexion.connect();`. While debugging, I verified that there is a flag in the `conecion` object named `connected` that is set to `false`.
+
+
+- First it downloads the data and then updates the progress dialog please see http://stackoverflow.com/questions/34134013/not-able-to-publish-progress-from-async-task-do-in-backgrounds-while-loop-and
+
+
+- Async Task, Download file, declare permissions..
+
+
+- I am getting minus value in progress (logcat) when i upload in our server.
+
+
+- If you're using AsyncTask, replace `Exception` with `IOException` in catch block
+
+
+- For the 3 option take note that some Samsung Galaxy devices like S5 and S6 are returning false for the isDownloadManagerAvailable() call. I'm speaking for my own experience, the best way to know if the DownloadManager is avaiable is simply checking the android version is above or equals to Gingerbread.
+
+
+- Which of these approaches will keep downloading the file even if the application is killed or cleared from recents?
+
+
+- I think you can use the `DownloadManager`'s Content Provider: http://stackoverflow.com/questions/5069919/where-can-i-find-downloadmanagers-contentprovider-implementation
+
+
+- How can I pause/stop the download process in Intent service method ?? check my question plz http://stackoverflow.com/questions/24480206/best-way-to-download-a-file-in-android-with
+
+
+- can you please tell how to implement the same for image view?/, when clicked on a button, set the bitmap image on imageview
+
+
+- For large files it throws `java.io.IOException: unexpected end of stream` any idea?
+
+
+- it is possible to use one of those method to download file from my own PC and save it later on sd card using an url to web server like apache tomcat ..?
+
+
+- If a `progressbar` is shown within a listview and the user leave the page.
+
+
+- is it possible to update progressBar of activity layout using DownloadMangaer?, if it is possible could you help me with snippet.
+
+
+- In that case, you better take a look at the wasp library: http://github.com/casidiablo/wasp
+
+
+- I am using Async Task for my App displaying contacts but faceing errors see my question any Idea replay me please http://stackoverflow.com/questions/12709799/how-to-solve-fatal-exception-thread-11
+
+
+- For method 1, if you are intitializing the progressbar in a fragment then do this:
+
+
+- You are right... just wanted to keep the example as clear as possible.
+
+
+- `Byte[] data = new byte[4096]` Can you please explain the function of data array more specifically its size (4096) purpose (what if i use 1024) and best practices?
+
+
+- I switched it to "Style\_SPINNER" to avoid having to show the progress, but I can't find anywhere to put onPreExecute() and the other functions in that section. It says it runs on the UI thread, but when I place it there I get nothing but error messages. It works, but the Download progress dialog never goes away on its own, and that's problematic.
+
+
+- This method is deprecated in API level 29 .
+
+
+- I know this has been here for a while now but, while executing the DownloadManager option I get an `IllegalArgumentException: Can only download HTTP/HTTPS URIs` while attempting to request a resource on the local network in the url, does anyone know how to make it work like that?
+
+
+- Is it for sure included in the Kindle Fire devices?
+
+
+- thumbs up for Intent service with result reciever
+
+
+- And here's a very handy resource in case you want to have a determinate progress bar ring/circle: https://www.youtube.com/watch?v=hSfN\_aYKkzo
+
+
+- Isn't there option, without using `WRITE_EXTERNAL_STORAGE` permission? http://stackoverflow.com/q/16210894/492624
+
+
+- thanks, really helpful information, Any body knows multithreading download library in android for faster paralleled download for the single file?
+
+
+- Isn't there a problem that if the DownloadManager is not available you still need to code your own download code (even if your minSdkLevel is >= GB)?
+
+
+- how could i send Authorization username and password with connection in method 2?
+
+
+- now Suppose I've started this DownloadService for File A, File B and File C. Now I want to Cancel Downloading file A. I am killing the process. but after that it's also not downloading File B and C. Can you please suggest me proper way.
+
+

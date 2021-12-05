@@ -63,3 +63,18 @@ Do any of the following:
 
 [Correct](http://developer.android.com/design/patterns/navigation-drawer.html).
 
+
+
+---
+
+## Notes:
+
+- Google Play Music is not using action bar tabs. It is using a `HorizontalScrollView` around a `LinearLayout` and a set of `TextView` widgets for "My Library" tabs above the `ViewPager`. I'm not sure where else in Play Music tabs are used -- that's the only spot I'm seeing. If you want the Google Play Music approach, I'd use a `ViewPager` and a suitable indicator.
+
+
+- In light of the fact the above design does depart from conventions ( and I'd rather not ) , I do have a case for doing so, where the sliding drawer menu acts as top level navigation, and the tabs are navigation within a section of the app.
+
+
+- So far the only place where I've seen a sliding drawer menu implemented alongside action bar tabs is the new Google Play Music app (in the My Library section), and it does work as expected, with the menu sliding over the tabs, instead of under them.
+
+

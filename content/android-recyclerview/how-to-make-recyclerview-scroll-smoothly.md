@@ -42,3 +42,27 @@ Consider using an image loading library, like Picasso or Universal Image Loader,
 
 [This sample app](https://github.com/commonsguy/cw-omnibus/tree/master/RecyclerView/VideoTable) uses Universal Image Loader to help populate the contents of a `RecyclerView` (with `GridLayoutManager`), with the data source being the available videos on the device.
 
+
+
+---
+
+## Notes:
+
+- UIL does not work while image resides in sd card (path of file starts with `/storage`. I used `Glide` for this purpose, and it provided a perfect solution to my problem
+
+
+- Inflation is unlikely to be the problem; it would take you just about as much time to create the views directly via Java constructors and setters. Use method tracing in your IDE to determine exactly where your problem lies.
+
+
+- The focus of that page is memory efficiency, not main application thread time.
+
+
+- In the mean time how about using [this](http://developer.android.com/training/displaying-bitmaps/load-bitmap.html) simple solution rather than using a seperate library ?
+
+
+- in my app the recyclerview scrolling is not smooth, since i am inflating views inside onBindViewHolder, is there any alternative way to add a view without layout inflater.
+
+
+- When we set image in `ImageView` using `Bitmap` then it work charms as answer.
+
+

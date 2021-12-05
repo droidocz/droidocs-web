@@ -293,3 +293,63 @@ Further study
 * [RecyclerView: Grid with header](http://blog.sqisland.com/2014/12/recyclerview-grid-with-header.html)
 * [Android GridLayoutManager with RecyclerView in Material Design](https://inducesmile.com/android/android-gridlayoutmanager-with-recyclerview-in-material-design/)
 * [Getting Started With RecyclerView and CardView on Android](https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465)
+
+
+---
+
+## Notes:
+
+- The grid items get laid out left to right, top to bottom. Scrolling is vertical when there are more items than can fit on the screen.
+
+
+- I solved the problem by initialising the itemClickListener in main activity as such:
+` itemClickListener = new MyRecyclerViewAdapter.ItemClickListener() {
+
+
+
+```
+        public void onItemClick(View view, int position) {
+            Log.i("TAG");
+        }
+    };`
+
+```
+
+- However, I don't know if the inflater holds on to a reference to the context itself. If it does, then no matter whether you used the parameter variable `context` or got the context from `parent.getContext()`, the effect would be the same: The inflater is holding on to a reference to the context.
+
+
+- I didn't investigate this in depth, I just use `parent.getContext()` because it's simpler, but sometimes it will be desired to have the context injected for texting purposes (DI)
+
+
+- because `this` refers to `MainActivity`, which implements `MyRecyclerViewAdapter.ItemClickListener`. So basically, this is just telling the adapter that any time a user clicks an item, send a notification to the activity. The activity will handle it in `onItemClick()`. Instead of `this` (the activity), it would also be possible to let another class handle the click event.
+
+
+- also in xml you can just add these 
+`app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"`
+`app:spanCount="2"`
+
+
+- I don't think you need to save the `context` on the constructor to do `this.mInflater = LayoutInflater.from(context);`, you could just use: `LayoutInflater.from(parent.getContext())` and not hold a reference to `Context`.
+
+
+- I've only used "vertical" and "horizontal" with the `LinearLayoutManager` for lists.
+
+
+- I set my item height to wrap\_content and when i terminate the application and again open it from the recent the height of the item becomes 0 and it is not able to update the item height.
+
+
+- I have adapted upon in and managed to create a RecyclerView w/ images, but having issues with onclick. When I try to do the following:
+
+
+'adapter.setClickListener(this)' 
+
+
+I get an error saying it cannot be applied. If I create an itemClickListener as such:
+
+
+'MyRecyclerViewAdapter.ItemClickListener itemClickListener'
+
+
+and then call adapter.setClickListener(itemClickListener) I get an error telling me that itemClickListener is not initialised.
+
+

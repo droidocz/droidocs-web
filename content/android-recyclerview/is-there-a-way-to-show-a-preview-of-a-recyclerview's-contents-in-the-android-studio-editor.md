@@ -28,3 +28,30 @@ I tried a custom CardView and it works.
 tools:listitem="@android:layout/simple_list_item_checked"
 
 ```
+
+
+---
+
+## Notes:
+
+- If you also wish to set the orientation to be horizontal , you can: `tools:orientation="horizontal"`
+
+
+- In addition to specifying `tools:orientation="horizontal"` or `android:orientation="horizontal"` I also had to specify `app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"` as per https://stackoverflow.com/questions/35681433/previewing-horizontal-recyclerview-in-android-studio
+
+
+- Is there a way to show two types of items previewed. Sometimes RecyclerView shows more than one item Types.
+
+
+- is there anyway to use ItemDecorations .?
+
+
+- this has been an annoyance for me for a long time
+
+
+- Don't use camel casing for 'listItem'.
+
+
+- For me i currently just have to write `tools:listitem="
+
+

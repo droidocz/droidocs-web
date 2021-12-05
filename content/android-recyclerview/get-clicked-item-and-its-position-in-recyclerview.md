@@ -89,3 +89,37 @@ After testing, it works fine.
 
 Since API 22, `RecyclerView.ViewHolder.getPosition()` is deprecated, so instead with `getLayoutPosition()`.
 
+
+
+---
+
+## Notes:
+
+- use getLayoutPosition() method as getPosition() is depricated now.
+
+
+- thanks for this piece of code :)
+just one tip: reference the static `private static RecyclerViewClickListener itemListener;` in a static way in the constructor.
+
+
+- `public void recyclerViewListClicked(View v, int position);` The modifier `public` is redundant for interface methods
+
+
+- Should you not be using a WeakReference here: `new MyRecyclerViewAdapter(context, this)`?
+
+
+- I ended up adding a listener into each item in the method `onBindViewHolder`. Moreover, my list item was not all clickable (only part of the item).
+
+
+- On onclick inside ItemViewHolderclass, we are passing itemListener.recyclerViewListClicked(v, this.getPosition());, instead you can pass recyclerviewItemClickListener.OnItemClick(view,getAdapterPosition());this as well.
+
+
+- If I want to use this Listener approach to delete items from the dataset and view. It works for the first item, but then the index is shifted by +1 every subsequent delete. I tried to use `adapter.notifyItemRemoved(pos)` but it doesn't help
+
+
+- What if I don't want `RecyclerViewClickListener`to be static? For example, I have 3 tabs that use the same kind of adapter and the three implement RecyclerViewClickListener. But if it is not static, how to use it inside `static class ItemViewHolde` ?
+
+
+- how to get the clicked item object to activity from adapter android.i need more clearity am doing as per u r instruction item click listener is not called
+
+

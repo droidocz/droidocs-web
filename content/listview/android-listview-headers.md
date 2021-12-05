@@ -22,3 +22,21 @@ You can use my [`MergeAdapter`](http://github.com/commonsguy/cwac-merge) or Jeff
 
 In the case of `MergeAdapter`, you would add an ordinary `View` (e.g., `TextView`) for a section header, then an `Adapter` for the contents of that section. Lather, rinse, repeat.
 
+
+
+---
+
+## Notes:
+
+- Is this the standard methodology that google used in their applications?
+
+
+- "Is this the standard methodology that google used in their applications?" You would have to look at their source code on http://source.android.com. Jeff Sharkey's implementation was originally for 0.9 but probably still works; my two implementations work up through 2.0.1.
+
+
+- What about `ExpandableListView` (http://developer.android.com/reference/android/widget/ExpandableListView.html)? It has similar functionality.
+
+
+- All that is in ListView folder is HeaderFooter, RateListView and Selector.
+
+

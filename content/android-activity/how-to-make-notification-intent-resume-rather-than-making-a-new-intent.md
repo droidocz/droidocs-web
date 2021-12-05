@@ -251,3 +251,30 @@ Context context = getApplicationContext();
 
 Please don't do this. Just use your `Activity` as a `Context`.
 
+
+
+---
+
+## Notes:
+
+- `FLAG_AUTO_CLEAR` on the `Notification`.
+
+
+- Use the `Context` supplied to `onReceive()`.
+
+
+- how to resume current instance of current task from notificaition.. i have a problem with my sharing app.. when i share photos via the gallery app, it opens my shareactivity.. i created a notification using the code above but instead of resuming the current instance of the current task, it opens the instance found in my app's task's stack instead (or create a new instance if it does not exist)
+
+
+- Why not use ApplicationContext ? What if I am creating notification from BroadcastReceiver and I don't have active activity...
+
+
+- I`ve started my notification by calling startForeground(SERVICE\_NOTE\_ID, note); But it doesn't work, it opens 'Chat' class not my resuming activity. here i created a question like http://stackoverflow.com/questions/26904705/android-displaying-multiple-activity-in-saved-state-when-notification-click
+
+
+- This solution appears to work correctly for an application with a single task. It does not appear to work correctly if there are multiple launcher activities with different task affinities. In that case, the activity to resume appears to be recreated in a new task, rather than resuming from the instance at the top of a current task. Is there an extension to further specify which task to resume, such that the target activity is not recreated in this case?
+
+
+- You would have to try to mess around with `Intent` flags and manifest attributes to get the effects that you want.
+
+

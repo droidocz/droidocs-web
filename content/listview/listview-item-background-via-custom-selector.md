@@ -67,3 +67,18 @@ I'm not sure how to achieve your desired effect through the selector itself -- a
 
 However, you can get control on selection changes and draw whatever you want. In [this sample project](http://github.com/commonsguy/cw-advandroid/tree/master/ListView/Selector/), I make the selector transparent and draw a bar on the selected item.
 
+
+
+---
+
+## Notes:
+
+- Indeed, it makes total sense for there to only be at most one selector. I guess I am (or was) a bit confused by the existence of the `<item android:state_focused="false" android:drawable=" />` clause in the default selector.
+
+
+- Mark, playing around (having the same problem as Gil) i tried your solution, it's only partial for track ball only, nothingSeelected is called when you touch items using touch only and onItemClicked is fired, if you want something of that sort, most likely you have to keep track of selected and pressed positions inside the ListView and draw what you need in the Item itself (make it custom View) and in dispatchDraw of the ListView.
+
+
+- "nothingSeelected is called when you touch items using touch only and onItemClicked is fired" -- this is perfectly normal behavior, since touch has nothing to do with selection.
+
+

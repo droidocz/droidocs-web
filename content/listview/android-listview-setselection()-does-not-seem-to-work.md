@@ -28,3 +28,12 @@ Hence, `setSelection()` will only have a visual impact if the activity is not in
 
 I am not 100% certain this explains your phenomenon given the description you provided, but I figured it is worth a shot...
 
+
+
+---
+
+## Notes:
+
+- However, the docs state for setSelection(): "If in touch mode, the item will not be selected but it will still be positioned appropriately".
+
+

@@ -62,3 +62,12 @@ Put your splash screen in a separate activity and use [`startActivityForResult`]
 
 You should probably do this only if the argument to `onCreate` is `null` (indicating a fresh launch of your activity, as opposed to a restart due to a configuration change).
 
+
+
+---
+
+## Notes:
+
+- When onCreate() starts, action bar is already visible.
+
+

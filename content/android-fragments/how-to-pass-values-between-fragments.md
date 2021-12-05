@@ -346,3 +346,34 @@ Bundle savedInstanceState) {
 }
 
 ```
+
+
+---
+
+## Notes:
+
+- I tried step 5, That i'm calling listactivity from fragment and after selecting item from that activity, i want to come back in fragment with selected file name. But its not working, its giving me Nullpointer Exception at onCreateView. This is my question http://stackoverflow.com/questions/18208771/nullpointer-exception-while-returning-string-to-fragment-from-activity/18209614?noredirect=1#18209614
+
+
+- They should use interfaces to communicate between fragments via the container activity.
+
+
+- Better use activity than fragments.
+
+
+- `bundle.putString("message", "From Activity");`
+
+
+- I'ts best to use `String strtext=getArguments().getString("message");` on your `onCreate()` inside your fragment, since the view is not yet initialized , you can also do it in your `onCreateView()` as you do, but is cleaner and best practice to do it in `onCreate()`
+
+
+- But, how to send data between fragments in ViewPager which belongs to Activity?
+
+
+- Everything on Stack is generic examples. Trying to take input from parent frag(inside main activity frame) send it to child frag(inside parent frag frame) and add it to the list on button click within parent frag.
+
+
+- Regarding using interfaces to communicate between fragments:
+https://developer.android.com/training/basics/fragments/communicating.html
+
+

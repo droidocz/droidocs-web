@@ -240,3 +240,12 @@ XML
 </LinearLayout>
 
 ```
+
+
+---
+
+## Notes:
+
+- If we need to communicate bettween Activity and fragment in two ways, Create and Java interface file instead of declared in Activity or fragment.
+
+

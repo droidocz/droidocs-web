@@ -131,3 +131,24 @@ ListAdapter customAdapter = new ListAdapter(this, R.layout.itemlistrow, List<you
 yourListView .setAdapter(customAdapter);
 
 ```
+
+
+---
+
+## Notes:
+
+- And what is my item here ListAdapter customAdapter = new ListAdapter(this, R.layout.itemlistrow, List); ?
+
+
+- There is no need to keep the collection called items in your class, you are passing it to the super constructor. Items can be retrieved by the getItem(int pos) method.
+
+
+- Is there a way to just retrieve the one provided at construction?
+
+
+- Thanks for the code.. Can you explain the getView Method as in what should go into it ?
+
+
+- I get error in the activity here ListView yourListView = (ListView) findViewById(R.id.itemListView); cannot be resolved or is not a field
+
+

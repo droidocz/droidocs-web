@@ -28,3 +28,33 @@ Yes, you use the `AndroidManifest.xml` file. You can actually even have more tha
 </intent-filter>
 
 ```
+
+
+---
+
+## Notes:
+
+- This is correct answer, but I just noticed something odd: if you change the starting Activity to anything else, and the original launched activity still exists, the SDK won't be able to launch your application anymore. Somehow it has a reference to the activity on the launch configuration. So after you do the above change, you also need to go to "Run" > "Debug Configurations", find your project's build profile, tab "Android", and change the launched activity to either the default or the correct one under "Launch:". Not sure why the default was deselected for me, but changing it back worked.
+
+
+- it will make that activity appear on the launcher page, you can have multiple activities with this intent-filter giving you multiple icons on the homescreen.
+
+
+- So by including that intent-filter node with it's child nodes, that makes whatever activity it's in the first one to load when the application starts?
+
+
+- you mention this line "ou can actually even have more than one launcher activity specified in your application manifest".Which activity will first launch if we have more than one activity
+
+
+- My application is a first time installation application.
+
+
+- In AndroidStudio it's necessary to manually change the starting activity since it ignores the manifest.xml file.
+
+
+- is there any shortcut in android studio to make any activity to main activity, like "right click(on any activity file)" -> "make main activity" etc ?
+
+
+- It is really odd to get in Eclipse and find out that you can't use 'Properties' context menu of a project. I am wandering if Android Studio allow us to set the main activity.
+
+

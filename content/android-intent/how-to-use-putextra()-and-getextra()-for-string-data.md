@@ -81,3 +81,26 @@ if (savedInstanceState == null) {
 }
 
 ```
+
+
+---
+
+## Notes:
+
+- is the "savedInstanceState..." and "...getSerialiable" code used to handle orientation changes? if no, what is that code used for?
+
+
+- I'm using android 3.0.1 and I had to use `this.getActivity().getIntent().getExtras()`.
+
+
+- If you use PendingIntents, you need to use the "PendingIntent.FLAG\_UPDATE\_CURRENT" flag:
+https://stackoverflow.com/a/29846408/2738240
+
+
+Intent intent = new Intent(context, MainActivity.class);
+ intent.putExtra("button\_id", 1);
+ PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG\_UPDATE\_CURRENT);
+ RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.my\_test\_widget);
+ views.setOnClickPendingIntent(R.id.my\_test\_widget\_button\_1, pendingIntent);
+
+

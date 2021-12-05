@@ -106,3 +106,70 @@ transaction.commitAllowingStateLoss();
 
 when adding or performing the `FragmentTransaction` that was causing the `Exception`.
 
+
+
+---
+
+## Notes:
+
+- You should use commitAllowingStateLoss() instead of commit()
+
+
+- Regarding 'commitAllowingStateLoss' --/> "This is dangerous because the commit can be lost if the activity needs to later be restored from its state, so this should only be used for cases where it is okay for the UI state to change unexpectedly on the user."
+
+
+- If I look at the v4 source for `popBackStackImmediate` it immediately fails if the state has been saved. Previously adding the fragment with `commitAllowingStateLoss` doesn't play any part. It has no effect on this specific exception. What we need is a `popBackStackImmediateAllowingStateLoss` method.
+
+
+- But I've actually found an even better solution by using Otto message bus: register the fragment as a subscriber and listen for the async result from the bus. The async also needs a Produce method for the times when it completes and the fragment is paused.
+
+
+- the issue is with doing fragment transactions after callbacks from background jobs when the app is not on the foreground.
+
+
+- I think this is not 100% correct, check this link: http://www.androiddesignpatterns.com/2013/08/fragment-transaction-commit-state-loss.html
+
+
+- I didn't use onSaveInstanceState() method.
+
+
+- Wow i cant believe its 2017 and the suggestion posted by is still working, android is drop dead buggy
+
+
+- maybe there are some conditions we can test for, and avoid calling `popBackStackImmediate()` on those conditions?
+
+
+- Looking at sources: Implementation of `Fragment#onSaveInstanceState` is a NOP. Can you explain why not calling `super` method helps ?
+
+
+- you are probably calling the `fragmentTransaction::commit()` from a background thread (using `runOnUiThread` or `handler` ). If user exits app (calling `onSavedStateInstance()`) fast, then this fts commit actually occurs later; resulting this issue. So the solution at this point probably is to allow state loss `commitAllowingStateLoss()`.
+
+
+- What is `transaction` here?
+
+
+- Did anyone file an issue that I could star?
+
+
+- I use commitAllowingStateLoss for an app on play store and i'm still getting hundreds of the same exception at this line:
+fragmentTransaction.replace(layoutId, newFragment).commitAllowingStateLoss();
+
+
+- If you use `commitAllowingStateLoss`, you probably will encounter the `ArrayIndexOutOfBoundsException` while the fragmentManager trying to restore its state(not always). Even if I called commit in the `onCreate()` it still threw the `IllegalStateException`. I still can't figure out why.
+
+
+- The error gets fired by `popBackStackImmediate()` and not by committing the transaction.
+
+
+- Some methods, such as View#onDetachedFromWindow, require that you also call the super implementation as part of your method.\_
+
+
+- How to commitAllowingStateLoss() while displaying fragment as a dialog.
+
+
+- Interestingly I only use commitAllowingStateLoss(), tried both workaround in onSaveInstanteState(), still no luck, the issue still occurs once in a while.
+
+
+- that exception only happens very rarely to me anyway
+
+

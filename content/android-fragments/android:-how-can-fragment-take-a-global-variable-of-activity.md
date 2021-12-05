@@ -22,3 +22,15 @@ The [Android documentation](http://developer.android.com/training/basics/fragmen
 
 The reason for this is so that fragments are decoupled from the activity they are in. They can be reused in any activity. If you directly access a parent Activity or one of its global variables from within a fragment, you are no longer able to use that fragment in a different Activity.
 
+
+
+---
+
+## Notes:
+
+- but why can't you use the fragment in different activity if we do this.
+
+
+- Because the fragment would still have a dependency on the old activity. You would have to change the fragment code every time that you wanted to use it in a new activity.
+
+

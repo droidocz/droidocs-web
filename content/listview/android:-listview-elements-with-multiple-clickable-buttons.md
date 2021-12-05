@@ -93,3 +93,21 @@ Any data associated with the button has to be added with `myButton.setTag()` in 
 
 I posted a detailed solution on [my blog](http://www.geekmind.net/2009/11/android-custom-list-item-with-nested.html) as a tutorial.
 
+
+
+---
+
+## Notes:
+
+- Watch this talk at 11:39 there is an excellent example: http://youtu.be/wDBM6wVEO70?t=11m39s
+
+
+Then do what says...setTag() when the convertView==null and do getTag() in the onClick() method of the button's onClickListener().
+
+
+- I ask it because I'm using the same custom adapter class to inflate different menus, and I wouldn't like to have my ListAdapter class full of conditionals depending on the menu I'm inflating and the button I'm tapping
+
+
+- how exacly did you get the curItem.url from query, would you be more specific?
+
+

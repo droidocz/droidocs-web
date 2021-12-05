@@ -100,3 +100,12 @@ See also
 
 
 * [Setting Up the App Bar](https://developer.android.com/training/appbar/setting-up.html) (Android docs for help getting the app/action bar set up)
+
+
+---
+
+## Notes:
+
+- onPrepareOptionsMenu() should be used for show/hide logic instead of onCreateOptionsMenu() as it is only called once so not useful if you want to change the menu items after its initialization. So inflate in onCreate, but show/hide in onPrepare, then use `invalidateOptionsMenu()` to refresh the menu.
+
+

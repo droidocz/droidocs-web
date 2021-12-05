@@ -175,3 +175,49 @@ By
   alertDialog.setView(input); // uncomment this line
 
 ```
+
+
+---
+
+## Notes:
+
+- Hi Raghu, If I want to put left margin & right margin to this edittext box then what should I write ?
+
+
+- http://stackoverflow.com/questions/7747268/edittext-seterror-not-working-in-android
+
+
+- Like `Dialog dialog = new Dialog(MainActivity.this)`. I think you copied your code from else where i guess
+
+
+- Toast toast = Toast.makeText(MainActivity.this,"Please Enter Password! ", Toast.LENGTH\_LONG);
+ toast.setGravity(Gravity.CENTER, 0, 0);
+ toast.show(); this worked for me to get the toast in centre.
+
+
+- `public void onClick(DialogInterface dialog` its the dialoginterface. using that is not a problem you click the negative button to dismiss the alertdialog.
+
+
+- you can use custom toast or set error to edittext.
+
+
+- public void onClick(DialogInterface dialog, int which) {
+ // Write your code here to execute after dialog
+ dialog.cancel();
+
+
+- should i use dialog.dismiss() ?
+
+
+- sir what can i do if i want to display a message on empty textbox or wrong password entered. i want to display it in the dialog box insted in toast.
+
+
+- setView() requires API level 21
+
+
+- The edit field should also be a one liner (edittext.setSingleLine();) in a password request (because it is) and that makes pressing enter on an attached physical (BT) keyboard (or a Chromebook) making the focus jump to the next item, the positive button. meaning that after entering the text, pushing enter twice the dialogue is positively ended.
+
+
+- Android is not Windows, and there is no need for a cancel button like it is a must in Win32, there is the OS "Back" button that serves as Cancel/No. So my suggestion is skipping the negative button on a password request dialog, and the positive button should not be "Yes" but should be "OK" (and get it localized by using android.R.string.ok). See more in my answer on the https://stackoverflow.com/questions/11459827/how-can-i-set-the-order-of-the-positive-and-negative-buttons-in-alertdialog/53422599#53422599 topic.
+
+

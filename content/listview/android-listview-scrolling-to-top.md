@@ -44,3 +44,12 @@ Personally, I recommend you find a different UI pattern. It is possible that use
 
 You could try subclassing `ListView` and overriding `layoutChildren()` to chain to the superclass, then call `setSelection(0)` in the case where that is needed. If the "considerable delay" is due to just the `post()` call, this should clear it up.
 
+
+
+---
+
+## Notes:
+
+- The list is changed in situ because breadcrumbs are shown elsewhere on the screen - the typical android UI designs are a less suited to my specific UI goals and target users.
+
+

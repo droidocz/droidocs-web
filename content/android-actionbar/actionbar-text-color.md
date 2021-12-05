@@ -46,3 +46,39 @@ Ok, I've found a better way. I'm now able to only change the color of the title.
 </resources>
 
 ```
+
+
+---
+
+## Notes:
+
+- However, for consistency, you should be inheriting from `Widget.Holo.Light.ActionBar` for `MyTheme.ActionBarStyle`.
+
+
+- If you are using Appcompat library, replace Holo with AppCompat.
+
+
+- I had the same problem, but the next answer works for me -- instead of parent=" use parent="
+
+
+- Won't build - ADT complains that it requires v13 or above (so ... won't work on most Android handsets :( )
+
+
+- Use Widget.AppCompat.Light.ActionBar
+
+
+- Just to be precise, use " and not "
+
+
+- Finally worked after setting name="titleTextStyle" instead of name="android:titleTextStyle" in MyTheme.ActionBarStyle
+
+
+- for those who are saying that they were unable to get it working in appcompat.
+
+
+- Is it possible to change it programatically?
+
+
+- I want the holo light theme with a black background action bar with white text and the blue underline as well...
+
+

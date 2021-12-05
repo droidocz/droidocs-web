@@ -255,3 +255,83 @@ Among its [features](https://github.com/lucasr/twoway-view#features) are:
 * A collection of stock item decorations including:
 * Item spacing Horizontal/vertical dividers.
 * List item
+
+
+---
+
+## Notes:
+
+- DividerItemDecoration as shown above won't work if the items are fully opaque, dividers will get overdrawn by the items. In that case you need to override the getItemOffsets() too and add bottom offset to outRect so the divider ends up outside of the item. Alternatively, you can override onDrawOver() instead of onDraw() to draw the divider afeter the item.
+
+
+- Correct me if I'm wrong, but I don't create any objects in `onDraw()`.
+
+
+- is it possible to add padding to the line? like left and right padding so the line doesnt start at the beginning and go to the end?
+
+
+- If you use wrap\_content on your recyclerview then the bottom divider will not show...
+
+
+- This is by far the best explanation I could find, it just lacks one explanation: what is the advantage of using ItemDecoration if you only want to add a simple divider/separator (just a View of height 1 or similar, below your last item view).
+
+
+- the divider in the support library draws after the last element as well :/
+
+
+- Just an informative comment: always add the space to the last item if you plan to add items later on you list. If you don't do that, when adding an item, it will not have the space.
+
+
+- Then I can call `canvas.drawLine(startX, startY, stopX, stopY, mPaint)` in `onDrawOver`?
+
+
+- Hi, I found that if I set the `outRect.top = mVerticalSpaceHeight` will not add margin after the divider, may I know what's wrong with that?
+
+
+- You should not create objects in `onDraw` if possible as it's costly and onDraw is called often. Create them in the constructor for use later on.
+
+
+- I always avoid references creation in onDraw also. I believe that you should avoid this also as it creates multiple pointers to the same resource but I may be wrong.
+
+
+- How do I make it work for GridLayoutManager, for showing vertical dividers between cells too? The code seems to work fine only for lists (horizontal divider, between rows...).
+
+
+- This is an old question, but I found out something recently that is not covered here.
+
+
+- to add space after last item you can use
+ android:clipToPadding="false"
+ android:paddingBottom="75dp"
+
+
+- In adapter class?
+
+
+- When I refresh my dataset and call setAdapter (or swapAdapter) it seems that the getitemOffsets() method is called again and I'm adding offsets to a view that already had offsets added. The next effect is that the padding that was added in the first pass is doubled with each refresh.
+
+
+- https://www.bignerdranch.com/blog/a-view-divided-adding-dividers-to-your-recyclerview-with-itemdecoration/ and I modified the code to my need.
+
+
+- `DividerItemDecoration` class cannot be found in project.
+
+
+- To add in inset to the divider, see [this answer](http://stackoverflow.com/a/40434249/3681880).
+
+
+- Make sure your android support libraries dependencies are v25.x.x ie `'com.android.support:recyclerview-v7:25.0.0'`
+
+
+- This means that if I have drag & drop or swipe functionality, the thing drawn by item decorator will move(on drag/swipe) with the item itself. Is there a way to draw spaces/dividers as separate views in the RecyclerView to override this behavior?
+
+
+- Hi, does this work only for a fixed amount of space (height) allotted to each item? How can I do it when the height of the item varies? I saw in usage this first line of code: private static final int VERTICAL\_ITEM\_SPACE = 48;
+
+
+- Also wondering if its possible to add margin or padding to the line, nothing I have tried works so far so wondering if someone else has a solution
+
+
+- To simply change divider color add this line to constructor `mDivider.setColorFilter(color, PorterDuff.Mode.SRC_OVER)`
+
+

@@ -68,3 +68,30 @@ You can't use a LinearLayout for this, but you can use a [`FrameLayout`](http://
 
 In this instance, the TextView would be drawn on top of the ImageView, along the bottom center of the image.
 
+
+
+---
+
+## Notes:
+
+- FrameLayout doesn't relate to other views in the group, it just layers them in regard to the parent.
+
+
+- Is there an advantage of using FrameLayout instead RelativeLayout for this?
+
+
+- As of API 21 / KitKat you can now use setZ and translationZ; the FrameLayout hack is no longer needed (finally!). This should be the preferred answer for modern 5.0+ development: http://stackoverflow.com/a/29703860/358578
+
+
+- I've even used this to draw things over map views and in some situations, though I have no idea why, it works where a relative layout does not.
+
+
+- Yeah I did it using frame layout itself after going through documentation.
+
+
+- by using http://stackoverflow.com/questions/13914609/viewpager-with-previous-and-next-page-boundaries,I am able to show part of previous and next page as shown in image above,but now I don't want to show sharp edges on images.I want them to blur towards edges..please guide me on how can i use z-index for achieving the same
+
+
+- use match\_parent, not fill\_parent
+
+

@@ -48,3 +48,27 @@ or Programmatically
 editText.setBackgroundResource(android.R.color.transparent);
 
 ```
+
+
+---
+
+## Notes:
+
+- use this : `android:background="
+
+
+- In Android 19, using `android:background=" causes the same loss of margins issue... Is there an example anywhere of somebody creating such a custom drawable?
+
+
+- Start with the 9-patch that is used for normal EditText fields.
+
+
+- what if I am already having background of other color, lets say gray, how to remove underbar / underline in that case?
+
+
+- What is the default background, if we want to return it to default?
+
+
+- The syntax for this has been changed. To do it programmatically: myedittext.setBackgroundResource(R.color.fui\_transparent);. I used to set the Visibility to false to nix the underbar and send a performclick message if the user clicked my custom textbox, but this has been more reliable.
+
+

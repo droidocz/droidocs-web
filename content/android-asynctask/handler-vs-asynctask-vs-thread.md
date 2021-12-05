@@ -107,3 +107,15 @@ This description might seem strange at first. We only need to understand that ea
 
 Complicated? Just remember that `Handler` can communicate with the caller thread safely.
 
+
+
+---
+
+## Notes:
+
+- actually asynctask is also based on handler and futuretask, [see](https://github.com/android/platform_frameworks_base/blob/master/core/java/android/os/AsyncTask.java#L327)
+
+
+- https://developer.android.com/reference/android/os/AsyncTask.html. Look at the doc "AsyncTask is designed to be a helper class around Thread and Handler ".
+
+
