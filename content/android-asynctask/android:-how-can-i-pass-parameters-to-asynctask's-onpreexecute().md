@@ -71,5 +71,3 @@ task.execute();
 ## Notes:
 
 - I still need a member variable but in the AsyncTask and not the outer class if that's what you mean.
-
-

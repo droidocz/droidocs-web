@@ -235,41 +235,15 @@ editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 ## Notes:
 
 - I put `android:imeOptions="actionNext"` to all my EditTexts and the problem is gone.
-
-
 - In my case `android:nextFocusForward=" did the trick.
-
-
 - For my app, just using android:imeOptions="actionNext" didn't work.
-
-
 - Is there a function to get the next view's id to be focused, if the user would press the NEXT key ?
-
-
 - If I wanted that functionality, I would set nextFocusDown attribute.
-
-
 - You can set the next view id by, `android:nextFocusDown="
-
-
-- Yes, You can get the next view's id to be focused by `<editText1>.getNextFocusDownId();`
-
-
-- Even if the view is on the right, you need to set it as nextFocusDown in order to focus changed by pressing NEXT. So by manually changing nextFocusDown parameter, we can override that behavior.
-
-
+-  Yes, You can get the next view's id to be focused by `<editText1>.getNextFocusDownId();`
+-  Even if the view is on the right, you need to set it as nextFocusDown in order to focus changed by pressing NEXT. So by manually changing nextFocusDown parameter, we can override that behavior.
 - and, is there a function to get the next view's id to be focused, if the user would press the NEXT key ?
-
-
-- i used same for next focus but issue with EditText with password inputType ,when i press next button from keyboard focus goes to passwordToggle(hide and show) eye icon.
-
-
+- i used same for next focus but issue with EditText with password inputType ,when i press next button from keyboard focus goes to passwordToggle(hide and show) eye  icon.
 - I was using AutocompleteTextView, there it didn't work, later on I had to change field type to EditText to make it work.
-
-
-- What would happen if the other EditText doesn't have ID, or if it has an ID, but we just didn't set the attribute of "android:nextFocusDown" ?
-
-
+-  What would happen if the other EditText doesn't have ID, or if it has an ID, but we just didn't set the attribute of "android:nextFocusDown" ?
 - How to get the next view that will get the focus...
-
-

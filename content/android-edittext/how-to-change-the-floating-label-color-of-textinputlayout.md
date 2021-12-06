@@ -81,5 +81,3 @@ The default selector for `android:textColorHint` is:
 ## Notes:
 
 - I just have one question, is it possible to use a different color for the hint text color in resting position when there is and there is not input text?
-
-

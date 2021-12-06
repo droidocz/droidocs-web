@@ -69,5 +69,3 @@ You should probably do this only if the argument to `onCreate` is `null` (indica
 ## Notes:
 
 - When onCreate() starts, action bar is already visible.
-
-

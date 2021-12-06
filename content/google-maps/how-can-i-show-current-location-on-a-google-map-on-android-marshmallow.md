@@ -337,90 +337,34 @@ Move camera to current location and place Marker when the Location permission is
 
 ## Notes:
 
-- Make sure your import is `import com.google.android.gms.location.LocationListener;`, see here for the imports: http://stackoverflow.com/a/31448567/4409409
-
-
+-  Make sure your import is `import com.google.android.gms.location.LocationListener;`, see here for the imports: http://stackoverflow.com/a/31448567/4409409
 - LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this); - II tried your solution, I got stuck with this line of code saying "cannot resolve requestLocationUpdates"
-
-
-- For an example of this code in a Fragment, see here: http://stackoverflow.com/a/41754169/4409409
-
-
+-  For an example of this code in a Fragment, see here: http://stackoverflow.com/a/41754169/4409409
 - It can be either WiFi or cellular, but you need an active data connection.
-
-
-- For doing this inside a Fragment, see my other answer here: http://stackoverflow.com/a/41754169/4409409
-
-
+-  For doing this inside a Fragment, see my other answer here: http://stackoverflow.com/a/41754169/4409409
 - **I recommend to use
 //move map camera and zoom**
 `mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,11));`
 Insted of those 2 lines. It reduce 1 code line and works better. His 2 lines not allways move camera to the current location.
-
-
 - "java.lang.IllegalStateException: GoogleApiClient is not connected yet." - Whenever I try to launch application,I'm getting this issue,Could't figure out what was wrong
-
-
-- for prompting the user to enable Location Mode, take a look at this answer: http://stackoverflow.com/a/31816683
-
-
+-  for prompting the user to enable Location Mode, take a look at this answer: http://stackoverflow.com/a/31816683
 - When the app doesn't already have the Location Permission , and GPS is turned OFF, the Map doesn't zoom in to my Location or shows a marker (even when the permission are enabled ). Isn't that what onConnected in the above code do ?
-
-
-- You can add as many Markers as you want to as long as you have the lat/lon. Just use the `map.addMarker()` method for each Marker.
-
-
+-  You can add as many Markers as you want to as long as you have the lat/lon. Just use the `map.addMarker()` method for each Marker.
 - I had never really understood how the check permissions worked and in my research, this answer and this [video](https://www.youtube.com/watch?v=scySXsk9yRc) have been informative.
-
-
 - It will work with WiFi off and GPS enabled, but it will probably take longer to get the first location update since GPS actually needs to use satellites to locate you.
-
-
 - Yes already did it inside onstart method. But still the app crashes.
-
-
 - How would you show location that would be shown like in google maps app?
-
-
 - I sometimes got delay to find current location with your codes.
-
-
 - Even I am getting the same error **`GoogleApiClient is not connected yet.`**.
-
-
-- Do I have to enable wifi on mobile when using this?
-
-
+-  Do I have to enable wifi on mobile when using this?
 - I mean I m not getting my Location..
-
-
 - I think we need to disconnect google api client in life cycle to reduce resource usage
-
-
-- See here for the relevant imports: http://stackoverflow.com/questions/31448001/maps-api-only-loads-with-location-setting-gps/31448567#31448567
-
-
+-  See here for the relevant imports: http://stackoverflow.com/questions/31448001/maps-api-only-loads-with-location-setting-gps/31448567#31448567
 - Still image type is found.. I m using Sony Xperia 18API.
-
-
-- I'm still getting error can't resolve symbol for both.
-
-
-- I don't know what's the problem with my code but in the location package only I can see places and * to import, can't import LocationRequest and LocationServices.
-
-
-- I'm getting error "can't resolve LocationRequest and LocationServices". I'm using this version of play-services in my app gradle "compile 'com.google.android.gms:play-services-maps:10.2.4'".
-
-
-- resolved that error by adding compile 'com.google.android.gms:play-services-location:10.2.4 in dependencies. but I'm getting another error " can't resolve method" for this line LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this). I'm using this code in a fragment.
-
-
-- Be sure you're importing the correct class: `import com.google.android.gms.location.LocationRequest;`
-
-
-- I'm using Geocoder class in the Android framework location APIs to locate Geo-locations. I think that's the reason my app doesn't work when WiFi is not enabled. Is this correct that Geocoder uses internet to fetch the address?
-
-
-- Be sure that you have the call to `mGoogleApiClient.connect();`
-
-
+-  I'm still getting error can't resolve symbol for both.
+-  I don't know what's the problem with my code but in the location package only I can see places and * to import, can't import LocationRequest and LocationServices.
+- I'm getting error "can't resolve LocationRequest and LocationServices". I'm using this version of play-services  in my app gradle "compile 'com.google.android.gms:play-services-maps:10.2.4'".
+-  resolved that error by adding compile 'com.google.android.gms:play-services-location:10.2.4 in dependencies. but I'm getting another error " can't resolve method" for this line LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this). I'm using this code in a fragment.
+-  Be sure you're importing the correct class: `import com.google.android.gms.location.LocationRequest;`
+-  I'm using Geocoder class in the Android framework location APIs to locate Geo-locations. I think that's the reason my app doesn't work when WiFi is not enabled. Is this correct that Geocoder uses internet to fetch the address?
+-  Be sure that you have the call to `mGoogleApiClient.connect();`

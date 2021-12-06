@@ -191,23 +191,9 @@ To be continued (maybe tomorrow and as soon as you provide more precisions on wh
 ## Notes:
 
 - Not certain why it was the case, but when I used this on a `LinearLayout` I got a solid fill from the border color, unless I added the following child to the `shape` element: `<solid android:color=" />`
-
-
 - For me it was the same I had to add a, `<solid android:color=" />` otherwise I got a black background
-
-
 - This method perfectly works; however, it creates two layer "Overdraw" which is really bad for performance, even if you set the background to "null" or "transparent".
-
-
 - http://stackoverflow.com/questions/8227948/android-how-to-implement-canvas-draws-into-a-exist-view-in-xml/8228572#8228572
-
-
-- It may be possible by retrieving the ShapeDrawable resource, getting the Paint (getPaint), then use setColor etc.
-
-
+-  It may be possible by retrieving the ShapeDrawable resource, getting the Paint (getPaint), then use setColor etc.
 - what if i need to have padding and inside the padding add the border, instead of border and inside of it have the padding? do i really have to create a layout with padding, and then inside it a layout with the background (which also has padding but inside the drawable xml file)?
-
-
-- I want to do the same thing but in Xamarin.Android, so I have to convert the Java Code. Can you give me a simple but complete solution of your sample code (even in Java), so I can work on it, because I wasn't able to implement this code.
-
-
+-  I want to do the same thing but in Xamarin.Android, so I have to convert the Java Code. Can you give me a simple but complete solution of your sample code (even in Java), so I can work on it, because I wasn't able to implement this code.

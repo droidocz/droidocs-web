@@ -29,9 +29,5 @@ I am assuming that you are using a `LinearLayoutManager` with a `RecyclerView` f
 
 ## Notes:
 
-- I presume that there would be some way to do that via `GridLayoutManager`, or else via a custom `RecyclerView.LayoutManager`. I do not see, at a quick glance, how to do it with `GridLayoutManager`.
-
-
+-  I presume that there would be some way to do that via `GridLayoutManager`, or else via a custom `RecyclerView.LayoutManager`. I do not see, at a quick glance, how to do it with `GridLayoutManager`.
 - For my project using recycler view with grid layout, where items are centered using gravity attribute works fine.
-
-

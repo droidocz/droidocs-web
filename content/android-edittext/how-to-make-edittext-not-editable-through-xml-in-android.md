@@ -37,30 +37,14 @@ It will do the same effect as `android:editable="false"`. Worked for me, hope it
 ## Notes:
 
 - The difference is It can be used with `TextInputLayout`
-
-
 - If you want to do it in the XML ... what will be the difference between it and TextView ??
-
-
 - notes.setKeyListener(null);
 notes.setClickable(false);
 notes.setCursorVisible(false);
 notes.setFocusable(false);
 notes.setFocusableInTouchMode(false);
-
-
 - That does NOT has the same effect as setting editable to false, with the last you can still click on the control and select and copy its contents.
-
-
 - It might work, but it won't do the same effect as `editable="false"`. This setting doesn't disable focus or clickability. If I try to set listeners for when the EditText is focused/clicked, but I don't want to allow the user to manually edit it?
-
-
 - It's still has flaw, confirmed on device Redmi, by repeating tap, can still show up select-copy-paste mini-dialog. Add `enabled=false` to resolve it.
-
-
 - There is not a better way?, Why change 1 line to 4. Because in older version the xml annotation `android:editable = false` did it.
-
-
 - I just removed `android:clickable="false"` from your solution to do the editing on another fragment/acitivity.
-
-

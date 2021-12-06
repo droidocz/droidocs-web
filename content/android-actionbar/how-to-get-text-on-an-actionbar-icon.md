@@ -33,24 +33,10 @@ Another option is simply to have N versions of the icon+badge, perhaps wrapped i
 
 ## Notes:
 
-- "But actionLayout i what i see once i click on the MenuItem" -- no, the `actionLayout` is used immediately, instead of an "initial icon".
-
-
+-  "But actionLayout i what i see once i click on the MenuItem" -- no, the `actionLayout` is used immediately, instead of an "initial icon".
 - Why are both **icon** and **actionLayout** set to the add menu item.
-
-
 - Right now the default it give a Text **NOTIFICATIONS**
-
-
-- Im using support lib 7 for the ActionBar. Whats an alternative for .getActionView(); for such case
-
-
+-  Im using support lib 7 for the ActionBar. Whats an alternative for .getActionView(); for such case
 - Can we set animation when we call setNotificationCount nmethod to add count ?
-
-
 - See https://github.com/commonsguy/cw-omnibus/tree/master/ActionBar/ActionBarDemo
-
-
 - But it shows title of the MenuItem initially and when clicked then only it gives the **actionLayout** i set :(
-
-

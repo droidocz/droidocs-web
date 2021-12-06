@@ -114,48 +114,18 @@ You would usually use this technique to store instance values for your applicati
 
 ## Notes:
 
-- CAREFUL: you need to call super.onSaveInstanceState(savedInstanceState) before adding your values to the Bundle, or they will get wiped out on that call (Droid X Android 2.2).
-
-
+- CAREFUL: you need to call  super.onSaveInstanceState(savedInstanceState) before adding your values to the Bundle, or they will get wiped out on that call (Droid X Android 2.2).
 - http://developer.android.com/reference/android/app/Activity.html
-
-
 - That fact effectively makes `onSaveInstanceState` almost useless except just for case of screen orientation changes. I don't understand why they even implemented it like this in the first place. And you can't have that Bundle the system give you to save things into except in this very particular method.
-
-
 - I cannot seem to get a non-null savedInstanceState.
-
-
 - Note that saving / restoring UI state to / from the Bundle is *automatically* taken care of *for `View`s that have been assigned ids*. From the `onSaveInstanceState` docs: "The default implementation takes care of most of the UI per-instance state for you by calling `onSaveInstanceState()` on each view in the hierarchy that has an id, and by saving the id of the currently focused view (all of which is restored by the default implementation of `onRestoreInstanceState(Bundle)`)"
-
-
-- +1 for mentioning that onSaveInstanceState() is not part of the life cycle.
-
-
+-  +1 for mentioning that onSaveInstanceState() is not part of the life cycle.
 - This method allows you to restore the form state so the user doesn't start over from scratch
-
-
-- looks like you found out [after posting this comment](http://stackoverflow.com/questions/5412746/android-fragment-onrestoreinstancestate) that something equivalent to `onRestoreInstanceState` is also available to Fragments.
-
-
+-  looks like you found out [after posting this comment](http://stackoverflow.com/questions/5412746/android-fragment-onrestoreinstancestate) that something equivalent to `onRestoreInstanceState` is also available to Fragments.
 - leason1 in android class - implement all lifecycle-"like" methods and use debugger or just plain System.out to check when exactly are those method called. It is essential if you want to build applications for android otherwise your apps will be crashing for no obvious reason but only time to time so you will easily publish it without even noticing it
-
-
 - If we can recreate what we last had in `onCreate`, when should we use `onRestoreInstanceState`?
-
-
-- why wouldn't `onCreate` work for that case? `onCreate` is also called for orientation changes.
-
-
-- In [android developer](http://developer.android.com/training/basics/activity-lifecycle/recreating.html) the super.onSaveInstanceState(savedInstanceState) is called after adding the values in the Bundle.
-
-
-- I agree with here is the link for documentation https://developer.android.com/topic/libraries/architecture/
-
-
+-  why wouldn't `onCreate` work for that case? `onCreate` is also called for orientation changes.
+-  In [android developer](http://developer.android.com/training/basics/activity-lifecycle/recreating.html) the super.onSaveInstanceState(savedInstanceState)  is called after adding the values in the Bundle.
+- I agree with  here is the link for documentation https://developer.android.com/topic/libraries/architecture/
 - One more thing to add though: onSaveInstanceState() is not called when the user explicitly closes the activity or in other cases when finish() is called.
-
-
 - Also, in onSaveInstanceState function, super.onSaveInstanceState(savedInstanceState); should be called in the last, i.e.
-
-

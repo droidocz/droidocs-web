@@ -48,33 +48,13 @@ The [docs](http://developer.android.com/guide/topics/intents/intents-filters.htm
 ## Notes:
 
 - Yes, you'd have to make the session ID available to every activity where you want to allow the user to signout. Alternatively, you could store it in the Application object, but then you'd have to manage the state of the session (check if it's valid before using, etc).
-
-
 - Please be aware that the documentation points the following: Add extended data to the intent. The name must include a package prefix, for example the app com.android.contacts would use names like "com.android.contacts.ShowAll".
-
-
 - And to read data from other Activity use `Long session_ids=getIntent().getExtras().getLong("EXTRA_SESSION_IDS");`
-
-
 - How can we pass data using `setData` and what is difference between theses two approaches?
-
-
 - Use Wagon. It makes it simpler: github.com/beplaya/Wagon
-
-
 - using above procedure?
-
-
 - does this work if the target activity already runs in background? my onresume function olds alwas just the first intend
-
-
 - Be aware of TransactionTooLargeException , if your data exceeds 1 mb size then it will throw exception. So take care while sending complete list.
-
-
 - we can send data with multiple way like 
 1- Intent
-
-
-- Take a look at this library for easy handling intent data: https://github.com/kostasdrakonakis/android\_navigator
-
-
+- Take a look at this library for easy handling intent data: https://github.com/kostasdrakonakis/android_navigator

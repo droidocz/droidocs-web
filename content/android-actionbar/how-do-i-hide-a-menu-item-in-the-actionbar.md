@@ -107,5 +107,3 @@ See also
 ## Notes:
 
 - onPrepareOptionsMenu() should be used for show/hide logic instead of onCreateOptionsMenu() as it is only called once so not useful if you want to change the menu items after its initialization. So inflate in onCreate, but show/hide in onPrepare, then use `invalidateOptionsMenu()` to refresh the menu.
-
-

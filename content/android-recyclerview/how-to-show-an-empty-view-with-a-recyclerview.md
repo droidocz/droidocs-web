@@ -82,26 +82,10 @@ else {
 ## Notes:
 
 - That does not work for me because the recycler view layout is inflated in the fragment whereas the decision whether to show an normal item layout or an no-items layout is made in the adapter.
-
-
-- when using a Fragment, the same thing applies. When you inflate your fragment view you have the recyclerview and then another layout that would be used for your empty view. Usually in my fragments I will have the follow there views: 1) recyclerview, 2) empty view, and 3) progressbar view. I usually pass the adapter whatever the list is, but based on the size of the list i will either hide the recyclerview and show the empty or vice versa. If a recyclerview has an empty list, then it does not do anything with it.
-
-
-- You can do it the other way around: Use an Eventbus (such as greenrobots Eventbus or Otto), then have the Adapter post on the eventbus when the dataset changes. In the fragment all you do is create a method whose parameters correspond to what the Adapter is passing into the Eventbus.post method and then change the layout accordingly. A more simple but also more coupled approach is to create a callback interface in the adapter, and upon creating the adapter have the fragment implement it.
-
-
+-  when using a Fragment, the same thing applies. When you inflate your fragment view you have the recyclerview and then another layout that would be used for your empty view. Usually in my fragments I will have the follow there views:  1) recyclerview, 2) empty view, and 3) progressbar view. I usually pass the adapter whatever the list is, but based on the size of the list i will either hide the recyclerview and show the empty or vice versa. If a recyclerview has an empty list, then it does not do anything with it.
+-  You can do it the other way around: Use an Eventbus (such as greenrobots Eventbus or Otto), then have the Adapter post on the eventbus when the dataset changes. In the fragment all you do is create a method whose parameters correspond to what the Adapter is passing into the Eventbus.post method and then change the layout accordingly. A more simple but also more coupled approach is to create a callback interface in the adapter, and upon creating the adapter have the fragment implement it.
 - What does your full layout file look like?
-
-
 - In this way, the verification will be made immediately before the screen be displayed to the user and will work for both, increasing or decreasing the amount of rows in the dataset.
-
-
 - Is there no listener that one can attach tot he adapter to check if there is any items int eh adapter?
-
-
 - This solution works for me perfectly, I only use the Kotlin, so check the condition like: override fun getItemCount() = dataSet.size.also { showEmpty(dataSet.isEmpty()) }
-
-
 - what if the content of recyclerview can be decreased, how to detect it if data changed?
-
-

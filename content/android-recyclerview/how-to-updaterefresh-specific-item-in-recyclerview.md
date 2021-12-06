@@ -75,11 +75,5 @@ My full answer with more examples is [here](https://stackoverflow.com/a/48959184
 ## Notes:
 
 - It certainly does not call onBindViewHolder method, I logged it.
-
-
-- after you update the data you can move it to index 0. See the Move Single Item section of [this item](https://stackoverflow.com/a/48959184/3681880)
-
-
-- further how to you get the position say based on a unique user id of the list item, perhaps using an interface from recycler view (another question perhaps)
-
-
+-  after you update the data you can move it to index 0. See the Move Single Item section of [this item](https://stackoverflow.com/a/48959184/3681880)
+- further  how to you  get the position say based on a unique user id of the list item, perhaps using an interface from recycler view (another question perhaps)

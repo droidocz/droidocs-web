@@ -51,5 +51,3 @@ You could try subclassing `ListView` and overriding `layoutChildren()` to chain 
 ## Notes:
 
 - The list is changed in situ because breadcrumbs are shown elsewhere on the screen - the typical android UI designs are a less suited to my specific UI goals and target users.
-
-

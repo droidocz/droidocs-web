@@ -47,15 +47,7 @@ and then set it as your activity's theme:
 
 ## Notes:
 
-- The notification bar can be removed using `<item name="android:windowFullscreen">true</item>`
-
-
+-  The notification bar can be removed using `<item name="android:windowFullscreen">true</item>`
 - I also found it necessary to inherit from FragmentActivity instead of ActionBarActivity.
-
-
 - Used the following: https://stackoverflow.com/questions/29790070/upgraded-to-appcompat-v22-1-0-and-now-getting-illegalargumentexception-appcompa
-
-
 - Any idea what the additional flag would be to set hide the notifications bar ?
-
-

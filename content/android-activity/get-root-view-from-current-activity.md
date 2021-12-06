@@ -56,32 +56,12 @@ But better just set id to this view in your xml layout and use this id instead.
 ## Notes:
 
 - Actually just findViewById(android.R.id.content) is giving me the root view.
-
-
 - I've noticed that this view appears to include the status bar, so if you're looking for the visible part of your activity, use the answer from 
-
-
-- can you elaborate on when you needed to do findViewById(android.R.id.content).getRootView()?
-
-
+-  can you elaborate on when you needed to do findViewById(android.R.id.content).getRootView()?
 - You can check here I suppose http://developer.android.com/reference/android/R.html It's just android resources reference.
-
-
-- I need to use .getRootView() in Android 5.0+ when using action bar
-
-
+-  I need to use .getRootView() in Android 5.0+ when using action bar
 - When you use this answer, your Snackbar will include the system decor (meaning the Snackbar information will appear behind the Navigation Buttons - Home/Back/Recents). I need my Snackbar to appear in MY Activity (not the entire system, including the on-screen nav buttons), so use the other answer.
-
-
 - `activity.findViewById(android.R.id.content)` is returning null in Android 5. :(
-
-
-- IIRC, if you already have the root view, `view.getRootView()` will return that root view (again). I mean, it is harmless to add `.getRootView()`, so the safe answer is to *always* do `findViewById(android.R.id.content).getRootView()`. [Unless you want the root of content, in which case the `.getChildAt(0)` is what you want.]
-
-
-- call `getView()` in Fragment.
-
-
+-  IIRC, if you already have the root view, `view.getRootView()` will return that root view (again). I mean, it is harmless to add `.getRootView()`, so the safe answer is to *always* do `findViewById(android.R.id.content).getRootView()`. [Unless you want the root of content, in which case the `.getChildAt(0)` is what you want.]
+-  call `getView()` in Fragment.
 - I had to go with `getWindow().getDecorView()` on it.
-
-

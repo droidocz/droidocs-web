@@ -80,15 +80,11 @@ That being said, you can use a [dimension resource](http://developer.android.com
 
 ## Notes:
 
-- * if you want negreenwood6 to be notified of your follow up, you have to start your message like I did to you (I think first three letters is enough) - CommonsWare gets notified automatically, since he wrote this response, but ngreen doesn't unless you address them.
-
-- public void onWindowFocusChanged(boolean hasFocus) {
- // TODO Auto-generated method stub
- super.onWindowFocusChanged(hasFocus);
- //Here you can get the size!
+-  - if you want negreenwood6 to be notified of your follow up, you have to start your message like I did to you (I think first three letters is enough) - CommonsWare gets notified automatically, since he wrote this response, but ngreen doesn't unless you address them.
+- 
+ public void onWindowFocusChanged(boolean hasFocus) {
+  // TODO Auto-generated method stub
+  super.onWindowFocusChanged(hasFocus);
+  //Here you can get the size!
  }
-
-
 - Use this listener to get size, when is your screen ready. view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {}
-
-

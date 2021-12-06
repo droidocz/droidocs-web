@@ -117,24 +117,12 @@ In styles add your custom dimensions and height as per your requirement.
 
 ## Notes:
 
-- *For future visitors to this answer*: **do not wrap TextView and CheckedTextview inside a layout**. Post it directly in your layout\_file.xml file.
-
-
-- Don't you need `android:id=" in the simple\_spinner\_dropdown\_item.xml file?
-
-
-- Try changing `<item name="android:height">` to `<item name="android:layout_height">`
-
-
-- In R.layout.simple\_spinner\_dropdown\_item, change android:layout\_height value to "?attr/dropdownListPreferredItemHeight" or you will get an error: "Error: Attribute is not public"
-
-
+- _For future visitors to this answer_: **do not wrap TextView and CheckedTextview inside a layout**. Post it directly in your layout_file.xml file.
+-  Don't you need `android:id=" in the simple_spinner_dropdown_item.xml file?
+- Try changing `<item name="android:height">`  to `<item name="android:layout_height">`
+- In R.layout.simple_spinner_dropdown_item, change android:layout_height value to "?attr/dropdownListPreferredItemHeight" or you will get an error: "Error: Attribute is not public"
 - Actually you are using an array to populate the spinner.. What i have done is populated the spinner with an array of objects by implementing the `toString()` method in the class of which the custom array of objects belong. So i can't use the create from resource.. what i have to do is create a custom adapter but i am trying to avoid it. I want to do it so that it is applicable in the entire application without the need for custom adapter for all spinners as i have too many spinners in the application.
-
-
 - I tried using the styles options that you suggested. I added:
-`<item name="android:height"> 40sp </item>
- <item name="android:textSize">15sp</item>`
+`&lt;item name="android:height"&gt; 40sp &lt;/item&gt;
+        &lt;item name="android:textSize"&gt;15sp&lt;/item&gt;`
  in between the `spinnerItemStyle` tag but of no use.
-
-

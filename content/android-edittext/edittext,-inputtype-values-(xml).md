@@ -36,5 +36,3 @@ See [this answer](https://stackoverflow.com/a/49622027/3681880) for more details
 ## Notes:
 
 - Perfect example with vidoe about how your keyboard looklike after using input type
-
-

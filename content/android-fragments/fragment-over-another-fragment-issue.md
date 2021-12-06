@@ -38,33 +38,13 @@ Set `clickable` property on the second fragment's view to true. The view will ca
 ## Notes:
 
 - Is there any reason why this would be a bad idea?
-
-
 - I have a `RelativeLayout` inside the fragment, and I set the whole view with the `clickeable` property.
-
-
 - `android:clickable="true"`
 `android:focusable="true"`
-
-
 - When I scroll on first page, it passes to second page also, and this solution didn't work for me.
-
-
 - Use `Fragment.show()` and `Fragment.hide()` methods instead.
-
-
 - Minimising and maximising the app still gives the focus back to the edittext in the parent fragment.
-
-
-- : Did you get the solution of your problem ??
-
-
+-  : Did you get the solution of your problem ??
 - My bad, I was inflating the fragment with `inflater.inflate(R.layout.fragment_lastsearch, null);` instead of `inflater.inflate(R.layout.fragment_lastsearch, container, false);`.
-
-
 - There is a problem with this solution, when you get in accessibility talkback mode ON, it won't read the individual elements instead gets the focus to root view.
-
-
 - `'clickable' attribute found, please also add 'focusable'`. Android Studio recommends adding `focusable` too.
-
-

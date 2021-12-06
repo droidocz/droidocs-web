@@ -68,52 +68,20 @@ We use a `try/catch` block here because an `Exception` will be thrown if the Pla
 ## Notes:
 
 - if you want to redirect to all Developer's apps use `market://search?q=pub:"+devName` and `http://play.google.com/store/search?q=pub:"+devName`
-
-
 - For projects using the Gradle build system, `appPackageName` is in fact `BuildConfig.APPLICATION_ID`. No `Context`/`Activity` dependencies, reducing the risk of memory leaks.
-
-
 - This solution does not work, if some application uses intent filter with "market://" scheme defined.
-
-
 - You still need the context to launch the intent.
-
-
 - You may want to use intent.resolveActivity(getPackageManager()) to determine what to do.
-
-
 - market:// is not working if i am redirecting from another domain url. For example if user is opening url https://www.example.com/blabla in his browser and i am simply redirecting to market://details?id=com.example.blabla previously its working but from 1 week onwards its not working. i am using nodejs for URL redirection.
-
-
 - Will change that.
-
-
 - I think you should use application id instead of package name.
-
-
 - Can I return to my app after the download is finish?
-
-
 - Me also tried with this code but it shows the option to select the browser/playstore.
-
-
 - Doesn't the web link need https now?
-
-
 - Developer is now:
-From a website: http://play.google.com/store/dev?id=
-From an Android app: market://dev?id=
-
-
+From a website: http://play.google.com/store/dev?id=&lt;developer_id&gt;
+From an Android app: market://dev?id=&lt;developer_id&gt;
 - I use this code on both 2.3.3 and 4.1 and both open up the Play Store. Additionally, [the docs](http://developer.android.com/distribute/googleplay/promote/linking.html#android-app) say `market://` "*Launches the Play Store app*".
-
-
-- It wouldn't work on my emulator but on real hardware for me.
-
-
+-  It wouldn't work on my emulator but on real hardware for me.
 - There might be an `Intent` you could capture on package addition, but even then I don't think the OS provides you the control to switch over to your app.
-
-
 - I have tried already with this code, this is also shows the option to select the browser/play store, because my device have installed both apps(google play store/browser).
-
-

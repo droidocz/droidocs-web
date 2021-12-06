@@ -29,8 +29,4 @@ The reason for this is so that fragments are decoupled from the activity they ar
 ## Notes:
 
 - but why can't you use the fragment in different activity if we do this.
-
-
-- Because the fragment would still have a dependency on the old activity. You would have to change the fragment code every time that you wanted to use it in a new activity.
-
-
+-  Because the fragment would still have a dependency on the old activity. You would have to change the fragment code every time that you wanted to use it in a new activity.

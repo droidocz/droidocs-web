@@ -37,30 +37,12 @@ The [DynamicRecyclerView library](https://github.com/ismoli/DynamicRecyclerView)
 
 ## Notes:
 
-- My gut instinct tells me this needs to change to `findViewHolderForAdapterPosition()`, as that seems to be a bit more conservative than is `findViewHolderForLayoutPosition()`. The now-deprecated `findViewHolderForPosition()` actually has the same behavior as `findViewHolderForLayoutPosition()`, so the latter would work, but it won't take into account any in-flight data set changes.
-
-
+-  My gut instinct tells me this needs to change to `findViewHolderForAdapterPosition()`, as that seems to be a bit more conservative than is `findViewHolderForLayoutPosition()`. The now-deprecated `findViewHolderForPosition()` actually has the same behavior as `findViewHolderForLayoutPosition()`, so the latter would work, but it won't take into account any in-flight data set changes.
 - Speaking about the support library, I find really confusing that the LayoutManager gets a chance to save its state while the Adapter does not.
-
-
-- Presumably, call `onChecked(0, true)` in `onCreate()` after you create the adapter.
-
-
+-  Presumably, call `onChecked(0, true)` in `onCreate()` after you create the adapter.
 - could someone post the dependencies required to compile the library for "DynamicRecyclerView"
-
-
-- Well, according to the docs, `findViewHolderForAdapterPosition()` will return `null` if there is an outstanding `notifyDataSetChanged()` call that has not yet been applied. `findViewHolderForLayoutPosition()` works solely off of the actual visible children of the `RelativeLayout`.
-
-
+-  Well, according to the docs, `findViewHolderForAdapterPosition()` will return `null` if there is an outstanding `notifyDataSetChanged()` call that has not yet been applied. `findViewHolderForLayoutPosition()` works solely off of the actual visible children of the `RelativeLayout`.
 - I'll open a new question thread and try to explain exactly what I need
-
-
 - Hm seems that both `findViewHolderForAdapterPosition()` and `findViewHolderForLayoutPosition()` have the same effect in your sample app which works fine but I don't understand the difference between them
-
-
-- i was able to use your demo project, but i am lacking one functionality as per my requirement that is if i want to make first item selected initially.
-
-
-- Cool thanks I think I'm gonna go with the `findViewHolderForLayoutPosition()` in my case cause I need to have a item returned everytime no matter if `notifyDataSetChanged()` has been applied or not
-
-
+-  i was able to use your demo project, but i am lacking one functionality as per my requirement that is if i want to make first item selected initially.
+- Cool thanks  I think I'm gonna go with the `findViewHolderForLayoutPosition()` in my case cause I need to have a item returned everytime no matter if `notifyDataSetChanged()` has been applied or not

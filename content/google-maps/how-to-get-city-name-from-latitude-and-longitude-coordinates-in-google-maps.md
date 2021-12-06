@@ -38,23 +38,9 @@ else {
 ## Notes:
 
 - sometimes getLocality() returns null and city name stays at mAdminArea
-
-
 - For addresses in the USA (and some other countries) use getAdminArea() to return the state
-
-
 - I am getting error which says "Timed out waiting for response from server".
-
-
 - `getLocality()` sometimes return **null**. `getAdminArea()` gives the province or state in Canada while `getSubAdminAread()` gives the city but it's weird e.g.
-
-
 - It throws exception on many devices and requires restart to work again properly.
-
-
 - I tested your code on multiple devices but it returns glpc error.
-
-
 - Always returns null to me .=
-
-
