@@ -101,7 +101,7 @@ this 16 variants are possible:
 
 ---
 
-## Notes:
+## Notes
 
 - It would be nice if Google had this in their documentation in an easy to find place, say for the documentation of `android:fontFamily` on TextView.
 - The definitive list of fonts can be found in [system_fonts.xml](https://android.googlesource.com/platform/frameworks/base/+/master/data/fonts/system_fonts.xml) as explained [here](http://stackoverflow.com/a/24072492/598094)

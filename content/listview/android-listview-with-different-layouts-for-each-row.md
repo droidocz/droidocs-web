@@ -41,7 +41,7 @@ I hope that will help you. If you could provide some XML stub with your data str
 
 ---
 
-## Notes:
+## Notes
 
 - Although I still prefer the way exposed here. It makes clearer what you want to achieve.
 - sorry for digging this up again, but you would actually recommend having a single large layout file and control visibility of parts of it, instead of have separate layout files, which get inflated respectively using getItemViewType?

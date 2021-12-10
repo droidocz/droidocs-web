@@ -50,7 +50,7 @@ Ok, I've found a better way. I'm now able to only change the color of the title.
 
 ---
 
-## Notes:
+## Notes
 
 - However, for consistency, you should be inheriting from `Widget.Holo.Light.ActionBar` for `MyTheme.ActionBarStyle`.
 - If you are using Appcompat library, replace Holo with AppCompat.

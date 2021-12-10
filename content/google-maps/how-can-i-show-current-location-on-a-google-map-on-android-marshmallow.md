@@ -335,7 +335,7 @@ Move camera to current location and place Marker when the Location permission is
 
 ---
 
-## Notes:
+## Notes
 
 -  Make sure your import is `import com.google.android.gms.location.LocationListener;`, see here for the imports: http://stackoverflow.com/a/31448567/4409409
 - LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this); - II tried your solution, I got stuck with this line of code saying "cannot resolve requestLocationUpdates"

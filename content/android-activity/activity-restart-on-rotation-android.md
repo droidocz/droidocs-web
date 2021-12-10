@@ -95,7 +95,7 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 ---
 
-## Notes:
+## Notes
 
 - Here's hoping we see an onRotate() method in the future.
 - Note that [the Android Dev Guide](http://developer.android.com/guide/topics/manifest/activity-element.html#config) cautions against using this:  **Note: Using (`android:configChanges`) should be avoided and used only as a last-resort. Please read Handling Runtime Changes for more information about how to properly handle a restart due to a configuration change. **  In lieu, to persist data across rotation events, they seem to prefer using the `onSaveInstanceState Bundle`; or as  [mentions](http://stackoverflow.com/a/7509094/260559), `onRetainNonConfigurationInstance`.

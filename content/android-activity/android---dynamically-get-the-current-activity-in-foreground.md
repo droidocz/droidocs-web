@@ -63,7 +63,7 @@ Step #3: There is no step #3
 
 ---
 
-## Notes:
+## Notes
 
 -  If the background work will go on long enough that you do not know what the foreground UI is (or even if it is in your own app), you probably want a service, just to signal to Android that you are doing that background work, so your process can live a bit longer.
 - Have your activities register for the event in `onStart()` and unregister in `onStop()`.

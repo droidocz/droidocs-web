@@ -107,7 +107,7 @@ Correct. `createChooser()` forces a choice, but does not allow setting a default
 
 ---
 
-## Notes:
+## Notes
 
 -  Then sometime I will work on figuring out how they do it, then report the security flaw to Google and try to get the flaw fixed.
 - How can forcefully show my launcher as default launcher[Without any popup's even user press on Home button]

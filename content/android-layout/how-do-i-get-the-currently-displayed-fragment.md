@@ -61,7 +61,7 @@ See also <http://developer.android.com/reference/android/app/Fragment.html>
 
 ---
 
-## Notes:
+## Notes
 
 - Ok, but I need a way to immediately get the currently displayed Fragment instance, not iteratively check through all fragments and then decide which fragment is now displayed on the screen. I think your answer needs my code to iteratively check each of my fragments, and find out the visible one ...
 - Yes, but there could be more than one fragment visible at a time.

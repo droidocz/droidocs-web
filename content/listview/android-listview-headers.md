@@ -26,7 +26,7 @@ In the case of `MergeAdapter`, you would add an ordinary `View` (e.g., `TextView
 
 ---
 
-## Notes:
+## Notes
 
 - Is this the standard methodology that google used in their applications?
 - "Is this the standard methodology that google used in their applications?" You would have to look at their source code on http://source.android.com. Jeff Sharkey's implementation was originally for 0.9 but probably still works; my two implementations work up through 2.0.1.

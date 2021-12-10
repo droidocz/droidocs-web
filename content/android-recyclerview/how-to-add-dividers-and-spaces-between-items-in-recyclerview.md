@@ -259,7 +259,7 @@ Among its [features](https://github.com/lucasr/twoway-view#features) are:
 
 ---
 
-## Notes:
+## Notes
 
 - DividerItemDecoration as shown above won't work if the items are fully opaque, dividers will get overdrawn by the items. In that case you need to override the getItemOffsets() too and add bottom offset to outRect so the divider ends up outside of the item. Alternatively, you can override onDrawOver() instead of onDraw() to draw the divider afeter the item.
 -  Correct me if I'm wrong, but I don't create any objects in `onDraw()`.

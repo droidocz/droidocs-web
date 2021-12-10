@@ -46,7 +46,7 @@ Consider using an image loading library, like Picasso or Universal Image Loader,
 
 ---
 
-## Notes:
+## Notes
 
 - UIL does not work while image resides in sd card (path of file starts with `/storage`. I used `Glide` for this purpose, and it provided a perfect solution to my problem
 -  Inflation is unlikely to be the problem; it would take you just about as much time to create the views directly via Java constructors and setters. Use method tracing in your IDE to determine exactly where your problem lies.

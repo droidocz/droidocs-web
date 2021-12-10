@@ -98,7 +98,7 @@ You can go to Refactor>>Migrate to AndroidX and Android Studio will handle the d
 
 ---
 
-## Notes:
+## Notes
 
 - can I use a ProgressBar instead of Color Scheme on SwipeRefreshLayout?
 - Example code https://guides.codepath.com/android/Implementing-Pull-to-Refresh-Guide

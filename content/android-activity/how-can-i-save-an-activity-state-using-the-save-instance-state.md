@@ -112,7 +112,7 @@ You would usually use this technique to store instance values for your applicati
 
 ---
 
-## Notes:
+## Notes
 
 - CAREFUL: you need to call  super.onSaveInstanceState(savedInstanceState) before adding your values to the Bundle, or they will get wiped out on that call (Droid X Android 2.2).
 - http://developer.android.com/reference/android/app/Activity.html

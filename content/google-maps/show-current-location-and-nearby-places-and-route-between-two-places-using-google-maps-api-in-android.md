@@ -39,6 +39,6 @@ After following these steps you will be easily able to do your application. The 
 
 ---
 
-## Notes:
+## Notes
 
 - If any of the links fail to open please do comment here,Will change it with the best example/blog available.

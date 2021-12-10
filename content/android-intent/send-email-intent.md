@@ -91,7 +91,7 @@ intent.putExtra(Intent.EXTRA_EMAIL, addresses); // String[] addresses
 
 ---
 
-## Notes:
+## Notes
 
 - Please check out the official Android doc on sending email as intent, which works perfectly: https://developer.android.com/guide/components/intents-common.html#Email
 - If you don't have a specific recipient, this also works: `Uri.fromParts("mailto", "", null)`

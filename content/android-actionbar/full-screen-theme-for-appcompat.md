@@ -71,7 +71,7 @@ and also mention in your manifest file.
 
 ---
 
-## Notes:
+## Notes
 
 - I would add `hideNavigation()` in `onResume()` - without that, the navigation bar was still visible in my app (api 18+)
 - Actually, it's enough to add this to the style xml file: &lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;. The action bar (title bar) visibility can be separately controlled using .hide/.show methods at runtime.
@@ -82,6 +82,6 @@ and also mention in your manifest file.
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-- no need to set `&lt;item name="android:windowNoTitle"&gt;true&lt;/item&gt;
-    &lt;item name="android:windowActionBar"&gt;false&lt;/item&gt;` if your theme includes `.NoActionBar`
+- no need to set `<item name="android:windowNoTitle">true</item>
+    <item name="android:windowActionBar">false</item>` if your theme includes `.NoActionBar`
 - Is there a list anywhere of all of the Theme.AppCompat variants?

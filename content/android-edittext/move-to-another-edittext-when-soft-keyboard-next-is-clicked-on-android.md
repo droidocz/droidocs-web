@@ -232,7 +232,7 @@ editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
 ---
 
-## Notes:
+## Notes
 
 - I put `android:imeOptions="actionNext"` to all my EditTexts and the problem is gone.
 - In my case `android:nextFocusForward=" did the trick.

@@ -135,7 +135,7 @@ yourListView .setAdapter(customAdapter);
 
 ---
 
-## Notes:
+## Notes
 
 - And what is my item here ListAdapter customAdapter = new ListAdapter(this, R.layout.itemlistrow, List&lt;yourItem&gt;); ?
 - There is no need to keep the collection called items in your class, you are passing it to the super constructor. Items can be retrieved by the getItem(int pos) method.

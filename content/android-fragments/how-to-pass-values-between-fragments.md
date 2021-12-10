@@ -350,7 +350,7 @@ Bundle savedInstanceState) {
 
 ---
 
-## Notes:
+## Notes
 
 - I tried step 5, That i'm calling listactivity from fragment and after selecting item from that activity, i want to come back in fragment with selected file name. But its not working, its giving me Nullpointer Exception at onCreateView. This is my question http://stackoverflow.com/questions/18208771/nullpointer-exception-while-returning-string-to-fragment-from-activity/18209614?noredirect=1#18209614
 - They should use interfaces to communicate between fragments via the container activity.

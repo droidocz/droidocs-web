@@ -97,7 +97,7 @@ I posted a detailed solution on [my blog](http://www.geekmind.net/2009/11/androi
 
 ---
 
-## Notes:
+## Notes
 
 - Watch this talk at 11:39 there is an excellent example: http://youtu.be/wDBM6wVEO70?t=11m39s
 

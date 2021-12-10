@@ -72,7 +72,7 @@ In this instance, the TextView would be drawn on top of the ImageView, along the
 
 ---
 
-## Notes:
+## Notes
 
 - FrameLayout doesn't relate to other views in the group, it just layers them in regard to the parent.
 - Is there an advantage of using FrameLayout instead RelativeLayout for this?

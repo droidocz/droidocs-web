@@ -297,7 +297,7 @@ Further study
 
 ---
 
-## Notes:
+## Notes
 
 -  The grid items get laid out left to right, top to bottom. Scrolling is vertical when there are more items than can fit on the screen.
 - I solved the problem by initialising the itemClickListener in main activity as such:

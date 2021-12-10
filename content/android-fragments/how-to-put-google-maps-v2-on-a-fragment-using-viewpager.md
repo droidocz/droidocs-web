@@ -117,7 +117,7 @@ public class MapViewFragment extends Fragment {
 
 ---
 
-## Notes:
+## Notes
 
 - i am getting error while using this method .please help  
 PID: 16260

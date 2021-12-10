@@ -35,7 +35,7 @@ else {
 
 ---
 
-## Notes:
+## Notes
 
 - sometimes getLocality() returns null and city name stays at mAdminArea
 - For addresses in the USA (and some other countries) use getAdminArea() to return the state

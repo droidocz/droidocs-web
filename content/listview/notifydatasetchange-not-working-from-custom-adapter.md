@@ -178,7 +178,7 @@ So you keep the same object as your DataSet in your Adapter.
 
 ---
 
-## Notes:
+## Notes
 
 - Can you maybe explain why the first method doesn't work and the second works with a BaseAdapter?
 -  can ArrayAdapters even bind to Objects other than Lists or Arrays?

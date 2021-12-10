@@ -85,7 +85,7 @@ if (savedInstanceState == null) {
 
 ---
 
-## Notes:
+## Notes
 
 - is the "savedInstanceState..." and "...getSerialiable" code used to handle orientation changes? if no, what is that code used for?
 - I'm using android 3.0.1 and I had to use `this.getActivity().getIntent().getExtras()`.

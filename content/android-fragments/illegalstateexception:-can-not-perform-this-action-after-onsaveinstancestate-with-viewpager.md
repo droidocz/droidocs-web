@@ -110,7 +110,7 @@ when adding or performing the `FragmentTransaction` that was causing the `Except
 
 ---
 
-## Notes:
+## Notes
 
 - You should use commitAllowingStateLoss() instead of commit()
 - Regarding 'commitAllowingStateLoss' --/&gt; "This is dangerous because the commit can be lost if the activity needs to later be restored from its state, so this should only be used for cases where it is okay for the UI state to change unexpectedly on the user."

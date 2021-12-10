@@ -255,7 +255,7 @@ Please don't do this. Just use your `Activity` as a `Context`.
 
 ---
 
-## Notes:
+## Notes
 
 -  `FLAG_AUTO_CLEAR` on the `Notification`.
 -  Use the `Context` supplied to `onReceive()`.

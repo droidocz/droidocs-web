@@ -65,7 +65,7 @@ We use a `try/catch` block here because an `Exception` will be thrown if the Pla
 
 ---
 
-## Notes:
+## Notes
 
 - if you want to redirect to all Developer's apps use `market://search?q=pub:"+devName` and `http://play.google.com/store/search?q=pub:"+devName`
 - For projects using the Gradle build system, `appPackageName` is in fact `BuildConfig.APPLICATION_ID`. No `Context`/`Activity` dependencies, reducing the risk of memory leaks.

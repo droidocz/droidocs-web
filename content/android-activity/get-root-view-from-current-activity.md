@@ -53,7 +53,7 @@ But better just set id to this view in your xml layout and use this id instead.
 
 ---
 
-## Notes:
+## Notes
 
 - Actually just findViewById(android.R.id.content) is giving me the root view.
 - I've noticed that this view appears to include the status bar, so if you're looking for the visible part of your activity, use the answer from 

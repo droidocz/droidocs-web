@@ -499,7 +499,7 @@ But also consider that your needs may change. For example, `DownloadManager` [do
 
 ---
 
-## Notes:
+## Notes
 
 - Don't hardcode /`sdcard/` use `Environment.getExternalStorageDirectory()` instead.
 - Use AsyncTask and show the download progress in a dialog**" does connection.connect(); then InputStream input = new BufferedInputStream(url.openStream()); code makes 2 connections to the server. I have managed to change this behavior by updating the code as follows InputStream input = new BufferedInputStream(connection.getInputStream());

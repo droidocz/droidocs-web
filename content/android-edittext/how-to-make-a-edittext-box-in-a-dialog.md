@@ -179,7 +179,7 @@ By
 
 ---
 
-## Notes:
+## Notes
 
 - Hi Raghu, If I want to put left margin & right margin to this edittext box then what should I write ?
 - http://stackoverflow.com/questions/7747268/edittext-seterror-not-working-in-android

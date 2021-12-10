@@ -68,7 +68,7 @@ I would also probably pre-populate your EditText that the user is typing a URL i
 
 ---
 
-## Notes:
+## Notes
 
 - `if (!url.startsWith("http://") && !url.startsWith("https://"))` is a common error which may lead you to urls like http://file:/// and break some good usecases.
 - You need null check with [`resolveCheck`](https://developer.android.com/intl/ja/reference/android/content/Intent.html#resolveActivity(android.content.pm.PackageManager)). See the [offical docs](https://developer.android.com/intl/ja/guide/components/intents-common.html) : **Caution: If there are no apps on the device that can receive the implicit intent, your app will crash when it calls startActivity(). To first verify that an app exists to receive the intent, call resolveActivity() on your Intent object.

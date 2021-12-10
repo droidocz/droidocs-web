@@ -49,7 +49,7 @@ To get the result in your fragment make sure you call `startActivityForResult(in
 
 ---
 
-## Notes:
+## Notes
 
 -  Make sure you call startActivityForResult() and not getActivity().startActivityForResult() from your fragment.
 - Also note that if you are using nested fragments, the child fragment should call `getParentFragment().startActivityForResult` so that the parent fragment will have its onActivityResult method called.

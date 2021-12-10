@@ -35,7 +35,7 @@ Prior to Android 5.1, there is nothing in Android to let you know what the user 
 
 ---
 
-## Notes:
+## Notes
 
 -  Do you have a code sample of how to create the `IntentSender` and how to read out the chosen app?
 - So the only way to make it work on 4.4 is to use a packageManager  instance to list all apps in a given category, and then create my own selection dialog?

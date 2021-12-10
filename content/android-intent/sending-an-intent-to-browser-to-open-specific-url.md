@@ -40,7 +40,7 @@ Source: [Opening a URL in Android's web browser from within application](http://
 
 ---
 
-## Notes:
+## Notes
 
 - In production level code, you may like to check if the url begins with `http` or `https`... Would be better to check `if (!url.startsWith("http://") && !url.startsWith("https://"))
  url = "http://" + url;`

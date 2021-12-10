@@ -54,7 +54,7 @@ public class MyFragment extends Fragment {
 
 ---
 
-## Notes:
+## Notes
 
 - I have found that the setUserVisibleHint method gets called BEFORE the onCreateView gets called and this makes it difficult to track any initialization.
 - `setUserVisibleHint` is now **Deprecated**

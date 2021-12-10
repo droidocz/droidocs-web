@@ -31,7 +31,7 @@ Another option is simply to have N versions of the icon+badge, perhaps wrapped i
 
 ---
 
-## Notes:
+## Notes
 
 -  "But actionLayout i what i see once i click on the MenuItem" -- no, the `actionLayout` is used immediately, instead of an "initial icon".
 - Why are both **icon** and **actionLayout** set to the add menu item.

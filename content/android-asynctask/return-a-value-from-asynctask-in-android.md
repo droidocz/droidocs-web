@@ -66,7 +66,7 @@ That's what [`onPostExecute()`](http://developer.android.com/reference/android/o
 
 ---
 
-## Notes:
+## Notes
 
 - yes i know doInBackground() returns data and puts it there, but how do i transfer the data to my main activity in a variable form?
 -  you say to store the result in a variable of your choice in `onPostExecute()` but how do you get that variable BACK to your activity? For example, if you want your task to connect to the internet and download some information and then you want to do something with that information... How do you `.execute()` the `AsyncTask` and then do something with that information if the next line of code runs before the `AsyncTask` is done?

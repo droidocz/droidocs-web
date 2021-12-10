@@ -90,7 +90,7 @@ So, you should simply check if `markers` has only one location and if so, use on
 
 ---
 
-## Notes:
+## Notes
 
 - It should be noted that the move cannot happen from the onCreate calls, the view must be created. I needed to use addOnGlobalLayoutListener to get the appropriate sample.
 - googleMap

@@ -62,7 +62,7 @@ As has been noted, the Android Support package is not tied to the Play Services 
 
 ---
 
-## Notes:
+## Notes
 
 - It is in developers' interest to use the oldest possible version in order to avoid bugging the user about upgrading the library.
 -  You will have to test on Play Services-compatible hardware, then, until such time (if ever) an updated emulator image is available. ), you need to use a device that is able to get the latest Play Services.

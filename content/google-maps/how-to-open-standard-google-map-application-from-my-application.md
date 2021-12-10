@@ -31,7 +31,7 @@ reference : <https://developer.android.com/guide/components/intents-common.html#
 
 ---
 
-## Notes:
+## Notes
 
 - THis moves me to the location but it does not put a balloon there.
 - That method is meant for UI text only, that's why decimal point represenation may vary. Just use the "+" operator or StringBuilder: String uri = "geo:" + lastLocation.getLatitude() + "," + lastLocation.getLongitude().

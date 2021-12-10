@@ -67,7 +67,7 @@ Do any of the following:
 
 ---
 
-## Notes:
+## Notes
 
 -  Google Play Music is not using action bar tabs. It is using a `HorizontalScrollView` around a `LinearLayout` and a set of `TextView` widgets for "My Library" tabs above the `ViewPager`. I'm not sure where else in Play Music tabs are used -- that's the only spot I'm seeing. If you want the Google Play Music approach, I'd use a `ViewPager` and a suitable indicator.
 - In light of the fact the above design does depart from conventions ( and I'd rather not ) , I do have a case for doing so, where the sliding drawer menu acts as top level navigation, and the tabs are navigation within a section of the app.

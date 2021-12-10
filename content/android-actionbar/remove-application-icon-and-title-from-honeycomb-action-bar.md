@@ -22,7 +22,7 @@ Call [`setDisplayShowHomeEnabled()`](http://developer.android.com/reference/andr
 
 ---
 
-## Notes:
+## Notes
 
 - Any way to remove the icon through XML?
 - Just figured it out... you use abDisplayOptions and set your desired combination of useLogo, showHome, homeAsUp, showTitle, and showCustom. I wanted just the title with no icon, so I did `<item name="abDisplayOptions">showTitle</item>`

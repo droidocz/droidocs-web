@@ -38,7 +38,7 @@ editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
 ---
 
-## Notes:
+## Notes
 
 - **I RETRACT MY COMMENT ABOVE** I found out that if you can't get the focus right, take a look at your XML! If you see the tag *&lt;requestFocus&gt;&lt;/requestFocus&gt;* in there - remove it.
 - I really don't understand why this is not the default behavior in the SDK.

@@ -32,7 +32,7 @@ Yes, you use the `AndroidManifest.xml` file. You can actually even have more tha
 
 ---
 
-## Notes:
+## Notes
 
 - This is correct answer, but I just noticed something odd: if you change the starting Activity to anything else, and the original launched activity still exists, the SDK won't be able to launch your application anymore. Somehow it has a reference to the activity on the launch configuration. So after you do the above change, you also need to go to "Run" &gt; "Debug Configurations", find your project's build profile, tab "Android", and change the launched activity to either the default or the correct one under "Launch:". Not sure why the default was deselected for me, but changing it back worked.
 -  it will make that activity appear on the launcher page, you can have multiple activities with this intent-filter giving you multiple icons on the homescreen.

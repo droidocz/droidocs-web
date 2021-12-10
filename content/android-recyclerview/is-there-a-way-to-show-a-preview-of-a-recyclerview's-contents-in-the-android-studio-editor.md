@@ -32,7 +32,7 @@ tools:listitem="@android:layout/simple_list_item_checked"
 
 ---
 
-## Notes:
+## Notes
 
 - If you also wish to set the orientation to be horizontal , you can: `tools:orientation="horizontal"`
 - In addition to specifying `tools:orientation="horizontal"` or `android:orientation="horizontal"` I also had to specify `app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"` as per https://stackoverflow.com/questions/35681433/previewing-horizontal-recyclerview-in-android-studio

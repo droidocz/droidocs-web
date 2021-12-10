@@ -20,7 +20,7 @@ Simple: don't use an `AsyncTask`. `AsyncTask` is designed for short operations t
 
 ---
 
-## Notes:
+## Notes
 
 - AsyncTask has a cancel method, and it should work. The method wouldn't exist otherwise. And even short tasks may need canceling - I have an Activity where it begins an AsyncTask immediately upon loading, and if the user hits back immediately after opening the task, they'll see a Force Close a second later when the task finishes but no context exists for it to use in its onPostExecute.
 - "AsyncTask has a cancel method, and it should work." With respect to your "Force Close" scenario, that can be solved by a boolean variable, which you test in `onPostExecute()` to see whether you should go ahead with the work.

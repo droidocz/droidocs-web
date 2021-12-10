@@ -46,7 +46,7 @@ It looks like you will need to create your own "info window" contents to make th
 
 ---
 
-## Notes:
+## Notes
 
 -  Call `setText()` on the `TextViews`, no different than `TextViews` in an activity, fragment, `ListView` row, etc.
 -  Normally, when you use a layout resource with a `RelativeLayout` as the root, when you inflate it, you want to use the three-parameter `inflate()` method, passing in the parent `ViewGroup` and `false` for the last two parameters. However, we are not passed a parent in `getInfoContents()`, so we cannot do that. While I am a bit surprised about a `NullPointerException`, I am not surprised at all that the `RelativeLayout` does not work correctly. I would have expected some of the layout rules for the `RelativeLayout`'s children to be ignored or otherwise misbehave.

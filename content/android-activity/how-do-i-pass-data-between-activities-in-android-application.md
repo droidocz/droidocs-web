@@ -45,7 +45,7 @@ The [docs](http://developer.android.com/guide/topics/intents/intents-filters.htm
 
 ---
 
-## Notes:
+## Notes
 
 - Yes, you'd have to make the session ID available to every activity where you want to allow the user to signout. Alternatively, you could store it in the Application object, but then you'd have to manage the state of the session (check if it's valid before using, etc).
 - Please be aware that the documentation points the following: Add extended data to the intent. The name must include a package prefix, for example the app com.android.contacts would use names like "com.android.contacts.ShowAll".

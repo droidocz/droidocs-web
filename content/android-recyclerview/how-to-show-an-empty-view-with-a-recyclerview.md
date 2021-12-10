@@ -79,7 +79,7 @@ else {
 
 ---
 
-## Notes:
+## Notes
 
 - That does not work for me because the recycler view layout is inflated in the fragment whereas the decision whether to show an normal item layout or an no-items layout is made in the adapter.
 -  when using a Fragment, the same thing applies. When you inflate your fragment view you have the recyclerview and then another layout that would be used for your empty view. Usually in my fragments I will have the follow there views:  1) recyclerview, 2) empty view, and 3) progressbar view. I usually pass the adapter whatever the list is, but based on the size of the list i will either hide the recyclerview and show the empty or vice versa. If a recyclerview has an empty list, then it does not do anything with it.

@@ -53,7 +53,7 @@ public void onCreate(Bundle savedInstanceState)
 
 ---
 
-## Notes:
+## Notes
 
 - If you don't place EditText in the clas-wide scope, and instead declare it in OnCreate, it wants it to be declared as final.
 - Also, EditText is the least intuitive name they could find.

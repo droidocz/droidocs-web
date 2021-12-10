@@ -232,7 +232,7 @@ Please rethink your variable naming convention, using as the variable name the n
 
 ---
 
-## Notes:
+## Notes
 
 - Note this does not work if you use FragmentStatePagerAdapter rather than FragmentPagerAdapter.
 - Is that fragment tag future-proof, if the API changes?

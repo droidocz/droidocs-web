@@ -49,7 +49,7 @@ Finally, I have found a solution. It simply consists of overriding the value for
 
 ---
 
-## Notes:
+## Notes
 
 - If you are using the AppCompat v22 support library, you can specify the theme in the EditText like: `android:theme=" This will ensure the style won't also affect other views in your layouts that you don't want to change.
 - This changes the color of the bottom line but it also changes every other control like check boxes, radio buttons etc. It also changes every EditText across the whole Application / Activity. If you want to change the bottom line of a single EditText (like I do) then you have to override the android:background property for that EditText.

@@ -31,7 +31,7 @@ In that case, use `ACTION_SEND`, as described [here](http://www.androidguys.com/
 
 ---
 
-## Notes:
+## Notes
 
 - Some applications want to limit to twitter posting, and this is what was asked here. Using the twitter API is a- reinventing the wheel b- a duplicate of what HTC/Samsung/twitter has already provided c- complicated (authentification, repost if fail, tiny url, etc.)
 - `ACTION_SEND` is too vague. [I suggest you filter](http://regis.decamps.info/blog/2011/06/intent-to-open-twitter-client-on-android/) the list based on known package names.

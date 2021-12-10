@@ -34,7 +34,7 @@ It will do the same effect as `android:editable="false"`. Worked for me, hope it
 
 ---
 
-## Notes:
+## Notes
 
 - The difference is It can be used with `TextInputLayout`
 - If you want to do it in the XML ... what will be the difference between it and TextView ??

@@ -93,7 +93,7 @@ Since API 22, `RecyclerView.ViewHolder.getPosition()` is deprecated, so instead 
 
 ---
 
-## Notes:
+## Notes
 
 - use getLayoutPosition() method as getPosition() is depricated now.
 - thanks for this piece of code :)

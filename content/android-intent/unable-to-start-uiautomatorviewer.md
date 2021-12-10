@@ -40,7 +40,7 @@ Because your `tools/` directory is not in your `PATH`. Either use `./uiautomator
 
 ---
 
-## Notes:
+## Notes
 
 - -- [file an issue](https://issuetracker.google.com/issues), then pray that Google pays attention to it.
 - Still, this same location is still used in google's official instructions here: https://developer.android.com/training/testing/ui-testing/uiautomator-testing .

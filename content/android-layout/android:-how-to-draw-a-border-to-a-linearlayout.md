@@ -188,7 +188,7 @@ To be continued (maybe tomorrow and as soon as you provide more precisions on wh
 
 ---
 
-## Notes:
+## Notes
 
 - Not certain why it was the case, but when I used this on a `LinearLayout` I got a solid fill from the border color, unless I added the following child to the `shape` element: `<solid android:color=" />`
 - For me it was the same I had to add a, `<solid android:color=" />` otherwise I got a black background

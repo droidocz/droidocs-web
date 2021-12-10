@@ -995,7 +995,7 @@ If you forget to call `commit()` then none of your changes will be applied!
 
 ---
 
-## Notes:
+## Notes
 
 - I haven't yet read the whole answer, I had to pause my reading somewhere at half to write this comment - this is one of the best answers I have find here on the SO!
 - +1 just to show us that Data Binding exists in Android! I've never hear about that and seems that I'll begin using it.
@@ -1004,7 +1004,7 @@ If you forget to call `commit()` then none of your changes will be applied!
 -  If you are filtering a large dataset or retrieving results from a database or a web service or anything else that might take a while then you should do it in a separate thread and then post the results on the main thread once everything is done.
 - I could tell you about a much simpler way to achieve something similar, but the results would by far not be as good. I link to it at the bottom of the answer as an option for people who don't want to implement all this themselves - it also has a few additional features and performance optimizations. You can check it out here: https://wrdlbrnft.github.io/SortedListAdapter/
 - Thanks a lot :D, yep this is my first time working with data binding i didn't knew that the databinding was generated automatically i compiled my project and everything is working, at my first try, this feels weird, i usually get exceptions when I dive into unknown territory
-- I am using your method `replaceAll` and it messes up with indexes. I had to use `public void replaceAll(List&lt;ExampleModel&gt; models) {
+- I am using your method `replaceAll` and it messes up with indexes. I had to use `public void replaceAll(List<ExampleModel> models) {
     mSortedList.beginBatchedUpdates();
     mSortedList.clear();
     mSortedList.addAll(models);

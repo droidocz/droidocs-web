@@ -52,7 +52,7 @@ editText.setBackgroundResource(android.R.color.transparent);
 
 ---
 
-## Notes:
+## Notes
 
 - use this  : `android:background="
 - In Android 19, using `android:background=" causes the same loss of margins issue... Is there an example anywhere of somebody creating such a custom drawable?

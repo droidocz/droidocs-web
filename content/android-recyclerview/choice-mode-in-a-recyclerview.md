@@ -35,7 +35,7 @@ The [DynamicRecyclerView library](https://github.com/ismoli/DynamicRecyclerView)
 
 ---
 
-## Notes:
+## Notes
 
 -  My gut instinct tells me this needs to change to `findViewHolderForAdapterPosition()`, as that seems to be a bit more conservative than is `findViewHolderForLayoutPosition()`. The now-deprecated `findViewHolderForPosition()` actually has the same behavior as `findViewHolderForLayoutPosition()`, so the latter would work, but it won't take into account any in-flight data set changes.
 - Speaking about the support library, I find really confusing that the LayoutManager gets a chance to save its state while the Adapter does not.

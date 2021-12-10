@@ -32,6 +32,6 @@ I am not 100% certain this explains your phenomenon given the description you pr
 
 ---
 
-## Notes:
+## Notes
 
 - However, the docs state for setSelection(): "If in touch mode, the item will not be selected but it will still be positioned appropriately".

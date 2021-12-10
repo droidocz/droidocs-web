@@ -41,7 +41,7 @@ fragment.callAboutUsActivity()
 
 ---
 
-## Notes:
+## Notes
 
 - Now the hard part is I can't seem to get a reference to the fragment in the first place. It's not defined in an XML layout, so I can't use findFragmentById(). And it's not clear to me from the code I'm following (ref above) how/where the fragment is even created. If it were I could just add a tag and use findFragmentByTag(). The AccountListActivity part of the example does have a call to beginTransaction().add(), but per my trace it's never called.
 - By doing this i ended up in a null object reference!

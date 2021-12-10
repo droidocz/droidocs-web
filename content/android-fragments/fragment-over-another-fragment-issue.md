@@ -35,7 +35,7 @@ Set `clickable` property on the second fragment's view to true. The view will ca
 
 ---
 
-## Notes:
+## Notes
 
 - Is there any reason why this would be a bad idea?
 - I have a `RelativeLayout` inside the fragment, and I set the whole view with the `clickeable` property.

@@ -51,7 +51,7 @@ Don't forget to add your new activity in the AndroidManifest.xml:
 
 ---
 
-## Notes:
+## Notes
 
 - (button click → transition to next activity)
 - Is there any difference between `CurrentActivity.this.startActivity(myIntent)` and `startActivity(myIntent)`?

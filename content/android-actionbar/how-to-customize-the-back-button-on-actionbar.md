@@ -37,7 +37,7 @@ If you are supporting pre-3.0 with your application be sure you put this version
 
 ---
 
-## Notes:
+## Notes
 
 - `<item name="android:homeAsUpIndicator"> didn't work for me, but `&lt;item name="homeAsUpIndicator"&gt; did. Guess it's android version thing
 - I was declaring inside the style set as my ActionBarStyle as in AOSP on github but it was not working - moving out into the main theme did the trick!

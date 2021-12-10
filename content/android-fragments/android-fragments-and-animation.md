@@ -62,7 +62,7 @@ For reference, the XML animation definitions would use the `objectAnimator` tag.
 
 ---
 
-## Notes:
+## Notes
 
 - When i tried this it show *RuntimeException: Unknown animator name: translate*.
 - For the other readers, you could also have android:interpolator as an attribute, with your favorite one specified (such as "

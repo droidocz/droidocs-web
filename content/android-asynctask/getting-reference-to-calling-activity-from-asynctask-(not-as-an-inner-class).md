@@ -34,7 +34,7 @@ A better answer for handling this pattern can be found here: [Background task, p
 
 ---
 
-## Notes:
+## Notes
 
 - One is to make `DownloadFileTask` public but abstract, and have private inner class implementations of that for things unique to a given activity. The other is to make `DownloadFileTask` public and pass *something* into the constructor. In this case, to minimize coupling, it may be that you don't want to pass an `Activity`, but some other sort of interface that limits what the `AsyncTask` can do. That way, you can choose to implement the interface on an `Activity`, or as a separate object, or whatever.
 - http://en.wikipedia.org/wiki/Coupling_%28computer_science%29 -- basically, the more one component "knows" about another, the more difficult it becomes to disentangle them later should the need arise.

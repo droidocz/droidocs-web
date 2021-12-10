@@ -48,7 +48,7 @@ try {
 
 ---
 
-## Notes:
+## Notes
 
 - Check out the answer by  below, i don't think there is a `GeoPoint` class in the new libraries. Instead use `LatLng`. http://stackoverflow.com/a/27834110/2968401
 - You need the right permissions to be able to access the service.

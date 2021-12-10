@@ -45,7 +45,7 @@ and then set it as your activity's theme:
 
 ---
 
-## Notes:
+## Notes
 
 -  The notification bar can be removed using `<item name="android:windowFullscreen">true</item>`
 - I also found it necessary to inherit from FragmentActivity instead of ActionBarActivity.

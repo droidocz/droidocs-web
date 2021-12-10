@@ -52,7 +52,7 @@ Call `cancel()` on the `AsyncTask`. Whether or not this will actually cancel any
 
 ---
 
-## Notes:
+## Notes
 
 -  See [the Java documentation](https://docs.oracle.com/javase/tutorial/essential/concurrency/interrupt.html), along with [this](https://stackoverflow.com/a/3590008/115145) and [this](https://www.javatpoint.com/interrupting-a-thread).
 - but even after Calling Cancel() method, task is running in background and onPostExecute() method is not being executed.
