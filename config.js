@@ -7,9 +7,9 @@ const config = {
   },
   header: {
     logo: 'https://brandeps.com/logo-download/A/Android-logo-vector-01.svg',
-    logoLink: 'https://droidocsweb.gatsbyjs.io/',
+    logoLink: '/',
     title:
-      "<a href='https://droidocsweb.gatsbyjs.io/'>DOCS</a>",
+      "<a href='/'>DOCS</a>",
     githubUrl: 'https://github.com/droidocz/droidocs-web',
     helpUrl: '',
     tweetText: '',
@@ -25,17 +25,17 @@ const config = {
   },
   sidebar: {
     forcedNavOrder: [
-      '/introduction', // add trailing slash if enabled above
+      '/', // add trailing slash if enabled above
     ],
     collapsedNav: [],
     links: [{ text: 'Android Docs', link: 'https://developer.android.com' }],
     frontline: false,
-    ignoreIndex: true,
+    ignoreIndex: false,
     title: null,
   },
   siteMetadata: {
-    title: 'Gatsby Gitbook Boilerplate | Hasura',
-    description: 'Documentation built with mdx. Powering hasura.io/learn ',
+    title: 'Android Docs | Droidocs',
+    description: 'Documentation for Android',
     ogImage: null,
     docsLocation: 'https://github.com/droidocz/droidocs-web/tree/master/content',
     favicon: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg',
