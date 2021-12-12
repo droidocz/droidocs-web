@@ -27,7 +27,7 @@ const config = {
     forcedNavOrder: [
       '/', // add trailing slash if enabled above
     ],
-    collapsedNav: [],
+    collapsedNav: true, // list of urls or Boolean
     links: [{ text: 'Android Docs', link: 'https://developer.android.com' }],
     frontline: false,
     ignoreIndex: false,

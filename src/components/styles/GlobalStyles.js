@@ -498,6 +498,10 @@ export const baseStyles = css`
     margin-left: 0 !important;
   }
 
+  .firstLevel > ul > .item > a {
+    font-weight: bold;
+  }
+
   .showFrontLine .item .item {
     border-left: 1px solid #e6ecf1;
     border-left-color: rgb(230, 236, 241);

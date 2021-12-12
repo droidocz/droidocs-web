@@ -18,8 +18,9 @@ const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, 
   if (typeof document != 'undefined') {
     location = document.location;
   }
-  const active =
-    location && (location.pathname === url || location.pathname === config.gatsby.pathPrefix + url);
+
+  const currentUrl = location && (`${location.pathname}`.replace(/\/+$/, '') || '/')
+  const active = currentUrl === url || currentUrl === config.gatsby.pathPrefix + url;
 
   const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
 
