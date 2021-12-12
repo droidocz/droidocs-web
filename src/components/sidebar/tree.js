@@ -122,6 +122,13 @@ const Tree = ({ edges }) => {
 
   const defaultCollapsed = {};
 
+  let location;
+
+  if (typeof document != 'undefined') {
+    location = document.location;
+  }
+
+
   treeData.items.forEach(item => {
     if (config.sidebar.collapsedNav === true || (config.sidebar.collapsedNav && config.sidebar.collapsedNav.includes(item.url))) {
       const active = location && (location.pathname.startsWith(item.url) || location.pathname.startsWith(config.gatsby.pathPrefix + item.url));
