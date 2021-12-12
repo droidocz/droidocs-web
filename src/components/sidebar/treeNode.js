@@ -24,12 +24,14 @@ const TreeNode = ({ className = '', setCollapsed, collapsed, url, title, items, 
 
   const calculatedClassName = `${className} item ${active ? 'active' : ''}`;
 
+  const canCollapse = !config.sidebar.frontLine && title && hasChildren;
+
   return (
     <li className={calculatedClassName}>
       {title && (
-        <Link to={url}>
+        <Link to={url} onClick={(canCollapse && isCollapsed) ? collapse : () => undefined}>
           {title}
-          {!config.sidebar.frontLine && title && hasChildren ? (
+          {canCollapse ? (
             <button onClick={collapse} aria-label="collapse" className="collapser">
               {!isCollapsed ? <OpenedSvg /> : <ClosedSvg />}
             </button>
