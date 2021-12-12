@@ -40,13 +40,50 @@ The dialog shows only email Apps e.g. Gmail, Yahoo Mail etc. It does not show Bl
 
 ---
 
-This works for me perfectly fine:
+A late answer, although I figured out a solution which could help others:
+
+
+Java version
+------------
 
 
 
 ```
-    Intent intent = new Intent(Intent.ACTION_VIEW);
-    intent.setData(Uri.parse("mailto:" + address));
-    startActivity(Intent.createChooser(intent, "E-mail"));
+Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+emailIntent.setData(Uri.parse("mailto:abc@xyz.com"));
+startActivity(Intent.createChooser(emailIntent, "Send feedback"));
 
 ```
+
+  
+
+Kotlin version
+--------------
+
+
+
+```
+val emailIntent = Intent(Intent.ACTION_SENDTO).apply { 
+    data = Uri.parse("mailto:abc@xyz.com")
+}
+startActivity(Intent.createChooser(emailIntent, "Send feedback"))
+
+```
+
+  
+
+This was my output (only Gmail + Inbox suggested):
+
+
+[![my output](https://i.stack.imgur.com/js4Kw.png)](https://i.stack.imgur.com/js4Kw.png)
+
+
+I got this solution from the [Android Developers](https://developer.android.com/guide/components/intents-common.html#Email) site.
+
+
+
+---
+
+## Notes
+
+- For me it was important that there is no space between `mailto` and the email: `mailto:abc

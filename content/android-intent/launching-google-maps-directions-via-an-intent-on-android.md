@@ -14,37 +14,27 @@ My app needs to show Google Maps directions from A to B, but I don't want to put
 
 ---
 
-**Open Google Maps using Intent with different Modes:**
+Using the latest **cross-platform Google Maps URLs**:
+Even if google maps app is missing it will open in browser
 
 
-We can open Google Maps app using intent:
+Example <https://www.google.com/maps/dir/?api=1&origin=81.23444,67.0000&destination=80.252059,13.060604>
 
 
-
-```
-val gmmIntentUri = Uri.parse("google.navigation:q="+destintationLatitude+","+destintationLongitude + "&mode=b")
-val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-mapIntent.setPackage("com.google.android.apps.maps")
-startActivity(mapIntent)
 
 ```
+Uri.Builder builder = new Uri.Builder();
+builder.scheme("https")
+    .authority("www.google.com")
+    .appendPath("maps")
+    .appendPath("dir")
+    .appendPath("")
+    .appendQueryParameter("api", "1")
+    .appendQueryParameter("destination", 80.00023 + "," + 13.0783);
+String url = builder.build().toString();
+Log.d("Directions", url);
+Intent i = new Intent(Intent.ACTION_VIEW);
+i.setData(Uri.parse(url));
+startActivity(i);
 
-Here, "mode=b" is for bicycle.
-
-
-We can set driving, walking, and bicycling mode by using:
-
-
-* d for driving
-* w for walking
-* b for bicycling
-
-
-You can find more about intent with google maps [here](https://developers.google.com/maps/documentation/urls/android-intents).
-
-
-Note: If there is no route for the bicycle/car/walk then it will show you "Can't find the way there"
-
-
-You can check my original answer [here](https://stackoverflow.com/a/53264392/2024527).
-
+```

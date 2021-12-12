@@ -22,7 +22,19 @@ EDIT: Authors of GMail application have managed to achieve exactly this so it's 
 
 ---
 
-Take a look at [List14 example](http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/view/List14.html). In `getView()` you can call `convertView.setBackgroundDrawable()` for each entry. You could have a class member counter to decide which background to call it with to get alternating backgrounds, for example.
+You have to create a different state drawable for each color you want to use. 
+
+
+For example: `list_selector_read.xml` and `list_selector_unread.xml`. 
+
+
+All you need to do is set everything to transparent except the `android:state_window_focused="false"` item. 
+
+
+Then when you are drawing your list you call `setBackgroundResource(R.drawable.list_selector_unread/read)` for each row. 
+
+
+You don't set a listSelector on the ListView at all. That will maintain the default selector for your particular flavor of Android.
 
 
 
@@ -30,5 +42,7 @@ Take a look at [List14 example](http://developer.android.com/resources/samples/A
 
 ## Notes
 
-- Change your `android:drawSelectorOnTop` to be `false`.
-- Setting BackgroundDrawable has the same effect as setting BackgroundColor - the selector is drawn first so it's hidden.
+- And `row.setBackgroundResource()` happens either in `YourCustomArrayAdapter.getView()` OR else you can forego this altogether by simply setting  `android:background=" on the outermost element of `res/layout/your_list_entry_layout.xml`.
+- wouldn't mind example of the code that goes into list_selector_read.xml
+-  It's a standard [Color State List resource](https://developer.android.com/guide/topics/resources/color-list-resource).
+- Correction: A [State List Drawable resource](https://developer.android.com/guide/topics/resources/drawable-resource#StateList) is needed here, not a Color State List.

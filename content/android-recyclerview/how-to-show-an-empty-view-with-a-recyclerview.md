@@ -27,56 +27,61 @@ I wonder how this can be done with the new [`RecyclerView`](http://developer.and
 
 ---
 
-RVEmptyObserver
-===============
-
-
-Instead of using a custom `RecyclerView`, extending an `AdapterDataObserver` is a simpler solution that allows setting a custom `View` that is displayed when there are no items in the list:
-
-
-**Example Usage:**
+I use ViewSwitcher
 
 
 
 ```
-RVEmptyObserver observer = new RVEmptyObserver(recyclerView, emptyView)
-rvAdapter.registerAdapterDataObserver(observer);
+<ViewSwitcher
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/switcher"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <TextView android:id="@+id/text_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/list_empty"
+        android:gravity="center"
+        />
+
+</ViewSwitcher>
 
 ```
 
-**Class:**
+in code you will check cursor/dataset and switch views.
 
 
 
 ```
-public class RVEmptyObserver extends RecyclerView.AdapterDataObserver {
-    private View emptyView;
-    private RecyclerView recyclerView;
+void showItems(Cursor items) {
+    if (items.size() > 0) {
 
-    public RVEmptyObserver(RecyclerView rv, View ev) {
-        this.recyclerView = rv;
-        this.emptyView    = ev;
-        checkIfEmpty();
-    }
+        mAdapter.switchCursor(items);
 
-    private void checkIfEmpty() {
-        if (emptyView != null && recyclerView.getAdapter() != null) {
-            boolean emptyViewVisible = recyclerView.getAdapter().getItemCount() == 0;
-            emptyView.setVisibility(emptyViewVisible ? View.VISIBLE : View.GONE);
-            recyclerView.setVisibility(emptyViewVisible ? View.GONE : View.VISIBLE);
+        if (R.id.list == mListSwitcher.getNextView().getId()) {
+            mListSwitcher.showNext();
         }
+    } else if (R.id.text_empty == mListSwitcher.getNextView().getId()) {
+        mListSwitcher.showNext();
     }
-
-    public void onChanged() { checkIfEmpty(); }
-    public void onItemRangeInserted(int positionStart, int itemCount) { checkIfEmpty(); }
-    public void onItemRangeRemoved(int positionStart, int itemCount) { checkIfEmpty(); }
 }
 
 ```
 
+Also you can set animations if you wish with a couple lines of code
 
----
 
-## Notes
 
-- I believe that it will run faster if you don't call `checkIfEmpty()` in `onChanged()` and `onItemRangeInserted()`
+```
+mListSwitcher.setInAnimation(slide_in_left);
+mListSwitcher.setOutAnimation(slide_out_right);
+
+```

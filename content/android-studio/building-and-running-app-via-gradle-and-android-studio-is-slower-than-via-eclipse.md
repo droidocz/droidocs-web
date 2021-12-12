@@ -58,48 +58,16 @@ android {
 
 ---
 
-The accepted answer is for older versions of android studio and most of them works still now. Updating android studio made it a little bit faster. Don't bother to specify heap size as it'll increase automatically with the increase of Xms and Xmx. Here's some modification with the VMoptions
+Searched everywhere for this and finally found a solution that works for us. Enabling parallel builds (On OSX: `preferences -> compiler -> gradle -> "Compile independent modules in parallel"`) and enabling 'make project automatically' brought it down from ~1 min to ~20 sec. Thanks to /u/Covalence.
 
 
-1. In bin folder there's a studio.vmoptions file to set the environment configuration. In my case this is studio64.vmoptions
-Add the following lines if they're not added already and save the file. In my case I've 8GB RAM.
+<http://www.reddit.com/r/androiddev/comments/1k3nb3/gradle_and_android_studio_way_slower_to_build/>
 
-
-
-```
--Xms4096m
--Xmx4096m
--XX:MaxPermSize=2048m
--XX:+CMSClassUnloadingEnabled
--XX:+CMSPermGenSweepingEnabled 
--XX:+HeapDumpOnOutOfMemoryError
--Dfile.encoding=utf-8`
-
-```
-2. Start android studio. Go to File-> Settings-> Build, Execution, Deployment-> Compiler
-
-
-	* Check compile independent modules in parallel
-	* In command-line Options write: --offline
-	* Check Make project automatically
-	* Check configure on demand
-
-
-In case of using mac, at first I couldn't find the vmoptions. Anyway, here's a [nice article about how we can change the vmoptions in MAC OSX](http://lifeofcoding.com/2015/01/19/How-to-increase-Android-studio-memory-limit-in-Mac/). Quoting from this article here.
-
-
-Open your terminal and put this command to open the vmoptions in MAC OSX:
-
-
-
-```
-open -e /Applications/Android\ Studio.app/Contents/bin/studio.vmoptions
-
-```
 
 
 ---
 
 ## Notes
 
-- as of AS 2.3.2 you can change vim options by help-&gt; Edit Custom Vm Options
+- 20 seconds is still awfully slow.
+- I've tested it out on a single module app, and it didn't make any difference.

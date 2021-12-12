@@ -274,21 +274,38 @@ How do I get the value from the bundle in SecondActivity.java to the *Fragment\_
 
 ---
 
-From the [Developers website](http://developer.android.com/training/basics/fragments/communicating.html):
+// In Fragment\_1.java
 
 
 
-> 
-> Often you will want one Fragment to communicate with another, for example to change the content based on a user event. All Fragment-to-Fragment communication is done through the associated Activity. Two Fragments should never communicate directly.
-> 
-> 
-> 
+```
+Bundle bundle = new Bundle();
+bundle.putString("key","abc"); // Put anything what you want
+
+Fragment_2 fragment2 = new Fragment_2();
+fragment2.setArguments(bundle);
+
+getFragmentManager()
+      .beginTransaction()
+      .replace(R.id.content, fragment2)
+      .commit();
+
+```
+
+// In Fragment\_2.java
 
 
-You can communicate among fragments with the help of its Activity. You can communicate among activity and fragment using [this approach](http://developer.android.com/guide/components/fragments.html#CommunicatingWithActivity).
 
+```
+Bundle bundle = this.getArguments();
 
-Please check [this link](http://manishkpr.webheavens.com/android-passing-data-between-fragments/) also.
+if(bundle != null){
+     // handle your code here.
+}
+
+```
+
+Hope this help you.
 
 
 
@@ -296,4 +313,4 @@ Please check [this link](http://manishkpr.webheavens.com/android-passing-data-be
 
 ## Notes
 
-- The second link that you have given, shows how to communicate between fragments when they are in the same activity.
+- using `putString` (or `putInt`) is the answer!

@@ -25,85 +25,44 @@ this.invalidateOptionsMenu();
 
 ---
 
-I was looking for an answer with a little more context. Now that I have figured it out, I will add that answer.
+Found an addendum to this question:
 
 
-Hide button by default in menu xml
-==================================
-
-
-By default the share button will be hidden, as set by `android:visible="false"`.
-
-
-[![enter image description here](https://i.stack.imgur.com/cQWRl.png)](https://i.stack.imgur.com/cQWRl.png)
-
-
-*main\_menu.xml*
+If you want to change the visibility of your menu items on the go you just need to set a member variable in your activity to remember that you want to hide the menu and call `invalidateOptionsMenu()` and hide the items in your overridden `onCreateOptionsMenu(...)` method.
 
 
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+//anywhere in your code
+...
+mState = HIDE_MENU; // setting state
+invalidateOptionsMenu(); // now onCreateOptionsMenu(...) is called again
+...
 
-    <!-- hide share button by default -->
-    <item
-        android:id="@+id/menu_action_share"
-        android:icon="@drawable/ic_share_white_24dp"
-        android:visible="false"     
-        android:title="Share"
-        app:showAsAction="always"/>
+@Override
+public boolean onCreateOptionsMenu(Menu menu)
+{
+    // inflate menu from xml
+    MenuInflater inflater = getSupportMenuInflater();
+    inflater.inflate(R.menu.settings, menu);
 
-    <item
-        android:id="@+id/menu_action_settings"
-        android:icon="@drawable/ic_settings_white_24dp"
-        android:title="Setting"
-        app:showAsAction="ifRoom"/>
-
-</menu>
-
-```
-
-Show button in code
-===================
-
-
-But the share button can optionally be shown based on some condition.
-
-
-[![enter image description here](https://i.stack.imgur.com/6nfyr.png)](https://i.stack.imgur.com/6nfyr.png)
-
-
-*MainActivity.java*
-
-
-
-```
-public boolean onCreateOptionsMenu(Menu menu) {
-    MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.main_menu, menu);
-    MenuItem shareItem = menu.findItem(R.id.menu_action_share);
-
-    // show the button when some condition is true
-    if (someCondition) {        
-        shareItem.setVisible(true);
+    if (mState == HIDE_MENU)
+    {
+        for (int i = 0; i < menu.size(); i++)
+            menu.getItem(i).setVisible(false);
     }
-
-    return true;
 }
 
 ```
 
-See also
-========
+In my example I've hidden all items.
 
-
-* [Setting Up the App Bar](https://developer.android.com/training/appbar/setting-up.html) (Android docs for help getting the app/action bar set up)
 
 
 ---
 
 ## Notes
 
-- onPrepareOptionsMenu() should be used for show/hide logic instead of onCreateOptionsMenu() as it is only called once so not useful if you want to change the menu items after its initialization. So inflate in onCreate, but show/hide in onPrepare, then use `invalidateOptionsMenu()` to refresh the menu.
+- Instead of looping through each item here, you could just do: `if (HIDE_MENU) { return false; } else { getSupportMenuInflater().inflate(R.menu.menu_settings, menu); return true; }` The docs state: "You must return true for the menu to be displayed; if you return false it will not be shown".
+- `onPrepareOptionsMenu()` should be used for show/hide logic instead of  `onCreateOptionsMenu()` as it is only called once so not useful if you want to change the menu items after its initialization. So inflate in onCreate, but show/hide in onPrepare.
+- by calling invalidateOptionMenu() onCreateOptionMenu() called and I handle my conditions in onCreateOptionMenu().
