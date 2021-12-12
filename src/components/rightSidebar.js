@@ -5,6 +5,30 @@ import { StaticQuery, graphql } from 'gatsby';
 import config from '../../config';
 import { Sidebar, ListItem } from './styles/Sidebar';
 
+const extractItems = (item) => {
+  if (Array.isArray(item)) {
+    return item.reduce((acc, current) => [...acc, extractItems(current)], [])
+  }
+
+  let items = []
+  if (item.title) {
+    const itemId = item.title
+      ? item.title.replace(/\s+/g, '').toLowerCase()
+      : '#';
+
+    items = [...items, (
+      <ListItem key={itemId} to={`#${itemId}`} level={1}>
+        {item.title}
+      </ListItem>
+    )];
+  }
+  if (item.items && item.items.length) {
+    items = [...items, extractItems(item.items)];
+  }
+
+  return items
+}
+
 const SidebarLayout = ({ location }) => (
   <StaticQuery
     query={graphql`
@@ -24,7 +48,7 @@ const SidebarLayout = ({ location }) => (
     render={({ allMdx }) => {
       let navItems = [];
 
-      let finalNavItems;
+      let finalNavItems
 
       if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
         const navItems = allMdx.edges.map((item, index) => {
@@ -35,18 +59,9 @@ const SidebarLayout = ({ location }) => (
               item.node.fields.slug === location.pathname ||
               config.gatsby.pathPrefix + item.node.fields.slug === location.pathname
             ) {
-              if (item.node.tableOfContents.items) {
-                innerItems = item.node.tableOfContents.items.map((innerItem, index) => {
-                  const itemId = innerItem.title
-                    ? innerItem.title.replace(/\s+/g, '').toLowerCase()
-                    : '#';
 
-                  return (
-                    <ListItem key={index} to={`#${itemId}`} level={1}>
-                      {innerItem.title}
-                    </ListItem>
-                  );
-                });
+              if (item.node.tableOfContents.items) {
+                innerItems = extractItems(item.node.tableOfContents.items)
               }
             }
           }
