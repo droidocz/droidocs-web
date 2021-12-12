@@ -49,79 +49,94 @@ public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
 ---
 
-This is much simple way to do it.
+Look on my solution. I suppose that you should set selected position in holder and pass it as Tag of View. 
+The view should be set in the onCreateViewHolder(...) method. There is also correct place to set listener for view such as OnClickListener or LongClickListener.
 
 
-Have a `private int selectedPos = RecyclerView.NO_POSITION;` in the RecyclerView Adapter class, and under onBindViewHolder method try:
+Please look on the example below and read comments to code.
 
 
 
 ```
-@Override
-public void onBindViewHolder(ViewHolder viewHolder, int position) {   
-    viewHolder.itemView.setSelected(selectedPos == position);
+public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder> {
+    //Here is current selection position
+    private int mSelectedPosition = 0;
+    private OnMyListItemClick mOnMainMenuClickListener = OnMyListItemClick.NULL;
 
+    ...
+
+    // constructor, method which allow to set list yourObjectList
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        //here you prepare your view 
+        // inflate it
+        // set listener for it
+        final ViewHolder result = new ViewHolder(view);
+        final View view =  LayoutInflater.from(parent.getContext()).inflate(R.layout.your_view_layout, parent, false);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //here you set your current position from holder of clicked view
+                mSelectedPosition = result.getAdapterPosition();
+
+                //here you pass object from your list - item value which you clicked
+                mOnMainMenuClickListener.onMyListItemClick(yourObjectList.get(mSelectedPosition));
+
+                //here you inform view that something was change - view will be invalidated
+                notifyDataSetChanged();
+            }
+        });
+        return result;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        final YourObject yourObject = yourObjectList.get(position);
+
+        holder.bind(yourObject);
+        if(mSelectedPosition == position)
+            holder.itemView.setBackgroundColor(Color.CYAN);
+        else
+            holder.itemView.setBackgroundColor(Color.RED);
+    }
+
+    // you can create your own listener which you set for adapter
+    public void setOnMainMenuClickListener(OnMyListItemClick onMyListItemClick) {
+        mOnMainMenuClickListener = onMyListItemClick == null ? OnMyListItemClick.NULL : onMyListItemClick;
+    }
+
+    static class ViewHolder extends RecyclerView.ViewHolder {
+
+
+        ViewHolder(View view) {
+            super(view);
+        }
+
+        private void bind(YourObject object){
+            //bind view with yourObject
+        }
+    }
+
+    public interface OnMyListItemClick {
+        OnMyListItemClick NULL = new OnMyListItemClick() {
+            @Override
+            public void onMyListItemClick(YourObject item) {
+
+            }
+        };
+
+        void onMyListItemClick(YourObject item);
+    }
 }
 
 ```
-
-And in your OnClick event modify:
-
-
-
-```
-@Override
-public void onClick(View view) {
-     notifyItemChanged(selectedPos);
-     selectedPos = getLayoutPosition();
-     notifyItemChanged(selectedPos); 
-}
-
-```
-
-Works like a charm for Navigtional Drawer and other RecyclerView Item Adapters.
-
-
-Note: Be sure to use a background color in your layout using a selector like colabug clarified:
-
-
-
-```
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:drawable="@color/pressed_color" android:state_pressed="true"/>
-  <item android:drawable="@color/selected_color" android:state_selected="true"/>
-  <item android:drawable="@color/focused_color" android:state_focused="true"/>
-</selector>
-
-```
-
-Otherwise setSelected(..) will do nothing, rendering this solution useless.
-
 
 
 ---
 
 ## Notes
 
-- I used this solution with a background drawable/selector set on my row view: 
-```
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="
-          android:state_pressed="true"/>
-    <item android:drawable="
-          android:state_selected="true"/>
-    <item android:drawable="
-          android:state_focused="true"/>
-</selector>
-```
--  getLayoutPosition is method of ViewHolder class whose object is passed as first parameter in bind view method. So it can be accessed by `vieHolder.getLayoutPosition`
-- getLayoutPosition() isn't available by me.
-- Don't just use -1, use RecyclerView.NO_POSITION; (which is -1)
-- Is "selectedPosition" in the onClick method supposed to be "selectedPos"?
-- `viewHolder.itemView.setSelected(selectedPos == position)` didn't work for me.
-- My problem is that the first item already has the background highlighted even before the onClick method is called.
-- I guess setting selectedPos as -1 rather than 0 would solve that issue
--  Sarma Do you mean the "int" variable should be set up like this: "private int selectedPos = RecyclerView.NO_POSITION"?
-- Works fine except the first item is already highlighted even before the onClick method is called.
-- If an item is clicked again, it is replaced my another in the recycler view.
-- Nice stuff, but the app crashes using RecyclerView.NO_POSITION, after setting selectedPos = 0, solved the crash.
+- There is many solution... You can use getter and setter, You can create your own method saveInstanceState for adapter and call it in saveInstanceState from Activity/Fragment
+- Do you think mSelectedPosition can be declared as static to maintain configuration changes?
+- screen rotation) we can declare this variable in activity and get it from there, right?

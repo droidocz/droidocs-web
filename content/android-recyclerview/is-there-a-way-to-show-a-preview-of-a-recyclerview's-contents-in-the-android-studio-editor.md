@@ -14,30 +14,12 @@ When I add the RecyclerView to the layout, it shows up as a blank screen. Is the
 
 ---
 
-@oRRs is right !
+As of Android Studio 1.3.1 it shows default list items in the preview but it doesn't let yout specify your own yet. Hopefully, it will come.
 
-
-I'm using Android Studio 1.4 RC2 and you can now specify any custom layout.
-
-
-I tried a custom CardView and it works.
-
-
-
-```
-tools:listitem="@android:layout/simple_list_item_checked"
-
-```
 
 
 ---
 
 ## Notes
 
-- If you also wish to set the orientation to be horizontal , you can: `tools:orientation="horizontal"`
-- In addition to specifying `tools:orientation="horizontal"` or `android:orientation="horizontal"` I also had to specify `app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"` as per https://stackoverflow.com/questions/35681433/previewing-horizontal-recyclerview-in-android-studio
-- Is there a way to show two types of items previewed. Sometimes RecyclerView shows more than one item Types.
-- is there anyway to use ItemDecorations .?
-- this has been an annoyance for me for a long time
-- Don't use camel casing for 'listItem'.
-- For me i currently just have to write `tools:listitem="
+- Just right-click the RecyclerView in the layout editor and choose "Preview list content". Unfortunately, you still cannot use it for your own layouts, at least for me it's throwing a rendering error.

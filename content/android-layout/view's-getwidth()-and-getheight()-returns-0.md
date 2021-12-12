@@ -66,13 +66,42 @@ Any help is appreciated.
 
 ---
 
-You are calling `getWidth()` too early. The UI has not been sized and laid out on the screen yet.
+As Ian states in [this Android Developers thread](http://groups.google.com/group/android-developers/browse_thread/thread/a53372e1c468ef01?pli=1):
 
 
-I doubt you want to be doing what you are doing, anyway -- widgets being animated do not change their clickable areas, and so the button will still respond to clicks in the original orientation regardless of how it has rotated.
 
-
-That being said, you can use a [dimension resource](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension) to define the button size, then reference that dimension resource from your layout file and your source code, to avoid this problem.
+> 
+> Anyhow, the deal is that layout of the
+>  contents of a window happens
+>  *after* all the elements are constructed and added to their parent
+>  views. It has to be this way, because
+>  until you know what components a View
+>  contains, and what they contain, and
+>  so on, there's no sensible way you can
+>  lay it out.
+> 
+> 
+> Bottom line, if you call getWidth()
+>  etc. in a constructor, it will return
+>  zero. The procedure is to create all
+>  your view elements in the constructor,
+>  then wait for your View's
+>  onSizeChanged() method to be called --
+>  that's when you first find out your
+>  real size, so that's when you set up
+>  the sizes of your GUI elements.
+> 
+> 
+> Be aware too that onSizeChanged() is
+>  sometimes called with parameters of
+>  zero -- check for this case, and
+>  return immediately (so you don't get a
+>  divide by zero when calculating your
+>  layout, etc.). Some time later it
+>  will be called with the real values.
+> 
+> 
+> 
 
 
 
@@ -80,11 +109,6 @@ That being said, you can use a [dimension resource](http://developer.android.com
 
 ## Notes
 
--  - if you want negreenwood6 to be notified of your follow up, you have to start your message like I did to you (I think first three letters is enough) - CommonsWare gets notified automatically, since he wrote this response, but ngreen doesn't unless you address them.
-- 
- public void onWindowFocusChanged(boolean hasFocus) {
-  // TODO Auto-generated method stub
-  super.onWindowFocusChanged(hasFocus);
-  //Here you can get the size!
- }
-- Use this listener to get size, when is your screen ready. view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {}
+- onWindowFocusedChanged doesn't get called in my custom view.
+- this looks a good solution, but what should i always create my custom view to override onSizeChanged method?
+- `Bottom line, if you call getWidth() etc. in a constructor, it will return zero.` that's a bingo.

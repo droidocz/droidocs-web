@@ -27,35 +27,55 @@ I also know I can use `PackageManager` to get all the installed applications, bu
 
 ---
 
-Here's a cleaner way using the `PackageManager`
+Here a good example:
 
 
 
 ```
-final PackageManager pm = getPackageManager();
-//get a list of installed apps.
-List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
-
-for (ApplicationInfo packageInfo : packages) {
-    Log.d(TAG, "Installed package :" + packageInfo.packageName);
-    Log.d(TAG, "Source dir : " + packageInfo.sourceDir);
-    Log.d(TAG, "Launch Activity :" + pm.getLaunchIntentForPackage(packageInfo.packageName)); 
+class PInfo {
+    private String appname = "";
+    private String pname = "";
+    private String versionName = "";
+    private int versionCode = 0;
+    private Drawable icon;
+    private void prettyPrint() {
+        Log.v(appname + "\t" + pname + "\t" + versionName + "\t" + versionCode);
+    }
 }
-// the getLaunchIntentForPackage returns an intent that you can use with startActivity() 
+
+private ArrayList<PInfo> getPackages() {
+    ArrayList<PInfo> apps = getInstalledApps(false); /* false = no system packages */
+    final int max = apps.size();
+    for (int i=0; i<max; i++) {
+        apps.get(i).prettyPrint();
+    }
+    return apps;
+}
+
+private ArrayList<PInfo> getInstalledApps(boolean getSysPackages) {
+    ArrayList<PInfo> res = new ArrayList<PInfo>();        
+    List<PackageInfo> packs = getPackageManager().getInstalledPackages(0);
+    for(int i=0;i<packs.size();i++) {
+        PackageInfo p = packs.get(i);
+        if ((!getSysPackages) && (p.versionName == null)) {
+            continue ;
+        }
+        PInfo newInfo = new PInfo();
+        newInfo.appname = p.applicationInfo.loadLabel(getPackageManager()).toString();
+        newInfo.pname = p.packageName;
+        newInfo.versionName = p.versionName;
+        newInfo.versionCode = p.versionCode;
+        newInfo.icon = p.applicationInfo.loadIcon(getPackageManager());
+        res.add(newInfo);
+    }
+    return res; 
+}
 
 ```
-
-More info here <http://qtcstation.com/2011/02/how-to-launch-another-app-from-your-app/>
-
 
 
 ---
 
 ## Notes
 
-- This code is working however, do you have any idea on how to put those list of application in a ListView?
-- Make sure you are not filtering out debug log statements.
-- http://stackoverflow.com/questions/21371491/create-app-shortcut-inside-the-custom-launcher-in-android
--  Ramirez is it possible to find memory size consumed by each installed app ?
-- I have tried this on Andriod 6.0 it still shows an application as installed after it has been uninstalled.
-- read this here - http://www.vogella.com/tutorials/AndroidListView/article.html
+- I mean, can you get the Intent?

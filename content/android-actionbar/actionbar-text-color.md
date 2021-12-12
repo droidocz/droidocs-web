@@ -22,28 +22,18 @@ Ok, I'm able to change the text color with the attribute android:textColorPrimar
 
 ---
 
-Ok, I've found a better way. I'm now able to only change the color of the title. You can also tweak the subtitle.
-
-
-**Here is my styles.xml:**
+The ActionBar ID is not available directly, so you have to do little bit of hacking here.
 
 
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-  <style name="MyTheme" parent="@android:style/Theme.Holo.Light">
-    <item name="android:actionBarStyle">@style/MyTheme.ActionBarStyle</item>
-  </style>
-
-  <style name="MyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
-    <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
-  </style>
-
-  <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
-    <item name="android:textColor">@color/red</item>
-  </style>
-</resources>
+int actionBarTitleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
+if (actionBarTitleId > 0) {
+    TextView title = (TextView) findViewById(actionBarTitleId);
+    if (title != null) {
+        title.setTextColor(Color.RED);
+    }
+}
 
 ```
 
@@ -52,13 +42,6 @@ Ok, I've found a better way. I'm now able to only change the color of the title.
 
 ## Notes
 
-- However, for consistency, you should be inheriting from `Widget.Holo.Light.ActionBar` for `MyTheme.ActionBarStyle`.
-- If you are using Appcompat library, replace Holo with AppCompat.
--  I had the same problem, but the next answer works for me -- instead of parent=" use  parent="
-- Won't build - ADT complains that it requires v13 or above (so ... won't work on most Android handsets :( )
--  Use Widget.AppCompat.Light.ActionBar
-- Just to be precise, use " and not "
-- Finally worked after setting name="titleTextStyle" instead of name="android:titleTextStyle" in MyTheme.ActionBarStyle
-- for those who are saying that they were unable to get it working in appcompat.
-- Is it possible to change it programatically?
-- I want the holo light theme with a black background action bar with white text and the blue underline as well...
+- In case you're running API level &lt; 11, ActionBarSherlock and you'd like to save yourself an expensive call to `getIndentifier()`, you can look in `(TextView) findViewById(com.actionbarsherlock.R.id.abs__action_bar_title);` first (be sure to check if it's not null).
+- `NullPointerException` on this line `actionBarTextView.setTextColor(Color.RED);`
+- "The ActionBar ID is not available directly" actually in my case the toolbar is easily accessible like `Toolbar toolbar = findViewById(R.id.toolbar);` where in the xml layout file it is surrounded by `com.google.android.material.appbar.AppBarLayout` element, then `toolbar.setTitleTextColor( getResources().getColor( R.color.colorViolet ) );`

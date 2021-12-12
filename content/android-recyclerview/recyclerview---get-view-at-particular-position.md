@@ -252,27 +252,5 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 ---
 
-**This is what you're looking for**.
+If you want the `View`, make sure to access the `itemView` property of the ViewHolder like so: `myRecyclerView.findViewHolderForAdapterPosition(pos).itemView;`
 
-
-I had this problem too. And like you, the answer is very hard to find. But there IS an easy way to get the ViewHolder from a specific position (something you'll probably do a lot in the Adapter).
-
-
-`myRecyclerView.findViewHolderForAdapterPosition(pos);`
-
-
-**NOTE:** If the View has been recycled, this will return `null`. Thanks to Michael for quickly catching my important omission.
-
-
-
----
-
-## Notes
-
-- This works, however, if the `ViewHolder` you are trying to reference was "recycled", it will return `null`.
-- That's a warning to all you out there, test for null first (yeah, like everything else in Android)!
--  : You can use this from anything that can access the RecyclerView instance.
--   Children that are not visible don't really exist in the world of RecyclerViews. The `onBindViewHolder()` is called once the View is about to be displayed, which is the best you can do. To access children, you have to manually traverse the hierarchy, as usual. So that's a long-winded way of saying, "Not that I know."
-- As a supplement to  answer Click [here](https://stackoverflow.com/a/49061085/1457696)
-- For those who are struggling to find `RecycledViews` store the holders in List. Have a look at this answer https://stackoverflow.com/a/49554028/6549598
--  is there any way to access children that are not yet shown or visible ?

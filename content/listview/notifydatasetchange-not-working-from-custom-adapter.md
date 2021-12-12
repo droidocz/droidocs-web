@@ -147,32 +147,32 @@ Works, but not how it is supposed to work.
 
 ---
 
-Change your method from 
+As I have already explained the reasons behind this issue and also how to handle it in a different answer thread [Here](https://stackoverflow.com/a/20479071/1084174). Still i am sharing the solution summary here.
 
 
-
-```
-public void updateReceiptsList(List<Receipt> newlist) {
-    receiptlist = newlist;
-    this.notifyDataSetChanged();
-}
-
-```
-
-To
+One of the main reasons `notifyDataSetChanged()` won't work for you - is, 
 
 
+**Your adapter loses reference to your list**. 
 
-```
-public void updateReceiptsList(List<Receipt> newlist) {
-    receiptlist.clear();
-    receiptlist.addAll(newlist);
-    this.notifyDataSetChanged();
-}
 
-```
+When creating and adding a new list to the `Adapter`. Always follow these guidelines: 
 
-So you keep the same object as your DataSet in your Adapter.
+
+1. Initialise the `arrayList` while declaring it globally.
+2. Add the List to the adapter directly with out checking for null and empty
+values . Set the adapter to the list directly (don't check for any
+condition). Adapter guarantees you that wherever you make
+changes to the data of the `arrayList` it will take care of it, but never loose the
+reference.
+3. Always modify the data in the arrayList itself (if your data is completely new
+than you can call `adapter.clear()` and `arrayList.clear()` before
+actually adding data to the list) but don't set the adapter i.e If
+the new data is populated in the `arrayList` than just
+`adapter.notifyDataSetChanged()`
+
+
+Hope this helps.
 
 
 
@@ -180,12 +180,4 @@ So you keep the same object as your DataSet in your Adapter.
 
 ## Notes
 
-- Can you maybe explain why the first method doesn't work and the second works with a BaseAdapter?
--  can ArrayAdapters even bind to Objects other than Lists or Arrays?
--  I had used the second way by clearing and add new items.
-- btw, are you talking about the `ArrayAdapter` only? I would have no idea why exchanging the list object should make a problem in a `BaseAdapter`... But I can't get a BaseAdapter to work properly, without resetting the adapter instead of calling `notifyDataSetChanged`...×Comments may only be edited for 5 minutes×Comments may only be edited for 5 minutes×Comments may only be edited for 5 minutes
--  I can't imagine the first solution working, because all you do is change the reference of the `receiptlist` variable. The `BaseAdapter` has no knowledge of this, so `notifyDataSetChanged()` would not change anything. You should work on your initial reference `List` and remove/add items to that `List`.
-- consider having a parent object like `ReceiptListObject` instead of a `List` of objects, what can you do then to solve this problem?
 - https://stackoverflow.com/questions/66827414/android-update-listview-through-baseadapter-in-postexecute-not-working
-- But in 2nd Same Adapter it gives a force close says ArrayOutOfIndex and notifydatasetchanged not working
-- it's about a `BaseAdapter` and this adapter does not know to which data it is binded... so if I have an custom object and use custom functions of this object (like `custObject.getCount()` and `custObject.getChildAt(int i)` for example), and I want to exchange this object, `notifyDataSetChanged` is not working... anyway, I think this problem does never occur with an `ArrayAdapter`

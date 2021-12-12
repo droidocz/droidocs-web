@@ -34,28 +34,25 @@ My question is, in a Java file, how can I get the currently displayed Fragment i
 
 ---
 
-When you add the fragment in your transaction you should use a tag.
+I know it's an old post, but was having trouble with it previously too. Found a solution which was to do this in the `onBackStackChanged()` listening function
 
 
 
 ```
-fragTrans.replace(android.R.id.content, myFragment, "MY_FRAGMENT");
+  @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+         Fragment f = getActivity().getFragmentManager().findFragmentById(R.id.fragment_container);
+      if(f instanceof CustomFragmentClass) 
+        // do something with f
+        ((CustomFragmentClass) f).doSomething();
+
+    }
 
 ```
 
-...and later if you want to check if the fragment is visible:
-
-
-
-```
-MyFragment myFragment = (MyFragment)getSupportFragmentManager().findFragmentByTag("MY_FRAGMENT");
-if (myFragment != null && myFragment.isVisible()) {
-   // add your code here
-}
-
-```
-
-See also <http://developer.android.com/reference/android/app/Fragment.html>
+This worked for me as I didn't want to iterate through every fragment I have to find one that is visible. Hope it helps someone else too.
 
 
 
@@ -63,20 +60,8 @@ See also <http://developer.android.com/reference/android/app/Fragment.html>
 
 ## Notes
 
-- Ok, but I need a way to immediately get the currently displayed Fragment instance, not iteratively check through all fragments and then decide which fragment is now displayed on the screen. I think your answer needs my code to iteratively check each of my fragments, and find out the visible one ...
-- Yes, but there could be more than one fragment visible at a time.
-- BUT Asker wants the currently displayed fragment, which means he doesn't know which fragment is displayed.
-- Ok, even there are several fragments displayed, I still need a way to get them... and a way which is better than iteratively check each of my fragments . I am concern on "get them" a method like getDisplayedFragment(), but not sure is there such method in Android
-- You need also to put the TAG in the addToBackStack().
-- If your phone is turned of isVisible will return false. Therefore this method does not indicates correct if fragment is the stack top one.
-- Suppose I have 10 Fragment then I need to write multiple line of code for checking which fragment is active.
-- fragTrans.replace(android.R.id.content, myFragment, "MY_FRAGMENT"); is used to set a TAG. But when I find the fragment later by TAG, it's null.
-- `MainFragment myFragment = (MainFragment)getSupportFragmentManager().findFragmentById(R.id.frame_layout);            
-if (myFragment != null && myFragment.isVisible())
-            {
-                Log.d(TAG,"myFragment is opened");
-            }
-            else
-            {
-                Log.d(TAG,"myFragment is not opened and null");
-            }`  try this , with the help of this you dont have to keep track of every fragment tag. instead, use `findFragmentById` to find fragment and cast with class name and you can have condition for checking every fragment.
+- in case `.getFragmentManager` reports incompatible type, as it did in my case, it is because I was using the `android.support.app.v4.Fragment`, in which case the right method to use is `getSupportFragmentManager`
+- or you can use `findFragmentByTag()` in place of `findFragmentById`, if you have provided tag to fragment when adding it to `fragmentManager.beginTransaction()
+                .add(containerID, frag, fragmentTag)
+                .addToBackStack(fragmentTag)
+                .commit();`

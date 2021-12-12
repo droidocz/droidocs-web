@@ -110,6 +110,6 @@ Correct. `createChooser()` forces a choice, but does not allow setting a default
 ## Notes
 
 -  Then sometime I will work on figuring out how they do it, then report the security flaw to Google and try to get the flaw fixed.
+- What you have described is what I have been experiencing, but this is not what I have noticed from other apps. If you download Famigo app from google play store, you will see what I mean. When Famigo is not default app, a dialog comes up saying that user must set the app as default otherwise certain features cannot be accessed. Once you do that, when you go to device settings it says as default launcher that "chosen to launch app by default for some actions". Inside the Famigo app, you can undo this default setting with one button click.
 - How can forcefully show my launcher as default launcher[Without any popup's even user press on Home button]
 How to forcefully press on ALWAYS through programatically
-- What you have described is what I have been experiencing, but this is not what I have noticed from other apps. If you download Famigo app from google play store, you will see what I mean. When Famigo is not default app, a dialog comes up saying that user must set the app as default otherwise certain features cannot be accessed. Once you do that, when you go to device settings it says as default launcher that "chosen to launch app by default for some actions". Inside the Famigo app, you can undo this default setting with one button click.

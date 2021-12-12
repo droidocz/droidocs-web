@@ -509,6 +509,6 @@ Your `Service` returns an instance of itself to consumers who call `onBind`. The
 
 ## Notes
 
+- The problem with `LocalBroadcastManager` is that it's non-blocking and you have to wait for results.
 - I've used a `LocalBroadcastManager` to continuously exchange data between two `Activity` instances.
 - Can you please help me with this question https://stackoverflow.com/questions/51508046/binding-a-jobintentservice-to-a-activity
-- The problem with `LocalBroadcastManager` is that it's non-blocking and you have to wait for results.

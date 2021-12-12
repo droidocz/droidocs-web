@@ -28,56 +28,26 @@ How can I track done button when it is hit from screen keyboard?
 
 ---
 
-I ended up with a combination of Roberts and chirags answers:
+Try this, it should work for what you need: 
+
+
+
+
+---
 
 
 
 ```
-((EditText)findViewById(R.id.search_field)).setOnEditorActionListener(
-        new EditText.OnEditorActionListener() {
+editText.setOnEditorActionListener(new EditText.OnEditorActionListener() {
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        // Identifier of the action. This will be either the identifier you supplied,
-        // or EditorInfo.IME_NULL if being called due to the enter key being pressed.
-        if (actionId == EditorInfo.IME_ACTION_SEARCH
-                || actionId == EditorInfo.IME_ACTION_DONE
-                || event.getAction() == KeyEvent.ACTION_DOWN
-                && event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-            onSearchAction(v);
-            return true;
-        }
-        // Return true if you have consumed the action, else false.
-        return false;
+    if (actionId == EditorInfo.IME_ACTION_DONE) {
+       //do here your stuff f
+       return true;
     }
+    return false;
+    } 
 });
-
-```
-
-**Update:**
-The above code would some times activate the callback twice. Instead I've opted for the following code, which I got from the Google chat clients:
-
-
-
-```
-public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-    // If triggered by an enter key, this is the event; otherwise, this is null.
-    if (event != null) {
-        // if shift key is down, then we want to insert the '\n' char in the TextView;
-        // otherwise, the default action is to send the message.
-        if (!event.isShiftPressed()) {
-            if (isPreparedForSending()) {
-                confirmSendMessageIfNeeded();
-            }
-            return true;
-        }
-        return false;
-    }
-
-    if (isPreparedForSending()) {
-        confirmSendMessageIfNeeded();
-    }
-    return true;
-}
 
 ```
 
@@ -86,8 +56,7 @@ public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
 ## Notes
 
-- After I also looked for ACTION_DOWN and KEYCODE_ENTER it finally triggered onEditorAction(). Since I see no difference in the built-in keyboard (I expected the Enter key to be highlighted) I wonder what the point is of using android:imeOptions="actionSend" for the EditText XML layout.
-- What is `isPreparedForSending()` and why the second method returns `true`?
-- http://developer.android.com/reference/android/widget/TextView.OnEditorActionListener.html (Description of what an 'event' is affirms same.)
--  It is probably a function to check against invalid strings before sending. IE, is the text in the EditText null / empty. Just a guess, but it makes logical sense.
-- But this can't work as multiline textView!,In this U can't create the multiline TextView witch using in chat..
+- As far as I've been able to understand, HTC implemented their own soft keyboard which ignores the imeOptions.
+- just to be safe, make sure that action in the code and the view matches   ``<EditText android:imeOptions="actionDone" 
+    android:inputType="text"/>``
+- This suffices (no need to look at event action or key code, as in accepted answer); works on my Nexus and Samsung test devices.

@@ -101,123 +101,64 @@ which indicates `listener` is not working
 
 ---
 
-You have to use `Appcompat` library for that. Which is used like below:  
+If you would like to setup the search facility inside your `Fragment`, just add these few lines: 
 
 
-
-**dashboard.xml**
-
-
-
-```
-<menu xmlns:android="http://schemas.android.com/apk/res/android" 
-      xmlns:tools="http://schemas.android.com/tools"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <item
-        android:id="@+id/action_search"
-        android:icon="@android:drawable/ic_menu_search"
-        app:showAsAction="always|collapseActionView"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        android:title="Search"/>
-</menu>
-
-```
-
-**Activity file (in Java):**
+**Step 1** - Add the search field to you `toolbar`: 
 
 
 
 ```
-public boolean onCreateOptionsMenu(Menu menu) {
-    MenuInflater menuInflater = getMenuInflater();
-    menuInflater.inflate(R.menu.dashboard, menu);
+<item
+    android:id="@+id/action_search"
+    android:icon="@android:drawable/ic_menu_search"
+    app:showAsAction="always|collapseActionView"
+    app:actionViewClass="android.support.v7.widget.SearchView"
+    android:title="Search"/>
 
-     MenuItem searchItem = menu.findItem(R.id.action_search);
+```
 
-    SearchManager searchManager = (SearchManager) MainActivity.this.getSystemService(Context.SEARCH_SERVICE);
+**Step 2** - Add the logic to your `onCreateOptionsMenu()`
 
-    SearchView searchView = null;
-    if (searchItem != null) {
-        searchView = (SearchView) searchItem.getActionView();
-    }
-    if (searchView != null) {
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(MainActivity.this.getComponentName()));
-    }
-        return super.onCreateOptionsMenu(menu);
+
+
+```
+import android.support.v7.widget.SearchView; // not the default !
+
+@Override
+public boolean onCreateOptionsMenu( Menu menu) {
+    getMenuInflater().inflate( R.menu.main, menu);
+
+    MenuItem myActionMenuItem = menu.findItem( R.id.action_search);
+    searchView = (SearchView) myActionMenuItem.getActionView();
+    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            // Toast like print
+            UserFeedback.show( "SearchOnQueryTextSubmit: " + query);
+            if( ! searchView.isIconified()) {
+                searchView.setIconified(true);
+            }
+            myActionMenuItem.collapseActionView();
+            return false;
+        }
+        @Override
+        public boolean onQueryTextChange(String s) {
+            // UserFeedback.show( "SearchOnQueryTextChanged: " + s);
+            return false;
+        }
+    });
+    return true;
 }
 
 ```
-
-**Activity file (in Kotlin):**
-
-
-
-```
-override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-    menuInflater.inflate(R.menu.menu_search, menu)
-
-    val searchItem: MenuItem? = menu?.findItem(R.id.action_search)
-    val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-    val searchView: SearchView? = searchItem?.actionView as SearchView
-
-    searchView?.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-    return super.onCreateOptionsMenu(menu)
-}
-
-```
-
-**manifest file:**
-
-
-
-```
-<meta-data 
-      android:name="android.app.default_searchable" 
-      android:value="com.apkgetter.SearchResultsActivity" /> 
-
-        <activity
-            android:name="com.apkgetter.SearchResultsActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleTop" >
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
-
-```
-
-**searchable xml file:**
-
-
-
-```
-<?xml version="1.0" encoding="utf-8"?>
-<searchable xmlns:android="http://schemas.android.com/apk/res/android"
-    android:hint="@string/search_hint"
-    android:label="@string/app_name" />
-
-```
-
-And at last, your `SearchResultsActivity` class code. for showing result of your search.
-
 
 
 ---
 
 ## Notes
 
-- Note that now you should `import android.support.v7.widget.SearchView`
-- Note the   app:actionViewClass   instead of   android:actionViewClass
-- If you've migrated to androidX use: `androidx.appcompat.widget.SearchView`
-- I will just link the official documentation where you can also find how to react to the query
-https://developer.android.com/training/search/setup.html
-- How can i return search result from SearchResultsActivity to MaiActivity?
-- You should update your answer and add `app:showAsAction="always|collapseActionView"`
+- This will allow you to stay on the same activity/fragment and just update a view based on the users input.
+- UserFeedback ... is my Toast-alike method.
+- public void onCreateOptionsMenu( Menu menu,  MenuInflater inflater) {
+} you can directly call this method here you can infilate own menu, and handle this directoly from from fragment without using activity.

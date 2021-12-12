@@ -33,16 +33,47 @@ According to android API 21 sources, EditTexts with material design seem to use 
 
 ---
 
-Finally, I have found a solution. It simply consists of overriding the value for `colorControlActivated`, `colorControlHighlight` and `colorControlNormal` in your app theme definition and not your edittext style. Then, think to use this theme for whatever activity you desire. Below is an example:
+While [Laurents solution](https://stackoverflow.com/a/26631227/982852) is correct, it comes with some drawbacks as described in the comments since not only the bottom line of the `EditText` gets tinted but the Back Button of the `Toolbar`, `CheckBoxes` etc. as well.
+
+
+Luckily `v22.1` of `appcompat-v7` introduced some new possibilities. Now it's possible to assign a specific theme only to one view. Straight from the [Changelog](http://developer.android.com/tools/support-library/features.html#v7-appcompat):
+
+
+
+> 
+> Deprecated use of app:theme for styling Toolbar. **You can now use** android:theme for toolbars on all API level 7 and higher devices and **android:theme** support **for all widgets** on API level 11 and higher devices. 
+> 
+> 
+> 
+
+
+So instead of setting the desired color in a global theme, we create a new one and assign it only to the `EditText`.
+
+
+**Example:**
 
 
 
 ```
-<style name="Theme.App.Base" parent="Theme.AppCompat.Light.DarkActionBar">
-    <item name="colorControlNormal">#c5c5c5</item>
-    <item name="colorControlActivated">@color/accent</item>
-    <item name="colorControlHighlight">@color/accent</item>
+<style name="MyEditTextTheme">
+    <!-- Used for the bottom line when not selected / focused -->
+    <item name="colorControlNormal">#9e9e9e</item>
+    <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
 </style>
+
+```
+
+
+
+---
+
+
+
+```
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/MyEditTextTheme"/>
 
 ```
 
@@ -51,10 +82,7 @@ Finally, I have found a solution. It simply consists of overriding the value for
 
 ## Notes
 
-- If you are using the AppCompat v22 support library, you can specify the theme in the EditText like: `android:theme=" This will ensure the style won't also affect other views in your layouts that you don't want to change.
-- This changes the color of the bottom line but it also changes every other control like check boxes, radio buttons etc. It also changes every EditText across the whole Application / Activity. If you want to change the bottom line of a single EditText (like I do) then you have to override the android:background property for that EditText.
-- I see the color of the menu hamburger, back button, and scroll bar have changed to colorControlNormal.
-- The activity should inherit from `AppCompatActivity`. It will not work if it inherits from `Activity`.
-- Creating a custom EditText loses these colors that you define in Styles XML from AppCompat Library. And use it programmatically in your custom EditText's constructor.
-- What things will be affected by above changes ?
-- For some reason I had to use `android:colorControlNormal`, `android:colorControlActivated` and `android:colorControlHighlight` for it to work.
+- using &lt;item name="colorAccent"&gt;#000000&lt;/item&gt; worked for me instead of colorControlNormal.
+- `colorControlNormal` without the android prefix uses the appcompat method to tint widgets while with the prefix it fallsback to the system method and this is only available in API 21+ devices.
+- hmm, I tested on my lollipop device and it wont tint to the custom color unless you implement it in v21 styles with the android namespace also.
+- I am using `22.2.0` version of AppCompat but this trick is not working :(

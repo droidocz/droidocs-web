@@ -73,7 +73,7 @@ Taken from here: [How do I change the background color of the ActionBar of an Ac
 
 ## Notes
 
-- What do you mean by "Then set "MyCustomTheme" as the Theme of your Activity that contains the ActionBar."
 - what about remaining valuesv14 and valuesv21 styles.xml files in android
-- How would one go about changing the title textStyle?
+- What do you mean by "Then set "MyCustomTheme" as the Theme of your Activity that contains the ActionBar."
 -  use ```setTheme(R.style.MyCustomTheme)```  in the onCreate method of your activity.
+- How would one go about changing the title textStyle?

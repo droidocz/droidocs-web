@@ -22,5 +22,5 @@ You can use [scrollToPosition()](http://developer.android.com/reference/android/
 ## Notes
 
 - Based on the doc, " RecyclerView does not implement scrolling logic, rather forwards the call to scrollToPosition(int)". It does not implement the logic, simply call this function will does nothing.
-- Image in the list item is the cause?
 - Same as previous answer - If recycle view element is big (image for example) this show only start if item. So this not real scroll to bottom (I can still scroll more by hand after this)
+- Image in the list item is the cause?

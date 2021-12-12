@@ -85,22 +85,78 @@ Anyone an idea?
 
 ---
 
-The solution to this is actually easier than I thought. You can simply add in your custom adapter's `getView()` method a setOnClickListener() for the buttons you're using.
+This is sort of an appendage @znq's answer...
 
 
-Any data associated with the button has to be added with `myButton.setTag()` in the `getView()` and can be accessed in the onClickListener via `view.getTag()`
+There are many cases where you want to know the row position for a clicked item AND you want to know which view in the row was tapped. This is going to be a lot more important in tablet UIs.
 
 
-I posted a detailed solution on [my blog](http://www.geekmind.net/2009/11/android-custom-list-item-with-nested.html) as a tutorial.
+You can do this with the following custom adapter:
 
+
+
+```
+private static class CustomCursorAdapter extends CursorAdapter {
+
+    protected ListView mListView;
+
+    protected static class RowViewHolder {
+        public TextView mTitle;
+        public TextView mText;
+    }
+
+    public CustomCursorAdapter(Activity activity) {
+        super();
+        mListView = activity.getListView();
+    }
+
+    @Override
+    public void bindView(View view, Context context, Cursor cursor) {
+        // do what you need to do
+    }
+
+    @Override
+    public View newView(Context context, Cursor cursor, ViewGroup parent) {
+        View view = View.inflate(context, R.layout.row_layout, null);
+
+        RowViewHolder holder = new RowViewHolder();
+        holder.mTitle = (TextView) view.findViewById(R.id.Title);
+        holder.mText = (TextView) view.findViewById(R.id.Text);
+
+        holder.mTitle.setOnClickListener(mOnTitleClickListener);
+        holder.mText.setOnClickListener(mOnTextClickListener);
+
+        view.setTag(holder);
+
+        return view;
+    }
+
+    private OnClickListener mOnTitleClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            final int position = mListView.getPositionForView((View) v.getParent());
+            Log.v(TAG, "Title clicked, row %d", position);
+        }
+    };
+
+    private OnClickListener mOnTextClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            final int position = mListView.getPositionForView((View) v.getParent());
+            Log.v(TAG, "Text clicked, row %d", position);
+        }
+    };
+}
+
+```
 
 
 ---
 
 ## Notes
 
-- Watch this talk at 11:39 there is an excellent example: http://youtu.be/wDBM6wVEO70?t=11m39s
-
-Then do what  says...setTag() when the convertView==null and do getTag() in the onClick() method of the button's onClickListener().
-- I ask it because I'm using the same custom adapter class to inflate different menus, and I wouldn't like to have my ListAdapter class full of conditionals depending on the menu I'm inflating and the button I'm tapping
-- how exacly did you get the curItem.url from query, would you be more specific?
+- or you can also use something like this ListView mListView = (ListView) v.getParent().getParent();
+- How can I get the position if I use the adapter in a separate class. I simply used the position inside OnClickListener, something like this like_c.get(position) . It suggest to make the position to final in getView method of the adapter. If I make that change the position I get is same for all the items in the lisview.
+- I am using your code in my app but the click event is called after a delay or when I try to scroll the listview.
+-  If you're using the getView() method of the adapter then you already have the position passed to you in the method params. In that case you could use something like setTag() to store the position information.
+- Thats because when you use the position parameter of the getView method it gives you the position of the item of the list which is most recently created but not the one you clicked

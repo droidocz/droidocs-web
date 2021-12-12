@@ -17,36 +17,42 @@ If it is not possible please tell me how to make a custom `CheckBox`?
 
 ---
 
-You can change the color directly in XML. Use `buttonTint` for the box: *(as of API level 23)*
+If your `minSdkVersion` is 21+ use `android:buttonTint` attribute to update the color of a checkbox:
 
 
 
 ```
 <CheckBox
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:buttonTint="@color/CHECK_COLOR" />
+  ...
+  android:buttonTint="@color/tint_color" />
 
 ```
 
-You can also do this using `appCompatCheckbox v7` for older API levels:
+In projects that use AppCompat library and support Android versions below 21 you can use a compat version of the `buttonTint` attribute:
 
 
 
 ```
-<android.support.v7.widget.AppCompatCheckBox 
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content" 
-    app:buttonTint="@color/COLOR_HERE" /> 
+<CheckBox
+  ...
+  app:buttonTint="@color/tint_color" />
 
 ```
+
+In this case if you want to subclass a `CheckBox` don't forget to use `AppCompatCheckBox` instead.
+
+
+**PREVIOUS ANSWER:**
+
+
+You can change `CheckBox`s drawable using `android:button="@drawable/your_check_drawable"` attribute.
+
 
 
 ---
 
 ## Notes
 
-- And don't forget to add _xmlns:app="http://schemas.android.com/apk/res-auto"_ to your main/parent layout
-- How about setting 2 different colors for checked and unchecked states?
-- Not working for me using 'android.support.v7.widget.AppCompatCheckBox'
-- This will automatically be used when you use CheckBox in your layouts. You should only need to manually use this class when writing custom views.
+- We have to use the native elements instead customising it unnecessarily.
+- Note: For material design styling, there is the `contentControl` options now: https://materialdoc.com/components/selection-controls/
+- The value of `buttonTint` seems to override the `textColor` value.

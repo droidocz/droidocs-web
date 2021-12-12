@@ -64,72 +64,94 @@ For the record: I have a tabhost, and in each tab there is a ActivityGroup switc
 
 ---
 
-Please check my answer [here](https://stackoverflow.com/a/10261438/542091). Basically I just had to :
+There are many related problems with a similar error message. Check the second line of this particular stack trace. This exception is specifically related to the call to `FragmentManagerImpl.popBackStackImmediate`.
+
+
+This method call, like `popBackStack`, will *always* fail with `IllegalStateException` if the session state has already been saved. Check the source. There is nothing you can do to stop this exception being thrown. 
+
+
+* Removing the call to `super.onSaveInstanceState` will not help.
+* Creating the Fragment with `commitAllowingStateLoss` will not help.
+
+
+Here's how I observed the problem:
+
+
+* There's a form with a submit button.
+* When the button is clicked a dialog is created and an async process starts.
+* The user clicks the home key before the process is finished - `onSaveInstanceState` is called.
+* The process completes, a callback is made and `popBackStackImmediate` is attempted.
+* `IllegalStateException` is thrown.
+
+
+Here's what I did to solve it:
+
+
+As it is not possible to avoid the `IllegalStateException` in the callback, catch & ignore it.
+
+
+
+```
+try {
+    activity.getSupportFragmentManager().popBackStackImmediate(name);
+} catch (IllegalStateException ignored) {
+    // There's no way to avoid getting this if saveInstanceState has already been called.
+}
+
+```
+
+This is enough to stop the app from crashing. But now the user will restore the app and see that the button they thought they'd pressed hasn't been pressed at all (they think). The form fragment is still showing!
+
+
+To fix this, when the dialog is created, make some state to indicate the process has started.
+
+
+
+```
+progressDialog.show(fragmentManager, TAG);
+submitPressed = true;
+
+```
+
+And save this state in the bundle.
 
 
 
 ```
 @Override
-protected void onSaveInstanceState(Bundle outState) {
-    //No call for super(). Bug on API Level > 11.
+public void onSaveInstanceState(Bundle outState) {
+    ...
+    outState.putBoolean(SUBMIT_PRESSED, submitPressed);
 }
 
 ```
 
-Don't make the call to `super()` on the `saveInstanceState` method. This was messing things up...
+Don't forget to load it back again in `onViewCreated`
 
 
-This is a known [bug](http://code.google.com/p/android/issues/detail?id=19917) in the support package. 
-
-
-If you need to save the instance and add something to your `outState` `Bundle` you can use the following:
+Then, when resuming, rollback the fragments if submit was previously attempted. This prevents the user from coming back to what seems like an un-submitted form.
 
 
 
 ```
 @Override
-protected void onSaveInstanceState(Bundle outState) {
-    outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE");
-    super.onSaveInstanceState(outState);
+public void onResume() {
+    super.onResume();
+    if (submitPressed) {
+        // no need to try-catch this, because we are not in a callback
+        activity.getSupportFragmentManager().popBackStackImmediate(name);
+        submitPressed = false;
+    }
 }
 
 ```
-
-In the end the proper solution was (as seen in the comments) to use :
-
-
-
-```
-transaction.commitAllowingStateLoss();
-
-```
-
-when adding or performing the `FragmentTransaction` that was causing the `Exception`.
-
 
 
 ---
 
 ## Notes
 
-- You should use commitAllowingStateLoss() instead of commit()
-- Regarding 'commitAllowingStateLoss' --/&gt; "This is dangerous because the commit can be lost if the activity needs to later be restored from its state, so this should only be used for cases where it is okay for the UI state to change unexpectedly on the user."
-- If I look at the v4 source for `popBackStackImmediate` it immediately fails if the state has been saved. Previously adding the fragment with `commitAllowingStateLoss` doesn't play any part. It has no effect on this specific exception. What we need is a `popBackStackImmediateAllowingStateLoss` method.
-- But I've actually found an even better solution by using Otto message bus: register the fragment as a subscriber and listen for the async result from the bus. The async also needs a Produce method for the times when it completes and the fragment is paused.
--  the issue is with doing fragment transactions after callbacks from background jobs when the app is not on the foreground.
-- I think this is not 100% correct, check this link: http://www.androiddesignpatterns.com/2013/08/fragment-transaction-commit-state-loss.html
-- I didn't use onSaveInstanceState() method.
-- Wow i cant believe its 2017 and the suggestion posted by  is still working, android is drop dead buggy
--  maybe there are some conditions we can test for, and avoid calling `popBackStackImmediate()` on those conditions?
--  Looking at sources: Implementation of `Fragment#onSaveInstanceState` is a NOP. Can you explain why not calling `super` method helps ?
-- you are probably calling the `fragmentTransaction::commit()` from a background thread (using `runOnUiThread` or `handler` ). If user exits app (calling `onSavedStateInstance()`) fast, then this fts commit actually occurs later; resulting this issue. So the solution at this point probably is to allow state loss `commitAllowingStateLoss()`.
-- What is `transaction` here?
-- Did anyone file an issue that I could star?
-- I use commitAllowingStateLoss for an app on play store and i'm still getting hundreds of the same exception at this line:
-fragmentTransaction.replace(layoutId, newFragment).commitAllowingStateLoss();
-- If you use `commitAllowingStateLoss`, you probably will encounter the `ArrayIndexOutOfBoundsException` while the fragmentManager trying to restore its state(not always). Even if I called commit in the `onCreate()` it still threw the `IllegalStateException`. I still can't figure out why.
-- The error gets fired by `popBackStackImmediate()` and not by committing the transaction.
-- Some methods, such as View#onDetachedFromWindow, require that you also call the super implementation as part of your method._
-- How to commitAllowingStateLoss() while displaying fragment as a dialog.
-- Interestingly I only use commitAllowingStateLoss(), tried both workaround in onSaveInstanteState(), still no luck, the issue still occurs once in a while.
-- that exception only happens very rarely to me anyway
+- Interesting reading about that here: http://www.androiddesignpatterns.com/2013/08/fragment-transaction-commit-state-loss.html
+- What if the `popBackStackImmediate` was called by Android itself?
+- I didn't use public void onSaveInstanceState(Bundle outState)  method. Do I need to set empty method for public void onSaveInstanceState(Bundle outState) ?
+- If you use DialogFragment, I've made an alternative to it here: https://github.com/AndroidDeveloperLB/DialogShard

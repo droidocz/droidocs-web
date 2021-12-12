@@ -65,6 +65,6 @@ Bear in mind that users probably do not want you doing this. There are many othe
 ## Notes
 
 - Try `<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />`. Most of the time, they do not have the `ACTION_` in the string, but apparently they do on this one.
-- I've registered the `BroadcastReceiver` in the manifest like you said with this call in the `onReceive()` method: `context.startActivity(new Intent(context, NightClock.class));` But nothing happens when I connect the phone to power. Not even a log entry is added if I add `Log.d(this.toString(), "trying to start app ...");` to the method.
 - you need to set flag `setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)`
+- I've registered the `BroadcastReceiver` in the manifest like you said with this call in the `onReceive()` method: `context.startActivity(new Intent(context, NightClock.class));` But nothing happens when I connect the phone to power. Not even a log entry is added if I add `Log.d(this.toString(), "trying to start app ...");` to the method.
 - what will do, if application is removed from task list?

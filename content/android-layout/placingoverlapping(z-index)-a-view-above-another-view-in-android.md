@@ -39,34 +39,7 @@ I want to know how can we place one view above the other, with varying z-index (
 
 ---
 
-You can't use a LinearLayout for this, but you can use a [`FrameLayout`](http://developer.android.com/reference/android/widget/FrameLayout.html). In a `FrameLayout`, the z-index is defined by the order in which the items are added, for example:
-
-
-
-```
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/my_drawable"
-        android:scaleType="fitCenter"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:padding="5dp"
-        android:text="My Label"
-        />
-</FrameLayout>
-
-```
-
-In this instance, the TextView would be drawn on top of the ImageView, along the bottom center of the image.
+RelativeLayout works the same way, the last image in the relative layout wins.
 
 
 
@@ -74,10 +47,5 @@ In this instance, the TextView would be drawn on top of the ImageView, along the
 
 ## Notes
 
-- FrameLayout doesn't relate to other views in the group, it just layers them in regard to the parent.
-- Is there an advantage of using FrameLayout instead RelativeLayout for this?
-- As of API 21 / KitKat you can now use setZ and translationZ; the FrameLayout hack is no longer needed (finally!). This should be the preferred answer for modern 5.0+ development: http://stackoverflow.com/a/29703860/358578
-- I've even used this to draw things over map views and in some situations, though I have no idea why, it works where a relative layout does not.
-- Yeah I did it using frame layout itself after going through documentation.
-- by using http://stackoverflow.com/questions/13914609/viewpager-with-previous-and-next-page-boundaries,I am able to show part of previous and next page as shown in image above,but now I don't want to show sharp edges on images.I want them to blur towards edges..please guide me on how can i use z-index for achieving the same
-- use match_parent, not fill_parent
+- Unless you use elevation, then you also need the largest value in that.
+- Using elevation won't fix the issue if your app has a minSdk less than Lollipop (on pre-lollipop phones the layout will look wrong if you rely on just elevation) -  you still have to pay attention to the order of the layout. You are right though, that if you use elevation on the bottom component - you definitely need to have at least the same or higher on the top.

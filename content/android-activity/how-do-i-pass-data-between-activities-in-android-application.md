@@ -19,27 +19,32 @@ Any alternative to this case
 
 ---
 
-The easiest way to do this would be to pass the session id to the signout activity in the `Intent` you're using to start the activity:
+In your current Activity, create a new `Intent`:
 
 
 
 ```
-Intent intent = new Intent(getBaseContext(), SignoutActivity.class);
-intent.putExtra("EXTRA_SESSION_ID", sessionId);
-startActivity(intent);
+String value="Hello world";
+Intent i = new Intent(CurrentActivity.this, NewActivity.class);    
+i.putExtra("key",value);
+startActivity(i);
 
 ```
 
-Access that intent on next activity:
+Then in the new Activity, retrieve those values:
 
 
 
 ```
-String sessionId = getIntent().getStringExtra("EXTRA_SESSION_ID");
+Bundle extras = getIntent().getExtras();
+if (extras != null) {
+    String value = extras.getString("key");
+    //The key argument here must match that used in the other activity
+}
 
 ```
 
-The [docs](http://developer.android.com/guide/topics/intents/intents-filters.html) for Intents has more information (look at the section titled "Extras").
+Use this technique to pass variables from one Activity to the other.
 
 
 
@@ -47,14 +52,7 @@ The [docs](http://developer.android.com/guide/topics/intents/intents-filters.htm
 
 ## Notes
 
-- Yes, you'd have to make the session ID available to every activity where you want to allow the user to signout. Alternatively, you could store it in the Application object, but then you'd have to manage the state of the session (check if it's valid before using, etc).
-- Please be aware that the documentation points the following: Add extended data to the intent. The name must include a package prefix, for example the app com.android.contacts would use names like "com.android.contacts.ShowAll".
-- And to read data from other Activity use `Long session_ids=getIntent().getExtras().getLong("EXTRA_SESSION_IDS");`
-- How can we pass data using `setData` and what is difference between theses two approaches?
-- Use Wagon. It makes it simpler: github.com/beplaya/Wagon
-- using above procedure?
-- does this work if the target activity already runs in background? my onresume function olds alwas just the first intend
-- Be aware of TransactionTooLargeException , if your data exceeds 1 mb size then it will throw exception. So take care while sending complete list.
-- we can send data with multiple way like 
-1- Intent
-- Take a look at this library for easy handling intent data: https://github.com/kostasdrakonakis/android_navigator
+- Just an info for those who are so blind like me: if you put an integer in your current activity, you have to get it in the new one via `extras.getInt("new_variable_name")`. If you try to get it via `getString()` android see's that a int was given and returns null!
+- what if the activity is already running, is there need to do `startActivity(i);` ? I mean, can I make *activity A* call *activity B*, and that returns data to *activity A* ?
+- Here's a [nice example that sets and retrieves intent extras](http://www.codota.com/android/scenarios/52fcbcffda0ace249b7bce8e/android.content.Intent?tag=dragonfly)
+- I prefer string variable. You can always convert a string to integer or float later.

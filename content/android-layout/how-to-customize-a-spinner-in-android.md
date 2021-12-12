@@ -54,75 +54,77 @@ But nothing seems to be working.
 
 ---
 
-Create a custom adapter with a custom layout for your spinner.
+The most elegant and flexible solution I have found so far is here:
+<http://android-er.blogspot.sg/2010/12/custom-arrayadapter-for-spinner-with.html>
+
+
+Basically, follow these steps:
+
+
+1. Create custom layout xml file for your dropdown item, let's say I will call it spinner\_item.xml
+2. Create custom view class, for your dropdown Adapter. In this custom class, you need to overwrite and set your custom dropdown item layout in getView() and getDropdownView() method. My code is as below:
 
 
 
 ```
-Spinner spinner = (Spinner) findViewById(R.id.pioedittxt5);
-ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-        R.array.travelreasons, R.layout.simple_spinner_item);
-adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
-spinner.setAdapter(adapter);
+public class CustomArrayAdapter extends ArrayAdapter<String>{
+
+private List<String> objects;
+private Context context;
+
+public CustomArrayAdapter(Context context, int resourceId,
+     List<String> objects) {
+     super(context, resourceId, objects);
+     this.objects = objects;
+     this.context = context;
+}
+
+@Override
+public View getDropDownView(int position, View convertView,
+    ViewGroup parent) {
+    return getCustomView(position, convertView, parent);
+}
+
+@Override
+public View getView(int position, View convertView, ViewGroup parent) {
+  return getCustomView(position, convertView, parent);
+}
+
+public View getCustomView(int position, View convertView, ViewGroup parent) {
+
+LayoutInflater inflater=(LayoutInflater) context.getSystemService(  Context.LAYOUT_INFLATER_SERVICE );
+View row=inflater.inflate(R.layout.spinner_item, parent, false);
+TextView label=(TextView)row.findViewById(R.id.spItem);
+ label.setText(objects.get(position));
+
+if (position == 0) {//Special style for dropdown header
+      label.setTextColor(context.getResources().getColor(R.color.text_hint_color));
+}
+
+return row;
+}
+
+}
+
+```
+3. In your activity or fragment, make use of the custom adapter for your spinner view. Something like this:
+
+
+
+```
+Spinner sp = (Spinner)findViewById(R.id.spMySpinner);
+ArrayAdapter<String> myAdapter = new CustomArrayAdapter(this, R.layout.spinner_item, options);
+sp.setAdapter(myAdapter);
 
 ```
 
-R.layout.simple\_spinner\_item
 
+where options is the list of dropdown item string.
 
-
-```
-<TextView xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:id="@android:id/text1"
-    style="@style/spinnerItemStyle"
-    android:maxLines="1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:ellipsize="marquee" />
-
-```
-
-R.layout.simple\_spinner\_dropdown\_item
-
-
-
-```
-<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:id="@android:id/text1"
-    style="@style/spinnerDropDownItemStyle"
-    android:maxLines="1"
-    android:layout_width="match_parent"
-    android:layout_height="?android:attr/dropdownListPreferredItemHeight"
-    android:ellipsize="marquee" />
-
-```
-
-In styles add your custom dimensions and height as per your requirement.
-
-
-
-```
- <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
-
-  </style>
-
-  <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
-
-  </style>
-
-```
 
 
 ---
 
 ## Notes
 
-- _For future visitors to this answer_: **do not wrap TextView and CheckedTextview inside a layout**. Post it directly in your layout_file.xml file.
--  Don't you need `android:id=" in the simple_spinner_dropdown_item.xml file?
-- Try changing `<item name="android:height">`  to `<item name="android:layout_height">`
-- In R.layout.simple_spinner_dropdown_item, change android:layout_height value to "?attr/dropdownListPreferredItemHeight" or you will get an error: "Error: Attribute is not public"
-- Actually you are using an array to populate the spinner.. What i have done is populated the spinner with an array of objects by implementing the `toString()` method in the class of which the custom array of objects belong. So i can't use the create from resource.. what i have to do is create a custom adapter but i am trying to avoid it. I want to do it so that it is applicable in the entire application without the need for custom adapter for all spinners as i have too many spinners in the application.
-- I tried using the styles options that you suggested. I added:
-`<item name="android:height"> 40sp </item>
-        <item name="android:textSize">15sp</item>`
- in between the `spinnerItemStyle` tag but of no use.
+- The trick for me was overriding getDropDownView, I was overriding getView, but didn't realized I had to override that method.

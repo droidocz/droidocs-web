@@ -25,48 +25,148 @@ How can this be done?
 
 ---
 
-
-> 
-> How to determine when Fragment becomes visible in ViewPager
-> 
-> 
-> 
+### New
 
 
-You can do the following by overriding `setUserVisibleHint` in your `Fragment`:
+`ViewPager2` + `FragmentStateAdapter` + `onResume()` (in Fragment)
+solve the problem
+
+
+### Old Answer (deprecated)
+
+
+To detect `Fragment` in `ViewPager` visible, I'm quite sure that **only using** `setUserVisibleHint` is not enough.  
+
+Here is my solution to check if a fragment is visible or invisible. First when launching viewpager, switch between page, go to another activity/fragment/ background/foreground`
 
 
 
 ```
-public class MyFragment extends Fragment {
+public class BaseFragmentHelpLoadDataWhenVisible extends Fragment {
+    protected boolean mIsVisibleToUser; // you can see this variable may absolutely <=> getUserVisibleHint() but it not. Currently, after many test I find that
+
+    /**
+     * This method will be called when viewpager creates fragment and when we go to this fragment background or another activity or fragment
+     * NOT called when we switch between each page in ViewPager
+     */
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mIsVisibleToUser) {
+            onVisible();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mIsVisibleToUser) {
+            onInVisible();
+        }
+    }
+
+    /**
+     * This method will called at first time viewpager created and when we switch between each page
+     * NOT called when we go to background or another activity (fragment) when we go back
+     */
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
+        mIsVisibleToUser = isVisibleToUser;
+        if (isResumed()) { // fragment have created
+            if (mIsVisibleToUser) {
+                onVisible();
+            } else {
+                onInVisible();
+            }
         }
-        else {
-        }
+    }
+
+    public void onVisible() {
+        Toast.makeText(getActivity(), TAG + "visible", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onInVisible() {
+        Toast.makeText(getActivity(), TAG + "invisible", Toast.LENGTH_SHORT).show();
     }
 }
 
 ```
+
+**EXPLANATION**
+You can check the logcat below carefully then I think you may know why this solution will work
+
+
+**First launch**
+
+
+
+```
+Fragment1: setUserVisibleHint: isVisibleToUser=false isResumed=false
+Fragment2: setUserVisibleHint: isVisibleToUser=false isResumed=false
+Fragment3: setUserVisibleHint: isVisibleToUser=false isResumed=false
+Fragment1: setUserVisibleHint: isVisibleToUser=true isResumed=false // AT THIS TIME isVisibleToUser=true but fragment still not created. If you do something with View here, you will receive exception
+Fragment1: onCreateView
+Fragment1: onStart mIsVisibleToUser=true
+Fragment2: onCreateView
+Fragment3: onCreateView
+Fragment2: onStart mIsVisibleToUser=false
+Fragment3: onStart mIsVisibleToUser=false
+
+```
+
+**Go to page2**
+
+
+
+```
+Fragment1: setUserVisibleHint: isVisibleToUser=false isResumed=true
+Fragment2: setUserVisibleHint: isVisibleToUser=true isResumed=true
+
+```
+
+**Go to page3**
+
+
+
+```
+Fragment2: setUserVisibleHint: isVisibleToUser=false isResumed=true
+Fragment3: setUserVisibleHint: isVisibleToUser=true isResumed=true
+
+```
+
+**Go to background:**
+
+
+
+```
+Fragment1: onStop mIsVisibleToUser=false
+Fragment2: onStop mIsVisibleToUser=false
+Fragment3: onStop mIsVisibleToUser=true
+
+```
+
+**Go to foreground**
+
+
+
+```
+Fragment1: onStart mIsVisibleToUser=false
+Fragment2: onStart mIsVisibleToUser=false
+Fragment3: onStart mIsVisibleToUser=true
+
+```
+
+[DEMO project here](https://github.com/PhanVanLinh/AndroidDetectFragmentVisible)
+
+
+Hope it help
+
 
 
 ---
 
 ## Notes
 
-- I have found that the setUserVisibleHint method gets called BEFORE the onCreateView gets called and this makes it difficult to track any initialization.
-- `setUserVisibleHint` is now **Deprecated**
-- Its just ridiculous that there are so many different hacks for something the SDK should provide by default.
--  If you want to run some code when the hint's coming in as true, but which needs the view tree already initialized, just wrap that block of code in `isResumed()` to avoid an NPE.
-- I have 3 fragments in viewstatepager and found getUserVisibleHint() always returns true.
-- I haven't seen setUserVisibleHint() documented anywhere as a lifecycle event of the Fragment.
-- You know, in Java a method is identified, in part, with a name (as you used), and a CLASS. Especially as there are two objects that may be manipulated (`Fragment` and `ViewPager`).
-- here is the best way https://stackoverflow.com/a/63591019/5773037
-- Looks like setUserVisibleHint is only for SupportLibrary, couldn't find it in latest SDK
-- Actually I have tried this way before, but I found that not only the currently centered page, but also the pages before and after it got "user visible hint". So it may be suitable if your ViewPager shows more than one page at the same time (usually the case on tablet UI), but not for that shows only on page at a time.
-- `setUserVisibleHint()` is not called when your App is paused on the fragment you want and you restart it from `onNewIntent()`
-- http://stackoverflow.com/questions/40149039/viewpager-recyclerview-issue-in-android
-- A bit late, but for anyone facing the same issue, you could try [FragmentViewPager](https://github.com/sbrukhanda/fragmentviewpager)  library (I am the author), which deals with this issue and provides a few extra features. For a sample, check project's GitHub page or this [stackoverflow answer](http://stackoverflow.com/a/38008088/5865280).
-- My example with setsetUserVisibleHint should work fine by using the boolean paramater.
+- It not works when a fragment has another view pager which also consists fragment.
+- sorry, I can not post the answer at this time because i don't have enough time, if possible please refer my git about your problem here https://github.com/PhanVanLinh/AndroidViewPagerSkeleton/tree/master. `SubChildContainerFragment` is used for detect `a fragment has another view pager which also consists fragment`. You can mix `SubChildContainerFragment` and `ChildContainerFragment` to 1 class.

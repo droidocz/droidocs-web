@@ -202,50 +202,31 @@ Suppose below is the fragment class with the method `updateList()` I want to cal
 ---
 
 
-> 
-> by selecting an option, I need to update the fragment that is
->  currently visible.
-> 
-> 
-> 
+```
+    public class MyPagerAdapter extends FragmentPagerAdapter {
+        private Fragment mCurrentFragment;
 
-
-A simple way of doing this is using a trick related to the `FragmentPagerAdapter` implementation:
-
-
+        public Fragment getCurrentFragment() {
+            return mCurrentFragment;
+        }
+//...    
+        @Override
+        public void setPrimaryItem(ViewGroup container, int position, Object object) {
+            if (getCurrentFragment() != object) {
+                mCurrentFragment = ((Fragment) object);
+            }
+            super.setPrimaryItem(container, position, object);
+        }
+    }
 
 ```
-case R.id.addText:
-     Fragment page = getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.pager + ":" + ViewPager.getCurrentItem());
-     // based on the current position you can then cast the page to the correct 
-     // class and call the method:
-     if (ViewPager.getCurrentItem() == 0 && page != null) {
-          ((FragmentClass1)page).updateList("new item");     
-     } 
-return true;
-
-```
-
-Please rethink your variable naming convention, using as the variable name the name of the class is very confusing(so no `ViewPager ViewPager`, use `ViewPager mPager` for example).
-
 
 
 ---
 
 ## Notes
 
-- Note this does not work if you use FragmentStatePagerAdapter rather than FragmentPagerAdapter.
-- Is that fragment tag future-proof, if the API changes?
--  No, it's just a common hack that has been used since the adapter appeared(and its source code was available), it hasn't changed yet. If you want something more reliable you'll need to use other options, most notable overriding the `instantiateItem()` method and getting references to the proper fragments yourself.
-- After hours of frustration and asking the pages directly from the `mAdapter.getItem(position)`, awesome... At least now I know that the other 8512 trials didn't work.
--  The FragmentStatePagerAdapter has a different implementation, in its case you call its instantiateItem() method to get  the visible fragments.
-- The method names they chose sure are weird.
-- It is very hard to understand why the FragmentViewPager does not offer a method for accessing the current fragment. Since it is such a basic functionality, is there anyone who knows why they omitted that?
-- you should never rely on undocumented features of internal code.
-- Well, allowing the access to the current fragment would not be so complicated, but they force us to re-write code that they have hidden in the class and that can potentially break with future updates.
-- using FragmentPagerAdapter rather than FragmentStatePagerAdapter did it for me!
--  The FragmentClass1 is used in the adapter in position 0 so we will cast to that fragment only when the current visible item in the adapter is position 0. If we were to use ViewPager.getCurrentItem() != 0 you'll end up with a ClassCastException if the current visible fragment isn't anything besides position 0.
-- what is this condition `ViewPager.getCurrentItem() == 0`? Shouldn't be `ViewPager.getCurrentItem() != 0`?
-- Although i really don't like this fix I will choose this one and use it in my app. the tags used by FragmentPagerAdapter) to provide a solution, but it is a nasty solution to a nasty problem, which sounds quite symmetric.
-- Note that this implementation does not work for `FragmentStatePagerAdapter`. I had to switch to `FragmentPagerAdapter`. For `FragmentStatePagerAdapter` the `findFragmentByTag("android:switcher:${R.id.myViewPagerId}:${myViewPager.currentItem}")` usually returns `null`.
-- What I wrote should work unless you're doing something fishy with the id of the ViewPager.
+- Google should provide FragmentPageAdapter.getCurrentPrimaryItem() returning mCurrentPrimaryItem.
+- Fragment just calls up to the `equals` method of object, which is shallow comparison. So why not just always call `mCurrentFragment = ((Fragment) object);` ?
+- I use this technique as well.I also define a PagerFragment with methods  `onPageSelected` / `onPageDeselected` and have all my pager fragments extend it. Then `setPrimaryitem` can call these methods appropriately when the user swipes to a new page. This means you may implement a lazier strategy for loading of data in pages that aren't even shown. You should however bear in mind that during page transition it looks better if the next page is already populated with data, so lazy loading all data in `onPageSelected` may not be ideal.
+- tried and it works fine, just cast the getCurrentFragment() to the specific Fragment it should

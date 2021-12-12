@@ -13,40 +13,320 @@ I am trying to determine the best way to have a single ListView that contains di
 
 ---
 
-Since you know how many types of layout you would have - it's possible to use those methods.
+Take a look in the code below.
 
 
-`getViewTypeCount()` - this methods returns information how many types of rows do you have in your list
+First, we create custom layouts. In this case, four types.
 
 
-`getItemViewType(int position)` - returns information which layout type you should use based on position
+even.xml
 
 
-Then you inflate layout only if it's null and determine type using `getItemViewType`.
+
+```
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ff500000"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:textSize="24sp"
+        android:layout_height="wrap_content" />
+
+ </LinearLayout>
+
+```
+
+odd.xml
 
 
-Look at **[this tutorial](http://android.amberfog.com/?p=296)** for further information.
+
+```
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ff001f50"
+    android:gravity="right"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="28sp"
+        android:layout_height="wrap_content"  />
+
+ </LinearLayout>
+
+```
+
+white.xml
 
 
-To achieve some optimizations in structure that you've described in comment I would suggest:
+
+```
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ffffffff"
+    android:gravity="right"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="28sp"
+        android:layout_height="wrap_content"   />
+
+ </LinearLayout>
+
+```
+
+black.xml
 
 
-* Storing views in object called `ViewHolder`. It would increase speed because you won't have to call `findViewById()` every time in `getView` method. See [List14 in API demos](http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/view/List14.html).
-* Create one generic layout that will conform all combinations of properties and hide some elements if current position doesn't have it.
+
+```
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ff000000"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="33sp"
+        android:layout_height="wrap_content"   />
+
+ </LinearLayout>
+
+```
+
+Then, we create the listview item. In our case, with a string and a type. 
 
 
-I hope that will help you. If you could provide some XML stub with your data structure and information how exactly you want to map it into row, I would be able to give you more precise advise. By pixel.
 
+```
+public class ListViewItem {
+        private String text;
+        private int type;
+
+        public ListViewItem(String text, int type) {
+            this.text = text;
+            this.type = type;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
+        }
+
+    }
+
+```
+
+After that, we create a view holder. It's strongly recommended because Android OS keeps the layout reference to reuse your item when it disappears and appears back on the screen. If you don't use this approach, every single time that your item appears on the screen Android OS will create a new one and causing your app to leak memory. 
+
+
+
+```
+public class ViewHolder {
+        TextView text;
+
+        public ViewHolder(TextView text) {
+            this.text = text;
+        }
+
+        public TextView getText() {
+            return text;
+        }
+
+        public void setText(TextView text) {
+            this.text = text;
+        }
+
+    }
+
+```
+
+Finally, we create our custom adapter overriding getViewTypeCount() and getItemViewType(int position). 
+
+
+
+```
+public class CustomAdapter extends ArrayAdapter {
+
+        public static final int TYPE_ODD = 0;
+        public static final int TYPE_EVEN = 1;
+        public static final int TYPE_WHITE = 2;
+        public static final int TYPE_BLACK = 3;
+
+        private ListViewItem[] objects;
+
+        @Override
+        public int getViewTypeCount() {
+            return 4;
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return objects[position].getType();
+        }
+
+        public CustomAdapter(Context context, int resource, ListViewItem[] objects) {
+            super(context, resource, objects);
+            this.objects = objects;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            ViewHolder viewHolder = null;
+            ListViewItem listViewItem = objects[position];
+            int listViewItemType = getItemViewType(position);
+
+
+            if (convertView == null) {
+
+                if (listViewItemType == TYPE_EVEN) {
+                    convertView = LayoutInflater.from(getContext()).inflate(R.layout.type_even, null);
+                } else if (listViewItemType == TYPE_ODD) {
+                    convertView = LayoutInflater.from(getContext()).inflate(R.layout.type_odd, null);
+                } else if (listViewItemType == TYPE_WHITE) {
+                    convertView = LayoutInflater.from(getContext()).inflate(R.layout.type_white, null);
+                } else {
+                    convertView = LayoutInflater.from(getContext()).inflate(R.layout.type_black, null);
+                }
+
+                TextView textView = (TextView) convertView.findViewById(R.id.text);
+                viewHolder = new ViewHolder(textView);
+
+                convertView.setTag(viewHolder);
+
+            } else {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
+
+            viewHolder.getText().setText(listViewItem.getText());
+
+            return convertView;
+        }
+
+    }
+
+```
+
+And our activity is something like this:
+
+
+
+```
+private ListView listView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main); // here, you can create a single layout with a listview
+
+        listView = (ListView) findViewById(R.id.listview);
+
+        final ListViewItem[] items = new ListViewItem[40];
+
+        for (int i = 0; i < items.length; i++) {
+            if (i == 4) {
+                items[i] = new ListViewItem("White " + i, CustomAdapter.TYPE_WHITE);
+            } else if (i == 9) {
+                items[i] = new ListViewItem("Black " + i, CustomAdapter.TYPE_BLACK);
+            } else if (i % 2 == 0) {
+                items[i] = new ListViewItem("EVEN " + i, CustomAdapter.TYPE_EVEN);
+            } else {
+                items[i] = new ListViewItem("ODD " + i, CustomAdapter.TYPE_ODD);
+            }
+        }
+
+        CustomAdapter customAdapter = new CustomAdapter(this, R.id.text, items);
+        listView.setAdapter(customAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView adapterView, View view, int i, long l) {
+                Toast.makeText(getBaseContext(), items[i].getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+}
+
+```
+
+now create a listview inside mainactivity.xml
+like this
+
+
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.shivnandan.gygy.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+    <ListView
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+
+        android:id="@+id/listView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+
+
+        android:layout_marginTop="100dp" />
+
+</android.support.design.widget.CoordinatorLayout>
+
+```
 
 
 ---
 
 ## Notes
 
-- Although I still prefer the way exposed here. It makes clearer what you want to achieve.
-- sorry for digging this up again, but you would actually recommend having a single large layout file and control visibility of parts of it, instead of have separate layout files, which get inflated respectively using getItemViewType?
-- what if I you wanna add many type of items not just Layouts in list view?
--  you can declare as many views as you want in a single view holder and it isn't necessary to use every view declared in the view holder. If a sample code is needed, please do let me know, I'll post it.
--  link to the tutorial is dead :(  is it still available elsewhere?
-- I could do with a code example if possible.
-- But in multiple layout strategy we can not user view holder properly because setTag can only contain one view holder and whenever row layout switches again we need to call findViewById() . I personal experienced it what is your suggestion on it ?
+- I only needed the (convertView == null) clause.

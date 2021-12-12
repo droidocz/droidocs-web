@@ -100,5 +100,5 @@ private void setupActionBar() {
 
 ## Notes
 
--  I have not examined the contents of `R.layout.conversation_list_actionbar`, sorry.
 - In other words, the fix is to always have an item in the top bar that prevents the bottom content from ever fitting in there, thus forcing everything into the bottom bar?
+-  I have not examined the contents of `R.layout.conversation_list_actionbar`, sorry.

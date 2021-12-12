@@ -22,30 +22,55 @@ As a stop-gap measure, I'm going to implement this by removing the EditText and 
 
 ---
 
-You can set the `EditText` to have a custom transparent drawable or just use 
+Here's a way to hide it, without ruining the default padding:
 
 
 
 ```
-android:background="@android:color/transparent"
+fun View.setViewBackgroundWithoutResettingPadding(background: Drawable?) {
+    val paddingBottom = this.paddingBottom
+    val paddingStart = ViewCompat.getPaddingStart(this)
+    val paddingEnd = ViewCompat.getPaddingEnd(this)
+    val paddingTop = this.paddingTop
+    ViewCompat.setBackground(this, background)
+    ViewCompat.setPaddingRelative(this, paddingStart, paddingTop, paddingEnd, paddingBottom)
+}
 
 ```
 
-or
-
-
-
-```
-android:background="@null"
-
-```
-
-or Programmatically
+usage:
 
 
 
 ```
-editText.setBackgroundResource(android.R.color.transparent);
+editText.setViewBackgroundWithoutResettingPadding(null)
+
+```
+
+
+
+---
+
+
+Update:
+
+
+If you find yourself always passing null, you can codify that in the method (and then you might as well overload EditText itself)
+
+
+
+```
+fun EditText.removeUnderline() {
+    val paddingBottom = this.paddingBottom
+    val paddingStart = ViewCompat.getPaddingStart(this)
+    val paddingEnd = ViewCompat.getPaddingEnd(this)
+    val paddingTop = this.paddingTop
+    ViewCompat.setBackground(this, null)
+    ViewCompat.setPaddingRelative(this, paddingStart, paddingTop, paddingEnd, paddingBottom)
+}
+
+// usage:
+editText.removeUnderline()
 
 ```
 
@@ -54,9 +79,4 @@ editText.setBackgroundResource(android.R.color.transparent);
 
 ## Notes
 
-- use this  : `android:background="
-- In Android 19, using `android:background=" causes the same loss of margins issue... Is there an example anywhere of somebody creating such a custom drawable?
-- Start with the 9-patch that is used for normal EditText fields.
-- what if I am already having background of other color, lets say gray, how to remove underbar / underline in that case?
-- What is the default background, if we want to return it to default?
-- The syntax for this has been changed. To do it programmatically: myedittext.setBackgroundResource(R.color.fui_transparent);. I used to set the Visibility to false to nix the underbar and send a performclick message if the user clicked my custom textbox, but this has been more reliable.
+- It can remove background without removing default padding.
