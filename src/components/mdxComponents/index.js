@@ -11,17 +11,15 @@ const StyledPre = styled('pre')`
 
 const appendString = (children) => {
   if(Array.isArray(children)) {
-    return children.reduce((acc, current) => {
-      if(typeof current === "string") {
-        return acc.concat(current)
-      } else if (typeof current === "object") {
-        return acc.concat(current.props.children)
-      } else {
-        return acc
-      }
-    }, "")
+    return children.reduce((acc, current) => acc.concat(appendString(current)), "")
   } else {
-    return children
+    const current = children;
+    if(typeof current === "string") {
+      return current
+    } else if (typeof current === "object") {
+      return appendString(current.props.children)
+    }
+    return ""
   }
 }
 
