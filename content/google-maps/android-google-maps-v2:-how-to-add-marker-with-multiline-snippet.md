@@ -33,14 +33,64 @@ but when I'm trying to set snippetText to "foo \n bar", I see just `foo bar` and
 
 ---
 
-It looks like you will need to create your own "info window" contents to make that work:
+I have done with easiest way like below:
 
 
-1. Create an implementation of `InfoWindowAdapter` that overrides `getInfoContents()` to return what you want to go into the `InfoWindow` frame
-2. Call `setInfoWindowAdapter()` on your `GoogleMap`, passing an instance of your `InfoWindowAdapter`
+
+```
+private GoogleMap mMap;
+
+```
+
+While **adding** **marker** on **Google Map**:
 
 
-[This sample project](https://github.com/commonsguy/cw-omnibus/tree/master/MapsV2/Popups) demonstrates the technique. Replacing my snippets with `"foo\nbar"` correctly processes the newline. However, more likely, you will just come up with a layout that avoids the need for the newline, with separate `TextView` widgets for each line in your desired visual results.
+
+```
+LatLng mLatLng = new LatLng(YourLatitude, YourLongitude);
+
+mMap.addMarker(new MarkerOptions().position(mLatLng).title("My Title").snippet("My Snippet"+"\n"+"1st Line Text"+"\n"+"2nd Line Text"+"\n"+"3rd Line Text").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+```
+
+After that put below code for **InfoWindow** **adapter** on **Google Map**:
+
+
+
+```
+mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+      @Override
+      public View getInfoWindow(Marker arg0) {
+         return null;
+      }
+
+      @Override
+      public View getInfoContents(Marker marker) {
+
+        LinearLayout info = new LinearLayout(mContext);
+        info.setOrientation(LinearLayout.VERTICAL);
+
+        TextView title = new TextView(mContext);
+        title.setTextColor(Color.BLACK);
+        title.setGravity(Gravity.CENTER);
+        title.setTypeface(null, Typeface.BOLD);
+        title.setText(marker.getTitle());
+
+        TextView snippet = new TextView(mContext);
+        snippet.setTextColor(Color.GRAY);
+        snippet.setText(marker.getSnippet());
+
+        info.addView(title);
+        info.addView(snippet);
+
+      return info;
+    }
+});
+
+```
+
+Hope it will help you.
 
 
 
@@ -48,10 +98,7 @@ It looks like you will need to create your own "info window" contents to make th
 
 ## Notes
 
--  Call `setText()` on the `TextViews`, no different than `TextViews` in an activity, fragment, `ListView` row, etc.
--  Normally, when you use a layout resource with a `RelativeLayout` as the root, when you inflate it, you want to use the three-parameter `inflate()` method, passing in the parent `ViewGroup` and `false` for the last two parameters. However, we are not passed a parent in `getInfoContents()`, so we cannot do that. While I am a bit surprised about a `NullPointerException`, I am not surprised at all that the `RelativeLayout` does not work correctly. I would have expected some of the layout rules for the `RelativeLayout`'s children to be ignored or otherwise misbehave.
-- I've got the code from the sample project working. so I have a custom infowindow but I am stuck on how to add multiple lines still. I've added in extra textviews after title and snippet in the xml layout but how do I get text to appear in the new textviews?
-- If you do use getInfoWindow() to return an entirely customized view, note that there seems to be a bug when using a RelativeLayout for it. I could only get mine to work when switching to a LinearLayout. I filed a bug report:
-http://code.google.com/p/gmaps-api-issues/issues/detail?id=4874
-- That's what I thought but it's not working for me for some reason :/ all I'm doing is putting a second textview in the xml after snippet, then identifying it and setting the text of it within getInfoContents.
--  I'm reading the `Maps V2 Chapter` from your 4.6 book and I have a question that is on topic with this question so I think is a good place to ask. I wander if is there any way to set a distinct `infoWindow` for each marker, as long as `setInfoWindowAdapter()` is applied to hole map?
+- even I like `mMap` variable name because that also I haven't changed.
+- +1 for adding a code sample.
+- +1 for `snippet`.
+- Warning: I replace "MapsActivity.this" instead of mContext to run with no error.

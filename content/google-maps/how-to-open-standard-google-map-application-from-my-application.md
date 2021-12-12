@@ -11,43 +11,110 @@ Once user presses button in my application, I would like to open standard Google
 
 ---
 
-You should create an `Intent` object with a geo-URI:
+You can also simply use <http://maps.google.com/maps> as your URI
 
 
 
 ```
-String uri = String.format(Locale.ENGLISH, "geo:%f,%f", latitude, longitude);
+String uri = "http://maps.google.com/maps?saddr=" + sourceLatitude + "," + sourceLongitude + "&daddr=" + destinationLatitude + "," + destinationLongitude;
 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-context.startActivity(intent);
+startActivity(intent);
 
 ```
 
-If you want to specify an address, you should use another form of geo-URI: `geo:0,0?q=address`.
+or you can make sure that the Google Maps app only is used, this stops the intent filter (dialog) from appearing, by using 
 
 
-reference : <https://developer.android.com/guide/components/intents-common.html#Maps>
 
+```
+intent.setPackage("com.google.android.apps.maps");
+
+```
+
+like so:
+
+
+
+```
+String uri = "http://maps.google.com/maps?saddr=" + sourceLatitude + "," + sourceLongitude + "&daddr=" + destinationLatitude + "," + destinationLongitude;
+Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+intent.setPackage("com.google.android.apps.maps");
+startActivity(intent);
+
+```
+
+or you can add labels to the locations by adding a string inside parentheses after each set of coordinates like so:
+
+
+
+```
+String uri = "http://maps.google.com/maps?saddr=" + sourceLatitude + "," + sourceLongitude + "(" + "Home Sweet Home" + ")&daddr=" + destinationLatitude + "," + destinationLongitude + " (" + "Where the party is at" + ")";
+Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+intent.setPackage("com.google.android.apps.maps");
+startActivity(intent);
+
+```
+
+To use the users current location as the starting point (unfortunately I haven't found a way to label the current location) then just drop off the `saddr` parameter as follows:
+
+
+
+```
+String uri = "http://maps.google.com/maps?daddr=" + destinationLatitude + "," + destinationLongitude + " (" + "Where the party is at" + ")";
+Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+intent.setPackage("com.google.android.apps.maps");
+startActivity(intent);
+
+```
+
+For completeness, if the user doesn't have the maps app installed then it's going to be a good idea to catch the ActivityNotFoundException, as @TonyQ states, then we can start the activity again without the maps app restriction, we can be pretty sure that we will never get to the Toast at the end since an internet browser is a valid application to launch this url scheme too.
+
+
+
+```
+        String uri = "http://maps.google.com/maps?daddr=" + 12f + "," + 2f + " (" + "Where the party is at" + ")";
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        intent.setPackage("com.google.android.apps.maps");
+        try
+        {
+            startActivity(intent);
+        }
+        catch(ActivityNotFoundException ex)
+        {
+            try
+            {
+                Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                startActivity(unrestrictedIntent);
+            }
+            catch(ActivityNotFoundException innerEx)
+            {
+                Toast.makeText(this, "Please install a maps application", Toast.LENGTH_LONG).show();
+            }
+        }
+
+```
+
+**EDIT:**
+
+
+For directions, a navigation intent is now supported with google.navigation
+
+
+
+```
+Uri navigationIntentUri = Uri.parse("google.navigation:q=" + 12f + "," + 2f);
+Intent mapIntent = new Intent(Intent.ACTION_VIEW, navigationIntentUri);
+mapIntent.setPackage("com.google.android.apps.maps");
+startActivity(mapIntent);
+
+```
 
 
 ---
 
 ## Notes
 
-- THis moves me to the location but it does not put a balloon there.
-- That method is meant for UI text only, that's why decimal point represenation may vary. Just use the "+" operator or StringBuilder: String uri = "geo:" + lastLocation.getLatitude() + "," + lastLocation.getLongitude().
-- For directions, a navigation intent is now supported with google.navigation:q=latitude,longitude: 
+- java.util.IllegalFormatConversionException: %f can't format java.lang.String arguments exceptions
+- Please post what you have replaced the first line of code with [the line that begins with String uri = string.format ]
 
-Uri gmmIntentUri = Uri.parse("google.navigation:q=" + 12f " +"," + 2f);
-Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-mapIntent.setPackage("com.google.android.apps.maps");
-startActivity(mapIntent);
-- `String.format("geo:%f,%f", latitude, longitude)` returned the string with commas: `geo:59,915494,30,409456`.
-- but how to show pinpoint in maps application
--  I think you can use this solution: http://stackoverflow.com/a/2663565/170842
-- What is the format of latitude and longitude? If I pass `lat: 59.915494, lng: 30.409456` it returns wrong position.
-- maps.google.com shows correct location, but when the same URI is used in android app, it shows some different place.
-- Maybe you should also try to download other map applications and launch them with this URI.
-- The URI must be: `geo:59.915494,30.409456`. You can check it using http://maps.google.com. Just enter `59.915494,30.409456` and you will get the right place.
-- any method to show a pin in google maps?
-- is there any way to launch this navigation without using ACTION_VIEW, i want to launch this in my custom layout?
-- If you need it in a custom layout you should use Maps API.
+Seems like you have a string as one of the parameters that should be a float

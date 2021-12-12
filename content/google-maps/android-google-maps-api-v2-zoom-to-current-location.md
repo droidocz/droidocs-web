@@ -20,20 +20,27 @@ If the API has a method to show the user's current location, there surely must b
 
 ---
 
-Here's how to do it inside `ViewModel` and `FusedLocationProviderClient`, code in Kotlin
+Try this coding:
 
 
 
 ```
-locationClient.lastLocation.addOnSuccessListener { location: Location? ->
-            location?.let {
-                val position = CameraPosition.Builder()
-                        .target(LatLng(it.latitude, it.longitude))
-                        .zoom(15.0f)
-                        .build()
-                map.animateCamera(CameraUpdateFactory.newCameraPosition(position))
-            }
-        }
+LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+Criteria criteria = new Criteria();
+
+Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+if (location != null)
+{
+    map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 13));
+
+    CameraPosition cameraPosition = new CameraPosition.Builder()
+        .target(new LatLng(location.getLatitude(), location.getLongitude()))      // Sets the center of the map to location user
+        .zoom(17)                   // Sets the zoom
+        .bearing(90)                // Sets the orientation of the camera to east
+        .tilt(40)                   // Sets the tilt of the camera to 30 degrees
+        .build();                   // Creates a CameraPosition from the builder
+    map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));       
+}
 
 ```
 
@@ -42,4 +49,5 @@ locationClient.lastLocation.addOnSuccessListener { location: Location? ->
 
 ## Notes
 
-- Chainging multiple items like `locationClient.lastLocation.addOnSuccessListener{}`?
+- `The Google Play services location APIs are preferred over the Android framework location APIs (android.location) as a way of adding location awareness to your app.` This method is old. Please check https://developer.android.com/training/location/index.html
+- It uses the above method with a little fail safe to check the next best possible location of the user. http://stackoverflow.com/a/14511032/845038 That might remedy getting a null by checking the next best location.

@@ -24,51 +24,28 @@ Thank you in advance!
 
 ---
 
+For those who *really only* want to draw a simple line - there is indeed also the short short version.
+
+
 
 ```
-Try this one:
-Add itemizedOverlay class:
-
-public class AndroidGoogleMapsActivity extends MapActivity {
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Displaying Zooming controls
-        MapView mapView = (MapView) findViewById(R.id.mapview);
-        mapView.setBuiltInZoomControls(true);
-
-
-        MapController mc = mapView.getController();
-        double lat = Double.parseDouble("48.85827758964043");
-        double lon = Double.parseDouble("2.294543981552124");
-        GeoPoint geoPoint = new GeoPoint((int)(lat * 1E6), (int)(lon * 1E6));
-        mc.animateTo(geoPoint);
-        mc.setZoom(15);
-        mapView.invalidate(); 
-
-
-        /**
-         * Placing Marker
-         * */
-        List<Overlay> mapOverlays = mapView.getOverlays();
-        Drawable drawable = this.getResources().getDrawable(R.drawable.mark_red);
-        AddItemizedOverlay itemizedOverlay = 
-             new AddItemizedOverlay(drawable, this);
-
-
-        OverlayItem overlayitem = new OverlayItem(geoPoint, "Hello", "Sample Overlay item");
-
-        itemizedOverlay.addOverlay(overlayitem);
-        mapOverlays.add(itemizedOverlay);
-
-    }
-
-    @Override
-    protected boolean isRouteDisplayed() {
-        return false;
-    }
-}
+GoogleMap map;
+// ... get a map.
+// Add a thin red line from London to New York.
+Polyline line = map.addPolyline(new PolylineOptions()
+    .add(new LatLng(51.5, -0.1), new LatLng(40.7, -74.0))
+    .width(5)
+    .color(Color.RED));
 
 ```
+
+from <https://developers.google.com/maps/documentation/android/reference/com/google/android/gms/maps/model/Polyline>
+
+
+
+---
+
+## Notes
+
+- But if we need to et shortest path how can implement it?
+- Needs to be there and is useful to know because if you want to have only one at the same time you need to remove the previously created one.
