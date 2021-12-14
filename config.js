@@ -1,7 +1,7 @@
 const config = {
   gatsby: {
     pathPrefix: '/',
-    siteUrl: 'https://droidocsweb.gatsbyjs.io',
+    siteUrl: 'https://droidocs.dev',
     gaTrackingId: null,
     trailingSlash: false,
   },
