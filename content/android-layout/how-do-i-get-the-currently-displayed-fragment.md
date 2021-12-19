@@ -6,7 +6,7 @@ tags:
 title: How do I get the currently displayed fragment
 ---
 
-## Context
+## Problem
 
 I am playing with fragments in Android.
 
@@ -33,6 +33,8 @@ My question is, in a Java file, how can I get the currently displayed Fragment i
 
 
 ---
+
+## Solution
 
 I know it's an old post, but was having trouble with it previously too. Found a solution which was to do this in the `onBackStackChanged()` listening function
 

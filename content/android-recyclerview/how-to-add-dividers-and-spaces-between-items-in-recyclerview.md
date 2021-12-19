@@ -5,7 +5,7 @@ tags:
 title: How to add dividers and spaces between items in RecyclerView
 ---
 
-## Context
+## Problem
 
 This is an example of how it could have been done previously in the `ListView` class, using the **divider** and **dividerHeight** parameters:
 
@@ -39,6 +39,8 @@ In that case, is it ok to define margins and/or add a custom divider view direct
 
 
 ---
+
+## Solution
 
 The simple one is to set the background color for [RecyclerView](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) and a different background color for items. Here is an example...
 

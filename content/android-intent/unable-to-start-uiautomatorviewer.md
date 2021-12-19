@@ -7,7 +7,7 @@ tags:
 title: Unable to start uiautomatorviewer
 ---
 
-## Context
+## Problem
 
 I have :
 
@@ -33,6 +33,8 @@ why?
 
 
 ---
+
+## Solution
 
 Because your `tools/` directory is not in your `PATH`. Either use `./uiautomatorviewer` or add `tools/` (and probably `platform-tools/` to your `PATH`. Note that this has nothing to do with programming and everything to do with your *nix-style OS (Linux, OS X, etc.).
 

@@ -3,7 +3,7 @@ metaTitle: Android ListView scrolling to top
 title: Android ListView scrolling to top
 ---
 
-## Context
+## Problem
 
 I have a `ListView` with custom rows. When any of these rows is
 clicked, the ListView's data is regenerated. I'd like the list to
@@ -38,6 +38,8 @@ Thanks!
 
 
 ---
+
+## Solution
 
 Personally, I recommend you find a different UI pattern. It is possible that users will find your current "click, and the list changes *in situ*" approach intuitive, but I am skeptical.
 

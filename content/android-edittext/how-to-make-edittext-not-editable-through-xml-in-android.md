@@ -3,7 +3,7 @@ metaTitle: How to make EditText not editable through XML in Android
 title: How to make EditText not editable through XML in Android
 ---
 
-## Context
+## Problem
 
 Can anyone tell me how to make an `EditText` not editable via XML? I tried setting `android:editable` to `false`, but
 
@@ -13,6 +13,8 @@ Can anyone tell me how to make an `EditText` not editable via XML? I tried setti
 
 
 ---
+
+## Solution
 
 As mentioned in other answers, you can do a `setEnabled(false)` but since you are asking how to set it via XML, here is how to do it.
 

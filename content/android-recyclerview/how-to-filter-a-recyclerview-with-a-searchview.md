@@ -6,7 +6,7 @@ tags:
 title: How to filter a RecyclerView with a SearchView
 ---
 
-## Context
+## Problem
 
 I am trying to implement the `SearchView` from the support library. I want the user to be to use the `SearchView` to filter a `List` of movies in a `RecyclerView`.
 
@@ -166,6 +166,8 @@ public abstract class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewH
 
 
 ---
+
+## Solution
 
 
 > 

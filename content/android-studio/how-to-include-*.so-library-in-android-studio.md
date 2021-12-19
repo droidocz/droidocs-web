@@ -3,7 +3,7 @@ metaTitle: How to include *.so library in Android Studio
 title: How to include *.so library in Android Studio
 ---
 
-## Context
+## Problem
 
 I read many threads how to add a *.so library to Android Studio, but none of them works, especially when it comes to the point of text: This does not work with the newer xxx (Android Studio, gradle, ...)
 
@@ -63,6 +63,8 @@ I got the *.so files pre-compiled and at the demo app they are working. I have t
 
 
 ---
+
+## Solution
 
 **Android NDK official `hello-libs` CMake example**
 

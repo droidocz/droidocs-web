@@ -5,7 +5,7 @@ tags:
 title: How to handle screen orientation change when progress dialog and background thread active
 ---
 
-## Context
+## Problem
 
 My program does some network activity in a background thread. Before starting, it pops up a progress dialog. The dialog is dismissed on the handler. This all works fine, except when screen orientation changes while the dialog is up (and the background thread is going). At this point the app either crashes, or deadlocks, or gets into a weird stage where the app does not work at all until all the threads have been killed.
 
@@ -75,6 +75,8 @@ I have tried to dismiss the progress dialog in onSaveInstanceState, but that jus
 
 
 ---
+
+## Solution
 
 When you switch orientations, Android will create a new View. You're probably getting crashes because your background thread is trying to change the state on the old one. (It may also be having trouble because your background thread isn't on the UI thread)
 

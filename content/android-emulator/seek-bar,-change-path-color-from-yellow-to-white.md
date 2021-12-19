@@ -3,7 +3,7 @@ metaTitle: Seek bar, change path color from yellow to white
 title: Seek bar, change path color from yellow to white
 ---
 
-## Context
+## Problem
 
 I have two questions:
 
@@ -20,6 +20,8 @@ any pointers will be appreciated.
 
 
 ---
+
+## Solution
 
 I want to complete the answer from above for the people who are new to the system,
 

@@ -7,7 +7,7 @@ tags:
 title: Gradle dependencies update
 ---
 
-## Context
+## Problem
 
 One of the advantages of using Gradle in Android Studio is that it helps in dependency management. So if I have used a particular version of a library in my `build.gradle` file,
 then how will I force it to update the dependency version once the higher version is available?
@@ -28,6 +28,8 @@ dependencies {
 
 
 ---
+
+## Solution
 
 
 > 

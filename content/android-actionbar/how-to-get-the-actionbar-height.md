@@ -3,7 +3,7 @@ metaTitle: How to get the ActionBar height
 title: How to get the ActionBar height
 ---
 
-## Context
+## Problem
 
 I am trying to get the height of the `ActionBar` (using Sherlock) every time an activity is created (specially to handle configuration changes on rotation where the ActionBar height might change).
 
@@ -20,6 +20,8 @@ Or if it is not possible, how can I set the height of the ActionBar ?
 
 
 ---
+
+## Solution
 
 i think the safest way would be :
 

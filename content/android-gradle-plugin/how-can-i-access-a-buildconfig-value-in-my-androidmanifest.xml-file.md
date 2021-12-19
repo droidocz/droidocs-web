@@ -6,7 +6,7 @@ tags:
 title: How can I access a BuildConfig value in my AndroidManifest.xml file
 ---
 
-## Context
+## Problem
 
 Is it possible to access a BuildConfig value from AndroidManifest.xml?
 
@@ -62,6 +62,8 @@ Is that possible using BuildConfig? If not, how can I achieve this?
 
 
 ---
+
+## Solution
 
 Access build.gradle properties in your manifest as in following example:
 

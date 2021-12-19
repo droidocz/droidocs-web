@@ -5,7 +5,7 @@ tags:
 title: How to update/refresh specific item in RecyclerView
 ---
 
-## Context
+## Problem
 
 I'm trying to refresh specific item in `RecyclerView`.
 
@@ -39,6 +39,8 @@ How should I change specific itemView correctly by clicking on it?
 
 
 ---
+
+## Solution
 
 Update single item
 ==================

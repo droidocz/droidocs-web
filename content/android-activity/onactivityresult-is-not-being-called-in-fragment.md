@@ -5,7 +5,7 @@ tags:
 title: onActivityResult is not being called in Fragment
 ---
 
-## Context
+## Problem
 
 The activity hosting this fragment has its `onActivityResult` called when the camera activity returns.
 
@@ -36,6 +36,8 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 
 ---
+
+## Solution
 
 Inside your fragment, call
 

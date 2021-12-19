@@ -6,7 +6,7 @@ tags:
 title: Android Google Maps API V2 Zoom to Current Location
 ---
 
-## Context
+## Problem
 
 I'm trying to mess around with the Maps API V2 to get more familiar with it, and I'm trying to start the map centered at the user's current location. Using the `map.setMyLocationEnabled(true);` statement, I am able to show my current location on the map. This also adds the button to the UI that centers the map on my current location.
 
@@ -19,6 +19,8 @@ If the API has a method to show the user's current location, there surely must b
 
 
 ---
+
+## Solution
 
 Try this coding:
 

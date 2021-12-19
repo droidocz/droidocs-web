@@ -7,7 +7,7 @@ tags:
 title: 'Xamarin.Forms ListView: Set the highlight color of a tapped item'
 ---
 
-## Context
+## Problem
 
 Using *Xamarin.Forms*, how can I define the highlight/background color of a selected/tapped ListView item?
 
@@ -24,6 +24,8 @@ Using *Xamarin.Forms*, how can I define the highlight/background color of a sele
 
 
 ---
+
+## Solution
 
 In Android simply edit your styles.xml file under Resources\values adding this:
 

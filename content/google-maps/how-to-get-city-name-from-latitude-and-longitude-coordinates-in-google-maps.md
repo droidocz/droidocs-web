@@ -5,7 +5,7 @@ tags:
 title: How to get city name from latitude and longitude coordinates in Google Maps
 ---
 
-## Context
+## Problem
 
 How might I obtain the city name in Google Maps if I have latitude and longitude coordinates of a town or area?
 
@@ -15,6 +15,8 @@ I tried using the latitude, longitude and I got country but I don't know how to 
 
 
 ---
+
+## Solution
 
 I am using this code. You can also your this for getting city and other details about a Latitude and longitude :
 

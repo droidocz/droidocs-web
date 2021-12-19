@@ -6,7 +6,7 @@ tags:
 title: Building and running app via Gradle and Android Studio is slower than via Eclipse
 ---
 
-## Context
+## Problem
 
 I have a multi-project (~10 modules) of which building takes about 20-30 seconds each time. When I press Run in Android Studio, I have to wait every time to rebuild the app, which is extremely slow.
 
@@ -57,6 +57,8 @@ android {
 
 
 ---
+
+## Solution
 
 Searched everywhere for this and finally found a solution that works for us. Enabling parallel builds (On OSX: `preferences -> compiler -> gradle -> "Compile independent modules in parallel"`) and enabling 'make project automatically' brought it down from ~1 min to ~20 sec. Thanks to /u/Covalence.
 

@@ -5,7 +5,7 @@ tags:
 title: How can I force the Action Bar to be at the bottom in ICS
 ---
 
-## Context
+## Problem
 
 Ice Cream Sandwich (Android 4.0) adds the option of having the `Action Bar` at the bottom of the screen on phones, and that's something I'd love to have in an application of mine. The [docs](http://developer.android.com/guide/topics/ui/actionbar.html) mention `uiOptions="splitActionBarWhenNarrow"` for when you want something, i.e. tabs, at the top and `Action Bar` shortcuts at the bottom. I've tried adding the line in the application manifest, as described in the docs, but haven't got it working thus far.
 
@@ -24,6 +24,8 @@ Any ideas?
 
 
 ---
+
+## Solution
 
 
 > 

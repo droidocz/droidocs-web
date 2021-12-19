@@ -6,7 +6,7 @@ tags:
 title: How do I set an environment variable in Android Studio before it runs my gradle build
 ---
 
-## Context
+## Problem
 
 My Gradle build looks at an environment variable called BUILD\_NUMBER to determine the version to allocate to my android application as follows:
 
@@ -37,6 +37,8 @@ However, if I build using Android Studio, how can I set the BUILD\_NUMBER enviro
 
 
 ---
+
+## Solution
 
 One option is to make use of gradle properties that can be overriden by environment variables. You can read about it [here](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_properties_and_system_properties).
 

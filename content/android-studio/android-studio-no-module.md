@@ -3,7 +3,7 @@ metaTitle: Android Studio-No Module
 title: Android Studio-No Module
 ---
 
-## Context
+## Problem
 
 I am new to Android Studio.This is my project screenshot.My project builds successfully but when i run it only Build Successful is shown.![enter image description here](https://i.stack.imgur.com/GhLVt.png)  
 
@@ -12,6 +12,8 @@ By what I understand I think where build is written in the toolbar there should 
 
 
 ---
+
+## Solution
 
 Try first in Android Studio:
 

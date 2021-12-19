@@ -3,7 +3,7 @@ metaTitle: How to use putExtra() and getExtra() for string data
 title: How to use putExtra() and getExtra() for string data
 ---
 
-## Context
+## Problem
 
 Can someone please tell me how exactly to use `getExtra()` and `putExtra()` for intents? Actually I have a string variable, say str, which stores some string data. Now, I want to send this data from one activity to another activity. 
 
@@ -51,6 +51,8 @@ That is I have an editText where I am getting string whatever user types. Then w
 
 
 ---
+
+## Solution
 
 Use this to "put" the file...
 

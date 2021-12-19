@@ -3,7 +3,7 @@ metaTitle: How to tell which app was selected by Intent.createChooser
 title: How to tell which app was selected by Intent.createChooser
 ---
 
-## Context
+## Problem
 
 Code:
 
@@ -25,6 +25,8 @@ So how can I tell which was selected? Do I have to write my own chooser for this
 
 
 ---
+
+## Solution
 
 On Android 5.1+, you can use [the three-parameter edition of the `createChooser()` method](https://developer.android.com/reference/android/content/Intent.html#createChooser(android.content.Intent,%20java.lang.CharSequence,%20android.content.IntentSender)), where the last parameter is an [`IntentSender`](https://developer.android.com/reference/android/content/IntentSender.html) that you can use to find out what was chosen.
 

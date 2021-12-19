@@ -5,7 +5,7 @@ tags:
 title: 'Asynctask: pass two or more values from doInBackground to onPostExecute'
 ---
 
-## Context
+## Problem
 
 I have an Asynctask which retrieves two int vaules and i want to pass them to onPostExecute to show them on the view.  
 
@@ -45,6 +45,8 @@ Thank you in advance.
 
 
 ---
+
+## Solution
 
 You can define a Wrapper class that holds two integers:
 

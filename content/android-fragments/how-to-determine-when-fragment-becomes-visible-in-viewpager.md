@@ -5,7 +5,7 @@ tags:
 title: How to determine when Fragment becomes visible in ViewPager
 ---
 
-## Context
+## Problem
 
 Problem: Fragment `onResume()` in `ViewPager` is fired before the fragment becomes actually visible.
 
@@ -24,6 +24,8 @@ How can this be done?
 
 
 ---
+
+## Solution
 
 ### New
 

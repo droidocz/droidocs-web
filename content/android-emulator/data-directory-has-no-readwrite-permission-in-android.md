@@ -5,7 +5,7 @@ tags:
 title: Data directory has no read/write permission in Android
 ---
 
-## Context
+## Problem
 
 I m using Android 1.5 my data directory doesn't have the read/write permissions 
 
@@ -46,6 +46,8 @@ private void writeToSDCard() {
 
 
 ---
+
+## Solution
 
 You shouldn't be looking at the Data Directory. This is a system directory in the phone's storage - usually `/data` - and your application will never have permission to write to it.
 

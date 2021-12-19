@@ -6,7 +6,7 @@ tags:
 title: How to use SearchView in Toolbar Android
 ---
 
-## Context
+## Problem
 
 The code on which I am working, is using a `Toolbar` and inflating a `menu`.
 
@@ -100,6 +100,8 @@ which indicates `listener` is not working
 
 
 ---
+
+## Solution
 
 If you would like to setup the search facility inside your `Fragment`, just add these few lines: 
 

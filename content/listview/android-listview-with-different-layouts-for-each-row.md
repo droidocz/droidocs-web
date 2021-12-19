@@ -5,13 +5,15 @@ tags:
 title: Android ListView with different layouts for each row
 ---
 
-## Context
+## Problem
 
 I am trying to determine the best way to have a single ListView that contains different layouts for each row. I know how to create a custom row + custom array adapter to support a custom row for the entire list view, but how can I implement many different row styles in the ListView?
 
 
 
 ---
+
+## Solution
 
 Take a look in the code below.
 

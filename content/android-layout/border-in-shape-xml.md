@@ -7,7 +7,7 @@ tags:
 title: Border in shape XML
 ---
 
-## Context
+## Problem
 
 I am trying to make a drawable to use for a button. I would like it to have this coloring, with a 2px border around it.
 
@@ -39,6 +39,8 @@ Everything works just fine except I cannot get the border to show up...
 
 
 ---
+
+## Solution
 
 It looks like you forgot the prefix on the color attribute. Try 
 

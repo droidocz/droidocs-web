@@ -6,7 +6,7 @@ tags:
 title: How to start a Service when .apk is Installed for the first time
 ---
 
-## Context
+## Problem
 
 In my Application I am not having any UI part, so I need to start a Service as soon as the Applicaton gets installed on the Device. I saw many links from which the answer was that its not possible but I guess it is surely possible. Just have a look at [PlanB](https://market.android.com/details?id=com.lookout.labs.planb) Application on the Android Market that does fulfil my requirement. Below is my Manifest file how I tried, but the Service was not called at all. So, let me know what is the best possible way to start a Service when the Application gets Installed.
 
@@ -54,6 +54,8 @@ I also tried using `android.intent.action.PACKAGE_ADDED` it works fine for detec
 
 
 ---
+
+## Solution
 
 Fortunately, Plan B does not work on Android 3.1+, as tested on a XOOM and a Galaxy Nexus.
 

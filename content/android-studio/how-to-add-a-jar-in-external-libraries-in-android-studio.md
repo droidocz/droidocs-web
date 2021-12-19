@@ -3,7 +3,7 @@ metaTitle: How to add a jar in External Libraries in android studio
 title: How to add a jar in External Libraries in android studio
 ---
 
-## Context
+## Problem
 
 I am new to Android Studio. What I need to do is add a few jar files in the `External Libraries` below the < JDK > folder.
 
@@ -16,6 +16,8 @@ If anyone has knowledge of how to do this, please help me.
 
 
 ---
+
+## Solution
 
 **A late answer, although I thought of giving an in-depth answer to this question. This method is suitable for Android Studio 1.0.0 and above.**
 

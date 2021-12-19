@@ -6,7 +6,7 @@ tags:
 title: How to show a dialog to confirm that the user wishes to exit an Android Activity
 ---
 
-## Context
+## Problem
 
 I've been trying to show a "Do you want to exit?" type of dialog when the user attempts to exit an Activity. 
 
@@ -16,6 +16,8 @@ However I can't find the appropriate API hooks. `Activity.onUserLeaveHint()` ini
 
 
 ---
+
+## Solution
 
 
 ```

@@ -5,13 +5,15 @@ tags:
 title: How do I show the number keyboard on an EditText in android
 ---
 
-## Context
+## Problem
 
 I just basically want to switch to the number pad mode as soon a certain EditText has the focus.
 
 
 
 ---
+
+## Solution
 
 You can configure an [`inputType`](http://developer.android.com/reference/android/R.styleable.html#Searchable_inputType) for your [`EditText`](http://developer.android.com/reference/android/widget/EditText.html):
 

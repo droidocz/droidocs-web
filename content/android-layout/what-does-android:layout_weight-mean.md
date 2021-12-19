@@ -5,13 +5,15 @@ tags:
 title: What does android:layout_weight mean
 ---
 
-## Context
+## Problem
 
 I don't understand how to use this attribute. Can anyone tell me more about it?
 
 
 
 ---
+
+## Solution
 
 If there are multiple views spanning a `LinearLayout`, then `layout_weight` gives them each a proportional size. A view with a bigger `layout_weight` value "weighs" more, so it gets a bigger space.
 

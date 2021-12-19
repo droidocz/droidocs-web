@@ -5,13 +5,15 @@ tags:
 title: how to emulate pressing home button in android emulator
 ---
 
-## Context
+## Problem
 
 In android emulator as I understand you can emulate most of the functionality of regular phone, back is emulated by ESC , what is shortcut for pressing home button in android emulator.
 
 
 
 ---
+
+## Solution
 
 Did you try the `Home` key on your keyboard?
 

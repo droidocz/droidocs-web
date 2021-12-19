@@ -6,7 +6,7 @@ tags:
 title: ActionBar text color
 ---
 
-## Context
+## Problem
 
 how can I change the text color of the ActionBar? I've inherited the Holo Light Theme, I'm able to change the background of the ActionBar but I don't find out what is the attribute to tweak to change the text color.
 
@@ -21,6 +21,8 @@ Ok, I'm able to change the text color with the attribute android:textColorPrimar
 
 
 ---
+
+## Solution
 
 The ActionBar ID is not available directly, so you have to do little bit of hacking here.
 

@@ -6,7 +6,7 @@ tags:
 title: How to change the floating label color of TextInputLayout
 ---
 
-## Context
+## Problem
 
 With reference to the new `TextInputLayout` released by Google, how do I change the floating label text color?
 
@@ -22,6 +22,8 @@ This is what I have now:
 
 
 ---
+
+## Solution
 
 
 > 

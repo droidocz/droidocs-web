@@ -3,7 +3,7 @@ metaTitle: RecyclerView change data set
 title: RecyclerView change data set
 ---
 
-## Context
+## Problem
 
 I want to implement search functionality for my RecyclerView. On text changed i want to change the data that are displayed with this widget. Maybe this question has been asked before or is simple, but I don't know how the change the data that is to be shown...
 
@@ -42,6 +42,8 @@ So when when I want to give the adapter another set of data, another array (with
 
 
 ---
+
+## Solution
 
 If you have stable ids in your adapter, you can get pretty good results (animations) if you create a new array containing the filtered items and call 
 

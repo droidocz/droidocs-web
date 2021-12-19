@@ -5,7 +5,7 @@ tags:
 title: Show Current Location and Nearby Places and Route between two places using Google Maps API in Android
 ---
 
-## Context
+## Problem
 
 I need to develop an application using `Google Maps` in Android to locate my *current location* and need to *find nearest location*.
 
@@ -21,6 +21,8 @@ Can anyone help me to give some suggestion,links,tutorial to do that?
 
 
 ---
+
+## Solution
 
 1. First go through **[this tutorial](http://mobiforge.com/developing/story/using-google-maps-android)** for getting familiar with
 Android Google Maps and this for **[API 2](http://www.codeproject.com/Articles/614946/Android-google-map-api-v-setup)**.

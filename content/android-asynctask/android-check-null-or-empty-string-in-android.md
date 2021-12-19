@@ -5,7 +5,7 @@ tags:
 title: Android check null or empty string in Android
 ---
 
-## Context
+## Problem
 
 In my trying `AsyncTask` I get email address from my server. In `onPostExecute()` I have to check is email address `empty` or `null`. I used following code to check it:
 
@@ -69,6 +69,8 @@ How can I check for `null` and `empty` string?
 
 
 ---
+
+## Solution
 
 ### Use [`TextUtils.isEmpty( someString )`](https://developer.android.com/reference/android/text/TextUtils.html#isEmpty(java.lang.CharSequence))
 

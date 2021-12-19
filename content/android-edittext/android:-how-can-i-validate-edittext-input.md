@@ -3,7 +3,7 @@ metaTitle: 'Android: How can I validate EditText input'
 title: 'Android: How can I validate EditText input'
 ---
 
-## Context
+## Problem
 
 I need to do form input validation on a series of EditTexts. I'm using OnFocusChangeListeners to trigger the validation after the user types into each one, but this doesn't behave as desired for the last EditText.
 
@@ -19,6 +19,8 @@ Should I be monitoring when the InputMethod unbinds from each EditText rather th
 
 
 ---
+
+## Solution
 
 Updated approach - TextInputLayout:
 -----------------------------------

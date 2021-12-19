@@ -3,7 +3,7 @@ metaTitle: How to pass values between Fragments
 title: How to pass values between Fragments
 ---
 
-## Context
+## Problem
 
 I am just trying to build a simple sample application that uses Fragments. My scenario is, I have two activities with one fragment inside each activity. The first fragment has an edittext and a button. The second fragment has a textview. When I enter a name in the edittext and click on the button, the textview in the second fragment should display the name entered in the edittext of the first fragment.
 
@@ -273,6 +273,8 @@ How do I get the value from the bundle in SecondActivity.java to the *Fragment\_
 
 
 ---
+
+## Solution
 
 // In Fragment\_1.java
 

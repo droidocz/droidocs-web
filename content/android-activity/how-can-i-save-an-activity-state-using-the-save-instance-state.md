@@ -5,7 +5,7 @@ tags:
 title: How can I save an activity state using the save instance state
 ---
 
-## Context
+## Problem
 
 I've been working on the Android SDK platform, and it is a little unclear how to save an application's state. So given this minor re-tooling of the 'Hello, Android' example:
 
@@ -49,6 +49,8 @@ I'm sure the solution is as simple as overriding `onPause` or something like tha
 
 
 ---
+
+## Solution
 
 The `savedInstanceState` is only for saving state associated with a current instance of an Activity, for example current navigation or selection info, so that if Android destroys and recreates an Activity, it can come back as it was before. See the documentation for [`onCreate`](http://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)) and [`onSaveInstanceState`](http://developer.android.com/reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle))
 

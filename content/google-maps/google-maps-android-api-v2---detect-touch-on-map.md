@@ -7,7 +7,7 @@ tags:
 title: Google Maps Android API v2 - detect touch on map
 ---
 
-## Context
+## Problem
 
 I can't find an example on how to intercept the map touch on the new Google Maps API v2.
 
@@ -17,6 +17,8 @@ I need to know when the user touches the map in order to stop a thread (the cent
 
 
 ---
+
+## Solution
 
 @ape wrote an answer here on how to intercept the map clicks, but I need to intercept the touches, and then he suggested the following link in a comment of its answer, [How to handle onTouch event for map in Google Map API v2?](https://stackoverflow.com/questions/13722869/how-to-handle-ontouch-event-for-map-in-google-map-api-v2).
 

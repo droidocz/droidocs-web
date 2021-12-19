@@ -6,13 +6,15 @@ tags:
 title: Download a file with Android, and showing the progress in a ProgressDialog
 ---
 
-## Context
+## Problem
 
 I am trying to write a simple application that gets updated. For this I need a simple function that can download a file and *show the current progress* in a `ProgressDialog`. I know how to do the `ProgressDialog`, but I'm not sure how to display the current progress and how to download the file in the first place.
 
 
 
 ---
+
+## Solution
 
 Don't forget to add permissions to your manifest file if you're gonna be downloading stuff from the internet!
 

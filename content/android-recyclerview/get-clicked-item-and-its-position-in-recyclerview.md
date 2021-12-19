@@ -5,7 +5,7 @@ tags:
 title: Get clicked item and its position in RecyclerView
 ---
 
-## Context
+## Problem
 
 I am replacing my `ListView` with `RecyclerView`, list showing ok, but I would like to know how to get clicked item and its position, similar to the method [`OnItemClickListener.onItemClick(AdapterView parent, View v, int position, long id)`](http://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener.html) we use in `ListView`.
 
@@ -15,6 +15,8 @@ Thanks for ideas!
 
 
 ---
+
+## Solution
 
 
 ```

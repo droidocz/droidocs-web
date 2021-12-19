@@ -3,7 +3,7 @@ metaTitle: Open another application from your own (intent)
 title: Open another application from your own (intent)
 ---
 
-## Context
+## Problem
 
 I know how to update my own programs, and I know how to open programs using the a predefined Uri (for sms or email for example)
 
@@ -27,6 +27,8 @@ Thanks for your help
 
 
 ---
+
+## Solution
 
 I have work it like this,
 

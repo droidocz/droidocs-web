@@ -7,7 +7,7 @@ tags:
 title: Drawing a line/path on Google Maps
 ---
 
-## Context
+## Problem
 
 I've been busy for a long time finding out how to draw a line between two (GPS) points on the map in HelloMapView but with no luck.
 
@@ -23,6 +23,8 @@ Thank you in advance!
 
 
 ---
+
+## Solution
 
 For those who *really only* want to draw a simple line - there is indeed also the short short version.
 

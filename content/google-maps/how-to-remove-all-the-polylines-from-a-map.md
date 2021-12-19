@@ -5,7 +5,7 @@ tags:
 title: How to remove all the polylines from a map
 ---
 
-## Context
+## Problem
 
 Following
 
@@ -63,6 +63,8 @@ Thank You
 
 
 ---
+
+## Solution
 
 Keep track of the Polyline as you add it to the map:
 

@@ -5,7 +5,7 @@ tags:
 title: AsyncTaskLoader vs AsyncTask
 ---
 
-## Context
+## Problem
 
 Since `Honeycomb` and the `v4 Compatibility Library` it is possible to use `AsyncTaskLoader`. From what I understand, the `AsyncTaskLoader` can survive through config changes like screen flips. 
 
@@ -18,6 +18,8 @@ But I haven't found any good example(s) about how to correctly use the `AsyncTas
 
 
 ---
+
+## Solution
 
 You can have a look at the compatibility library's source code to get more info. What a `FragmentActivity` does is:
 

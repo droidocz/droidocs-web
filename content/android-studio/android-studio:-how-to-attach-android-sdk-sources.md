@@ -3,7 +3,7 @@ metaTitle: 'Android Studio: how to attach Android SDK sources'
 title: 'Android Studio: how to attach Android SDK sources'
 ---
 
-## Context
+## Problem
 
 How can I attach Android SDK sources to Android Studio? 
 
@@ -16,6 +16,8 @@ What is the other way to do this?
 
 
 ---
+
+## Solution
 
 Android Studio 3.2.1 reporting in: 
 solved the issue by resetting SDK.

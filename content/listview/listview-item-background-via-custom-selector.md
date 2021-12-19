@@ -3,7 +3,7 @@ metaTitle: ListView item background via custom selector
 title: ListView item background via custom selector
 ---
 
-## Context
+## Problem
 
 Is it possible to apply a custom background to each Listview item via the list selector?
 
@@ -61,6 +61,8 @@ Thanks in advance for any help!
 
 
 ---
+
+## Solution
 
 I'm not sure how to achieve your desired effect through the selector itself -- after all, by definition, there is one selector for the whole list.
 

@@ -5,7 +5,7 @@ tags:
 title: Activity restart on rotation Android
 ---
 
-## Context
+## Problem
 
 In my Android application, when I rotate the device (slide out the keyboard) then my `Activity` is restarted (`onCreate` is called). Now, this is probably how it's supposed to be, but I do a lot of initial setting up in the `onCreate` method, so I need either:
 
@@ -16,6 +16,8 @@ In my Android application, when I rotate the device (slide out the keyboard) the
 
 
 ---
+
+## Solution
 
 Update for Android 3.2 and higher:
 

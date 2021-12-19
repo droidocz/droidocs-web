@@ -6,13 +6,15 @@ tags:
 title: 'Android: how can fragment take a global variable of Activity'
 ---
 
-## Context
+## Problem
 
 I have an activity with a global variable int x, how can a fragment get the current value of variable x of its activity ?
 
 
 
 ---
+
+## Solution
 
 Using a public static variable isn't the best way to communicate between an activity and a fragment. Check out [this answer](https://stackoverflow.com/a/20521851/3681880) for other ways:
 

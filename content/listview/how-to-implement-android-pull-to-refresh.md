@@ -6,7 +6,7 @@ tags:
 title: How to implement Android Pull-to-Refresh
 ---
 
-## Context
+## Problem
 
 In Android applications such as Twitter (official app), when you encounter a ListView, you can pull it down (and it will bounce back when released) to refresh the content.
 
@@ -29,6 +29,8 @@ P.S. I wonder when the official Twitter app source code is released. It has been
 
 
 ---
+
+## Solution
 
 Finally, Google released an official version of the pull-to-refresh library!
 

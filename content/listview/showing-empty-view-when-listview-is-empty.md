@@ -3,7 +3,7 @@ metaTitle: Showing empty view when ListView is empty
 title: Showing empty view when ListView is empty
 ---
 
-## Context
+## Problem
 
 For some reason the empty view, a *TextView* in this case, always appears even when the *ListView* is not empty. I thought the *ListView* would automatically detect when to show the empty view.
 
@@ -35,6 +35,8 @@ How can I hook up the empty view properly?
 
 
 ---
+
+## Solution
 
 When you extend `FragmentActivity` or `Activity` and **not** `ListActivity`, you'll want to take a look at:
 

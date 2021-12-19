@@ -6,7 +6,7 @@ tags:
 title: EditText, inputType values (XML)
 ---
 
-## Context
+## Problem
 
 Where can I find the values that `InputType` can has?
 
@@ -16,6 +16,8 @@ I'm aware of <http://developer.android.com/reference/android/text/InputType.html
 
 
 ---
+
+## Solution
 
 Supplemental answer
 ===================

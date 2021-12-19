@@ -5,7 +5,7 @@ tags:
 title: How to open the Google Play Store directly from my Android application
 ---
 
-## Context
+## Problem
 
 I have open the Google Play store using the following code 
 
@@ -23,6 +23,8 @@ But it shows me a Complete Action View as to select the option (browser/play sto
 
 
 ---
+
+## Solution
 
 Go on Android Developer official link as tutorial step by step see and got the code for your application package from play store if exists or play store apps not exists then open application from web browser.
 

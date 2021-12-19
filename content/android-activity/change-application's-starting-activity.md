@@ -3,7 +3,7 @@ metaTitle: Change application's starting activity
 title: Change application's starting activity
 ---
 
-## Context
+## Problem
 
 I have created the meat and guts of my application but I want to add a different activity that will be the starting point (sort of a log-in screen).
 
@@ -16,6 +16,8 @@ Couple questions:
 
 
 ---
+
+## Solution
 
 Go to AndroidManifest.xml in the root folder of your project and change the Activity name which you want to execute first. 
 

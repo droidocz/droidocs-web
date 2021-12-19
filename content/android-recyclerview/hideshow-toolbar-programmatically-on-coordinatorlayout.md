@@ -5,7 +5,7 @@ tags:
 title: Hide/Show Toolbar programmatically on CoordinatorLayout
 ---
 
-## Context
+## Problem
 
 When I scroll my `RecycleView` `ToolBar` hide or show (with animation).
 [![enter image description here](https://i.stack.imgur.com/vrYXl.jpg)](https://i.stack.imgur.com/vrYXl.jpg) 
@@ -16,6 +16,8 @@ How I can return `ToolBar` back programmatically?
 
 
 ---
+
+## Solution
 
 If your toolbar is inside an AppBarLayout which is probably inside your CoordinatorLayout then something like this should work.
 

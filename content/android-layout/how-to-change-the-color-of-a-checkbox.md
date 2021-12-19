@@ -5,7 +5,7 @@ tags:
 title: How to change the color of a CheckBox
 ---
 
-## Context
+## Problem
 
 How do I change the default `CheckBox` color in Android?  
 
@@ -16,6 +16,8 @@ If it is not possible please tell me how to make a custom `CheckBox`?
 
 
 ---
+
+## Solution
 
 If your `minSdkVersion` is 21+ use `android:buttonTint` attribute to update the color of a checkbox:
 

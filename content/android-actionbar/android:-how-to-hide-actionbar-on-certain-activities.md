@@ -5,7 +5,7 @@ tags:
 title: 'Android: how to hide ActionBar on certain activities'
 ---
 
-## Context
+## Problem
 
 I've developed a simple demo application with a splash screen a map and some regular screens.
 
@@ -110,6 +110,8 @@ public class SplashActivity extends Activity{
 
 
 ---
+
+## Solution
 
 As you are asking about how to **hide** in a **certain activity**, this is what you need :
 

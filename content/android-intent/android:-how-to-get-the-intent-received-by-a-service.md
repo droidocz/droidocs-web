@@ -5,7 +5,7 @@ tags:
 title: 'Android: how to get the intent received by a service'
 ---
 
-## Context
+## Problem
 
 I'm starting a service with an intent where I put extra information.
 
@@ -18,6 +18,8 @@ There isn't a function like `getIntent().getExtras()` in service like in activit
 
 
 ---
+
+## Solution
 
 Override `onStart()` -- you receive the `Intent` as a parameter.
 

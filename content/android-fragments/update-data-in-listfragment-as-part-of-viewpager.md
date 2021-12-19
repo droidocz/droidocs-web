@@ -7,7 +7,7 @@ tags:
 title: Update data in ListFragment as part of ViewPager
 ---
 
-## Context
+## Problem
 
 I'm using the v4 compatibility ViewPager in Android. My FragmentActivity has a bunch of data which is to be displayed in different ways on different pages in my ViewPager. So far I just have 3 instances of the same ListFragment, but in the future I will have 3 instances of different ListFragments. The ViewPager is on a vertical phone screen, the lists are not side-by-side.
 
@@ -125,6 +125,8 @@ Any help would be gratefully accepted!
 
 
 ---
+
+## Solution
 
 Barkside's answer works with `FragmentPagerAdapter` but doesn't work with `FragmentStatePagerAdapter`, because it doesn't set tags on fragments it passes to `FragmentManager`.
 

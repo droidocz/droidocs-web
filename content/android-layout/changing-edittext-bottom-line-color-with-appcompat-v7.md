@@ -7,7 +7,7 @@ tags:
 title: Changing EditText bottom line color with appcompat v7
 ---
 
-## Context
+## Problem
 
 I am using appcompat v7 to get the look consistent on Android 5 and less. It works rather well. However I cannot figure out how to change the bottom line color and the accent color for EditTexts. Is it possible? 
 
@@ -32,6 +32,8 @@ According to android API 21 sources, EditTexts with material design seem to use 
 
 
 ---
+
+## Solution
 
 While [Laurents solution](https://stackoverflow.com/a/26631227/982852) is correct, it comes with some drawbacks as described in the comments since not only the bottom line of the `EditText` gets tinted but the Back Button of the `Toolbar`, `CheckBoxes` etc. as well.
 

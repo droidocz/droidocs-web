@@ -5,7 +5,7 @@ tags:
 title: How to animate RecyclerView items when they appear
 ---
 
-## Context
+## Problem
 
 How can I animate the RecyclerView Items when there are appearing?
 
@@ -18,6 +18,8 @@ Any ideas how to achieve this?
 
 
 ---
+
+## Solution
 
 I animated fading in of `Recyclerview` items when they first appear as shown in the code below. Perhaps this will be of use to someone.
 

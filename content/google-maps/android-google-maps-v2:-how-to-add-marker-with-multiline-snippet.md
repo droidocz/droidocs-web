@@ -3,7 +3,7 @@ metaTitle: 'Android Google Maps v2: How to add marker with multiline snippet'
 title: 'Android Google Maps v2: How to add marker with multiline snippet'
 ---
 
-## Context
+## Problem
 
 Does anybody know how to add multiline snippet to Google Maps marker? That's my code for adding markers:
 
@@ -32,6 +32,8 @@ but when I'm trying to set snippetText to "foo \n bar", I see just `foo bar` and
 
 
 ---
+
+## Solution
 
 I have done with easiest way like below:
 

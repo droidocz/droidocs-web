@@ -7,7 +7,7 @@ tags:
 title: How to set custom ActionBar color / style
 ---
 
-## Context
+## Problem
 
 I am using `Android Navigation bar` in my project,
 I want to change the top color in action bar to something red, How can i do that?
@@ -28,6 +28,8 @@ how can i achieve that?
 
 
 ---
+
+## Solution
 
 You can define the color of the ActionBar (and other stuff) by **creating a custom Style**:
 

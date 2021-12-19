@@ -6,7 +6,7 @@ tags:
 title: notifyDataSetChange not working from custom adapter
 ---
 
-## Context
+## Problem
 
 When I repopulate my `ListView`, I call a specific method from my `Adapter`.
 
@@ -146,6 +146,8 @@ Works, but not how it is supposed to work.
 
 
 ---
+
+## Solution
 
 As I have already explained the reasons behind this issue and also how to handle it in a different answer thread [Here](https://stackoverflow.com/a/20479071/1084174). Still i am sharing the solution summary here.
 

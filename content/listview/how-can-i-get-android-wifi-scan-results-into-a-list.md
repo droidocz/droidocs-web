@@ -6,7 +6,7 @@ tags:
 title: How can I get Android Wifi Scan Results into a list
 ---
 
-## Context
+## Problem
 
 I know how to get a `<List>` of Android Wifi Scans but I can not figure out the best way to make a list adapter out of them. I would like to just bind SSID and BSSID from a `<List>` of scans to text1 and text2.
 
@@ -55,6 +55,8 @@ private void fillDataFromDb() {
 
 
 ---
+
+## Solution
 
 Wrap an `ArrayAdapter` around your `List<ScanResult>`. Override `getView()` to populate your rows with the `ScanResult` data. [Here is a free excerpt](http://commonsware.com/Android/excerpt.pdf) from one of my books that covers how to create custom `ArrayAdapters` like this.
 

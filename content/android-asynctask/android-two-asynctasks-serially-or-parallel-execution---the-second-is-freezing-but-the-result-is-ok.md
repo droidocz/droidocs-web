@@ -6,7 +6,7 @@ tags:
 title: Android two AsyncTasks serially or parallel execution - The second is freezing but the result is ok
 ---
 
-## Context
+## Problem
 
 I run two AsyncTask tasks in my Android application which are from the same class but with different parameters. For example:
 
@@ -27,6 +27,8 @@ I run the app on Android Jelly Bean 4.2.2 API Level 17
 
 
 ---
+
+## Solution
 
 
 > 

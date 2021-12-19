@@ -6,13 +6,15 @@ tags:
 title: Launching Google Maps Directions via an intent on Android
 ---
 
-## Context
+## Problem
 
 My app needs to show Google Maps directions from A to B, but I don't want to put the Google Maps into my application - instead, I want to launch it using an Intent. Is this possible? If yes, how?
 
 
 
 ---
+
+## Solution
 
 Using the latest **cross-platform Google Maps URLs**:
 Even if google maps app is missing it will open in browser

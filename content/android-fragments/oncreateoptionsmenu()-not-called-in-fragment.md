@@ -3,7 +3,7 @@ metaTitle: OnCreateOptionsMenu() not called in Fragment
 title: OnCreateOptionsMenu() not called in Fragment
 ---
 
-## Context
+## Problem
 
 I have an app which got one activity with 2 fragments placed horizontally.
 
@@ -287,6 +287,8 @@ import com.andr.helper.LazyHelper;
 
 
 ---
+
+## Solution
 
 In your fragment's `onCreateView()` method, you need to call `setHasOptionsMenu(true)` to tell the host activity that your fragment has menu options that it wants to add.
 

@@ -3,13 +3,15 @@ metaTitle: Disable EditText blinking cursor
 title: Disable EditText blinking cursor
 ---
 
-## Context
+## Problem
 
 Does anyone know how to disable the blinking cursor in an `EditText` view?
 
 
 
 ---
+
+## Solution
 
 You can use either the xml attribute `android:cursorVisible="false"` or programatically:
 

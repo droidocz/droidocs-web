@@ -5,7 +5,7 @@ tags:
 title: Remove application icon and title from Honeycomb action bar
 ---
 
-## Context
+## Problem
 
 How can I remove the application icon & title which comes by default in an action bar?
 
@@ -15,6 +15,8 @@ There is a similar question here: [Can i hide the App Icon from the Action Bar i
 
 
 ---
+
+## Solution
 
 Call [`setDisplayShowHomeEnabled()`](http://developer.android.com/reference/android/app/ActionBar.html#setDisplayShowHomeEnabled%28boolean%29) and [`setDisplayShowTitleEnabled()`](http://developer.android.com/reference/android/app/ActionBar.html#setDisplayShowTitleEnabled%28boolean%29) on `ActionBar`, which you get via a call to `getActionBar()`.
 

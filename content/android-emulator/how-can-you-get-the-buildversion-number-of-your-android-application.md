@@ -5,7 +5,7 @@ tags:
 title: How can you get the build/version number of your Android application
 ---
 
-## Context
+## Problem
 
 I need to figure out how to get or make a build number for my Android application. I need the build number to display in the UI.
 
@@ -15,6 +15,8 @@ Do I have to do something with `AndroidManifest.xml`?
 
 
 ---
+
+## Solution
 
 Here is a **clean solution**, based on [the solution of scottyab](https://stackoverflow.com/questions/4616095/how-can-you-get-the-build-version-number-of-your-android-application/5788950#5788950) (edited by Xavi). It shows how to get the context first, if it's not provided by your method. Furthermore, it uses multiple lines instead of calling multiple methods per line. This makes it easier when you have to debug your application.
 

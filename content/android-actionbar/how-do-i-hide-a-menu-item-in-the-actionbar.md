@@ -6,7 +6,7 @@ tags:
 title: How do I hide a menu item in the actionbar
 ---
 
-## Context
+## Problem
 
 I have an action bar with a menuitem. How can I hide/show that menu item?
 
@@ -24,6 +24,8 @@ this.invalidateOptionsMenu();
 
 
 ---
+
+## Solution
 
 Found an addendum to this question:
 

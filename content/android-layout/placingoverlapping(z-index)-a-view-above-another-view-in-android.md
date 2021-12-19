@@ -5,7 +5,7 @@ tags:
 title: Placing/Overlapping(z-index) a view above another view in android
 ---
 
-## Context
+## Problem
 
 I have a linear layout which consists of imageview and textview , one below another in a linear layout. 
 
@@ -38,6 +38,8 @@ I want to know how can we place one view above the other, with varying z-index (
 
 
 ---
+
+## Solution
 
 RelativeLayout works the same way, the last image in the relative layout wins.
 

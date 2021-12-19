@@ -3,13 +3,15 @@ metaTitle: Callback in Android
 title: Callback in Android
 ---
 
-## Context
+## Problem
 
 In Android application development, I frequently go through the word `CallBack` in many places. I want to know what it means to tell us technically - and how I can manage to use the `callback` in applications. I need a guide to understand it and use it.
 
 
 
 ---
+
+## Solution
 
 
 > 

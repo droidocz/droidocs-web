@@ -3,7 +3,7 @@ metaTitle: ListView setOnItemClickListener not working by adding button
 title: ListView setOnItemClickListener not working by adding button
 ---
 
-## Context
+## Problem
 
 I have a list view with text and button in each row, list view setOnItemClickListener() is not working. is it possible to handle item click and button click events differently(item click should call ActivityA and button click should call ActivityB). Does anyone have a solution
 
@@ -87,6 +87,8 @@ I have a list view with text and button in each row, list view setOnItemClickLis
 
 
 ---
+
+## Solution
 
 Sometimes the List will still not be able to make the Click Listener to pass. And at this case you might have to add one more attribute. 
 

@@ -3,7 +3,7 @@ metaTitle: Calling a Fragment method from a parent Activity
 title: Calling a Fragment method from a parent Activity
 ---
 
-## Context
+## Problem
 
 I see in the [Android Fragments Dev Guide](http://developer.android.com/guide/topics/fundamentals/fragments.html) that an "activity can call methods in a fragment by acquiring a reference to the Fragment from FragmentManager, using `findFragmentById()` or `findFragmentByTag()`."
 
@@ -16,6 +16,8 @@ Can anyone give an example of how to do this? I would like to call a specific me
 
 
 ---
+
+## Solution
 
 If you are using “import android.app.Fragment;”
 Then use either:

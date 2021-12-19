@@ -6,7 +6,7 @@ tags:
 title: Simple Android grid example using RecyclerView with GridLayoutManager (like the old GridView)
 ---
 
-## Context
+## Problem
 
 I know that `RecyclerView` has replaced the functionality of the old `ListView` and `GridView`. I am looking for a very basic example that shows a minimal grid setup using `RecyclerView`. I am not looking for long tutorial style explanations, just a minimal example. I imagine the simplest grid that mimics the old GridView would consist of the following features:
 
@@ -17,6 +17,8 @@ I know that `RecyclerView` has replaced the functionality of the old `ListView` 
 
 
 ---
+
+## Solution
 
 Although I do like and appreciate [*Suragch*'s answer](https://stackoverflow.com/a/40587169/5560215), I would like to leave a note because I found that coding the *Adapter* (`MyRecyclerViewAdapter`) to define and expose the Listener method `onItemClick` isn't the best way to do it, due to not using class encapsulation correctly. So my suggestion is to let the *Adapter* handle the Listening operations solely (that's his purpose!) and separate those from the Activity that uses the *Adapter* (`MainActivity`). So this is how I would set the Adapter class:
 

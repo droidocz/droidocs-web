@@ -5,7 +5,7 @@ tags:
 title: Send Email Intent
 ---
 
-## Context
+## Problem
 
 
 ```
@@ -39,6 +39,8 @@ The dialog shows only email Apps e.g. Gmail, Yahoo Mail etc. It does not show Bl
 
 
 ---
+
+## Solution
 
 A late answer, although I figured out a solution which could help others:
 

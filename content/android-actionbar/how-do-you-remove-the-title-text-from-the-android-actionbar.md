@@ -3,7 +3,7 @@ metaTitle: How do you remove the title text from the Android ActionBar
 title: How do you remove the title text from the Android ActionBar
 ---
 
-## Context
+## Problem
 
 I'm looking through the `Holo.Light` theme, and I can't seem to find the magic style to override to get rid of the title text that briefly shows up when my app first launches.
 
@@ -13,6 +13,8 @@ How can I do that?
 
 
 ---
+
+## Solution
 
 Try:
 

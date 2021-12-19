@@ -7,13 +7,15 @@ tags:
 title: Connecting to GitLab repositories on Android Studio
 ---
 
-## Context
+## Problem
 
 I'm trying to connect to a GitLab repository using the I/O preview of Android Studio. Does anyone know how to do this/if it is possible yet?
 
 
 
 ---
+
+## Solution
 
 How to add an Android Studio project to GitLab
 ==============================================

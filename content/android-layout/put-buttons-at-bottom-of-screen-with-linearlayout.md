@@ -7,7 +7,7 @@ tags:
 title: Put buttons at bottom of screen with LinearLayout
 ---
 
-## Context
+## Problem
 
 I have the following code, how do I make it so that the 3 buttons are at the bottom?
 
@@ -61,6 +61,8 @@ I have the following code, how do I make it so that the 3 buttons are at the bot
 
 
 ---
+
+## Solution
 
 You need to ensure four things:
 

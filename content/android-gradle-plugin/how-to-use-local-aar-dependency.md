@@ -5,7 +5,7 @@ tags:
 title: How to use local aar dependency
 ---
 
-## Context
+## Problem
 
 i google about local aar,every one say it can work,but it don't work at android studio 1.1.0.
 
@@ -43,6 +43,8 @@ how to do this?
 
 
 ---
+
+## Solution
 
 I was getting the same errors.
 

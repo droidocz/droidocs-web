@@ -3,7 +3,7 @@ metaTitle: how to change color of textview hyperlink
 title: how to change color of textview hyperlink
 ---
 
-## Context
+## Problem
 
 I am using this code for hyperlink:
 
@@ -24,6 +24,8 @@ By default it is showing blue color, but how do I change color of hyperlink in A
 
 
 ---
+
+## Solution
 
 Add `android:textColorLink="yourcolorhere"` to your `TextView`
 

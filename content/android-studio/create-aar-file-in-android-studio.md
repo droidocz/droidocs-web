@@ -6,7 +6,7 @@ tags:
 title: Create aar file in Android Studio
 ---
 
-## Context
+## Problem
 
 I'd like to create an aar file for my library in Android Studio, i would've gone with a jar option but my library has resources.
 
@@ -16,6 +16,8 @@ Any idea how to create an aar file from a library?
 
 
 ---
+
+## Solution
 
 Retrieve exported .aar file from local builds
 =============================================

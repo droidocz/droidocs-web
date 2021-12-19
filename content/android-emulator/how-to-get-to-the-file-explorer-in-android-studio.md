@@ -5,13 +5,15 @@ tags:
 title: How to get to the file explorer in android studio
 ---
 
-## Context
+## Problem
 
 Okay I don't know how to get to the file explorer in android studio. I already tried searching stack overflow and I found the same question I am asking but the solution there didn't work. So with screen shots could someone tell me how to get to the file explorer?
 
 
 
 ---
+
+## Solution
 
 For Android Studio 0.8.6, go to `Tools` > `Android` > `Android Device Monitor` in the main menu, to bring up the Android Device Monitor in a separate window. There you will find what amounts a set of Eclipse perspectives, notably the DDMS perspective, which has the File Explorer view.
 

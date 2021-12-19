@@ -3,7 +3,7 @@ metaTitle: How to use setArguments() and getArguments() methods in Fragments
 title: How to use setArguments() and getArguments() methods in Fragments
 ---
 
-## Context
+## Problem
 
 I have 2 fragments: (1)Frag1 (2)Frag2.
 
@@ -32,6 +32,8 @@ How do I get this data in Frag2?
 
 
 ---
+
+## Solution
 
 Just call `getArguments()` in your `Frag2`'s `onCreateView()` method:
 

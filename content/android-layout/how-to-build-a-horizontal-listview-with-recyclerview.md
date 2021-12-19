@@ -5,13 +5,15 @@ tags:
 title: How to build a horizontal ListView with RecyclerView
 ---
 
-## Context
+## Problem
 
 I need to implement a horizontal listview in my Android application. I did a bit of research and came across *[How can I make a horizontal ListView in Android?](https://stackoverflow.com/questions/3877040/how-can-i-make-a-horizontal-listview-in-android)* and *[Horizontal ListView in Android?](https://stackoverflow.com/questions/3240331/horizontal-listview-in-android)*. However, these questions were asked before Recyclerview was released. Is there a better way to implement this now with Recyclerview?
 
 
 
 ---
+
+## Solution
 
 Complete example
 ================

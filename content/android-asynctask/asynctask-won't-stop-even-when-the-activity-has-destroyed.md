@@ -3,7 +3,7 @@ metaTitle: AsyncTask won't stop even when the Activity has destroyed
 title: AsyncTask won't stop even when the Activity has destroyed
 ---
 
-## Context
+## Problem
 
 I have an `AsyncTask` object which starts executing when the `Activity` is created and does stuff in the background (downloads up to 100 images). Everything works fine but there is this peculiar behavior which i'm not able to understand.
 
@@ -19,6 +19,8 @@ This is really strange behavior and would really be thankful if someone can tell
 
 
 ---
+
+## Solution
 
 The answer given by @Romain Guy is correct. Nevertheless, I would like to add a complement of information and give a pointer to a library or 2 that can be used for long running AsyncTask and even more for network oriented asynctasks. 
 

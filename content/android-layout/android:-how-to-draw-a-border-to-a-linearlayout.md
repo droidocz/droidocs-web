@@ -5,7 +5,7 @@ tags:
 title: 'Android: how to draw a border to a LinearLayout'
 ---
 
-## Context
+## Problem
 
 I have three files. The XML, the draw function and the main Activity.
 I have some `LinearLayout` in my XML file.
@@ -90,6 +90,8 @@ Also, I want to draw two circles in the center of the `LinearLayout`, but how co
 
 
 ---
+
+## Solution
 
 Extend LinearLayout/RelativeLayout and use it straight on the XML
 

@@ -3,7 +3,7 @@ metaTitle: How to use MapView in android using google map V2
 title: How to use MapView in android using google map V2
 ---
 
-## Context
+## Problem
 
 I want to show a map in on of my activity.
 
@@ -48,6 +48,8 @@ Can anyone use MapView using V2?
 
 
 ---
+
+## Solution
 
 More complete sample from [here](https://gist.github.com/joshdholtz/4522551) and [here](http://ucla.jamesyxu.com/?p=287).
 

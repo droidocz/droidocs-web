@@ -6,7 +6,7 @@ tags:
 title: Is it possible to use multiple manifest files for different gradle builds/flavors
 ---
 
-## Context
+## Problem
 
 Lets say I have a white label app that Im converting to be built in android studio from eclipse. This app has about 10 iterations which all use mostly the same code base with different resources that all use the same name convention how ever some of the iterations have extra activities or services that arent needed in all builds.
 
@@ -19,6 +19,8 @@ Can I use flavors or buildtypes to handle the switching of multiple manifest fil
 
 
 ---
+
+## Solution
 
 
 > 

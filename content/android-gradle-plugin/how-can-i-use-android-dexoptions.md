@@ -3,7 +3,7 @@ metaTitle: how can I use Android dexOptions
 title: how can I use Android dexOptions
 ---
 
-## Context
+## Problem
 
 What are the meaning of the dexOptions.incremental, etc.
 Any body can explain them to me.
@@ -27,6 +27,8 @@ This affects all tasks using dex.
 
 
 ---
+
+## Solution
 
 
 > 

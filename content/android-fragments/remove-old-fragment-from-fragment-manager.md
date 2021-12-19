@@ -5,7 +5,7 @@ tags:
 title: Remove old Fragment from fragment manager
 ---
 
-## Context
+## Problem
 
 I'm trying to learn how to use `Fragment`s in android.
 I'm trying to remove old `fragment` when new `fragment` is calling in android.
@@ -13,6 +13,8 @@ I'm trying to remove old `fragment` when new `fragment` is calling in android.
 
 
 ---
+
+## Solution
 
 You need to find reference of existing Fragment and remove that fragment using below code. You need add/commit fragment using one tag ex. "TAG\_FRAGMENT".
 

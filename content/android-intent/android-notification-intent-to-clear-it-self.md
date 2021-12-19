@@ -5,7 +5,7 @@ tags:
 title: Android Notification intent to clear it self
 ---
 
-## Context
+## Problem
 
 I have read many examples of how to create notification messages.
 What i wanted to achieve, is because the notification will be executed by a widget, i would like
@@ -36,6 +36,8 @@ Thanks
 
 
 ---
+
+## Solution
 
 Check out [FLAG\_AUTO\_CANCEL](http://developer.android.com/intl/de/reference/android/app/Notification.html#FLAG_AUTO_CANCEL) 
 

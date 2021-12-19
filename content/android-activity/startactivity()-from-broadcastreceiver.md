@@ -5,7 +5,7 @@ tags:
 title: startActivity() from BroadcastReceiver
 ---
 
-## Context
+## Problem
 
 I am trying to autostart my nightclock application on charging using the following BroadcastReceiver implemented in the onPause() method:
 
@@ -39,6 +39,8 @@ Any ideas why the log says the activity is started, but nothing happens?
 
 
 ---
+
+## Solution
 
 If your goal is that you want `NightClock` to be started whenever an `ACTION_POWER_CONNECTED` broadcast is sent, your approach of using a `BroadcastReceiver` is fine. However, do not register it from an activity. Rather, register it in the manifest:
 

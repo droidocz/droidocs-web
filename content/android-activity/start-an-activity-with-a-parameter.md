@@ -5,7 +5,7 @@ tags:
 title: Start an Activity with a parameter
 ---
 
-## Context
+## Problem
 
 I'm very new on Android development.
 
@@ -27,6 +27,8 @@ Thanks.
 
 
 ---
+
+## Solution
 
 Just add extra data to the Intent you use to call your activity.
 

@@ -3,13 +3,15 @@ metaTitle: How to get current foreground activity context in android
 title: How to get current foreground activity context in android
 ---
 
-## Context
+## Problem
 
 Whenever my broadcast is executed I want to show alert to foreground activity.
 
 
 
 ---
+
+## Solution
 
 For backwards compatibility:
 

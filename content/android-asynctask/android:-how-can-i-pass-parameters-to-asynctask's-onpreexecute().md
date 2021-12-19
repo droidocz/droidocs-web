@@ -6,7 +6,7 @@ tags:
 title: 'Android: How can I pass parameters to AsyncTask''s onPreExecute()'
 ---
 
-## Context
+## Problem
 
 I use an `AsyncTask` for loading operations that I implemented as an inner class. 
 
@@ -22,6 +22,8 @@ The obvious workaround would probably be to create a member field in my AsyncTas
 
 
 ---
+
+## Solution
 
 You can override the constructor. Something like:
 

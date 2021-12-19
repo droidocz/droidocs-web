@@ -5,7 +5,7 @@ tags:
 title: 'Android: ListView elements with multiple clickable buttons'
 ---
 
-## Context
+## Problem
 
 I've a `ListView` where every element in the list contains a TextView and two different Buttons. Something like this:
 
@@ -84,6 +84,8 @@ Anyone an idea?
 
 
 ---
+
+## Solution
 
 This is sort of an appendage @znq's answer...
 

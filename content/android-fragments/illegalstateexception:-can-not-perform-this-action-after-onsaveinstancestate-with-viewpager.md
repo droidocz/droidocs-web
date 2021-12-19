@@ -7,7 +7,7 @@ tags:
 title: 'IllegalStateException: Can not perform this action after onSaveInstanceState with ViewPager'
 ---
 
-## Context
+## Problem
 
 I'm getting user reports from my app in the market, delivering the following exception:
 
@@ -63,6 +63,8 @@ For the record: I have a tabhost, and in each tab there is a ActivityGroup switc
 
 
 ---
+
+## Solution
 
 There are many related problems with a similar error message. Check the second line of this particular stack trace. This exception is specifically related to the call to `FragmentManagerImpl.popBackStackImmediate`.
 

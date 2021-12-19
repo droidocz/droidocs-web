@@ -5,7 +5,7 @@ tags:
 title: Detect when RecyclerView reaches the bottom most position while scrolling
 ---
 
-## Context
+## Problem
 
 I have this code for a RecyclerView.
 
@@ -25,6 +25,8 @@ I need to know when the RecyclerView reaches bottom most position while scrollin
 
 
 ---
+
+## Solution
 
 Use this code for avoiding repeated calls
 

@@ -5,7 +5,7 @@ tags:
 title: Full Screen Theme for AppCompat
 ---
 
-## Context
+## Problem
 
 I would like to know how can I apply full screen theme ( no title bar + no actionbar ) to an activity. I am using AppCompat library from support package v7. 
 
@@ -41,6 +41,8 @@ getSupportActionBar().hide();
 
 
 ---
+
+## Solution
 
 Based on the answer by @nebyan, I found that the action bar is still not hiding.
 

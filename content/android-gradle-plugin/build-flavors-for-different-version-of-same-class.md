@@ -3,7 +3,7 @@ metaTitle: Build flavors for different version of same class
 title: Build flavors for different version of same class
 ---
 
-## Context
+## Problem
 
 I've got a project, structured like this:
 
@@ -78,6 +78,8 @@ Am I missing something here?
 
 
 ---
+
+## Solution
 
 In the main build variant, Class A is `com.abc.flavorA.classA`, and in `flavorA2` it's `com.abc.flavorA.mk2.classA`. These are two different fully-qualified class names and therefore two different classes.
 

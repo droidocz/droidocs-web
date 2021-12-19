@@ -3,7 +3,7 @@ metaTitle: The Android emulator is out of view, how can I move it
 title: The Android emulator is out of view, how can I move it
 ---
 
-## Context
+## Problem
 
 I used an additional display with my laptop and moved the Android emulator there. It seems to remember the location even if the display is not connected anymore.
 
@@ -13,6 +13,8 @@ Is there any way to reset the position of the window so it becomes visible again
 
 
 ---
+
+## Solution
 
 You can use this Method for moving any window that is off the screen in a windows environment.
 

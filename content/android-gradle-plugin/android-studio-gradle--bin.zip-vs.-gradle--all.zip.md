@@ -5,7 +5,7 @@ tags:
 title: Android Studio gradle-###-bin.zip vs. gradle-###-all.zip
 ---
 
-## Context
+## Problem
 
 One developer on my team has some setting in Android Studio that replaces the `distributionUrl` entry in `gradle/wrapper/gradle-wrapper.properties` to use the `gradle-###-all.zip`, while my Android Studio changes it back to `gradle-###-bin.zip`. 
 
@@ -22,6 +22,8 @@ This is annoying. What setting is it, and how do I change it?
 
 
 ---
+
+## Solution
 
 `gradle-1.12-all.zip` file will have binaries, sources, and documentation.
 `gradle-1.12-bin.zip` will have only binaries(That should be enough as you don't need any samples/docs)

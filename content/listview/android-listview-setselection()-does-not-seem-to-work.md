@@ -3,7 +3,7 @@ metaTitle: Android ListView setSelection() does not seem to work
 title: Android ListView setSelection() does not seem to work
 ---
 
-## Context
+## Problem
 
 I have a `ListActivity` that implements `onListItemClick()` and calls a `doSomething()` function of the class. The latter contains `l.setSelection(position)` where `l` is the `ListView` object.
 
@@ -19,6 +19,8 @@ Any clues about this strange behaviour and how I might make it work?
 
 
 ---
+
+## Solution
 
 `setSelection()` does not necessarily have visual impact. The selection bar only appears if you use the D-pad/trackball to navigate the list. If you tap on the screen to click something, the selection bar appears briefly and vanishes.
 

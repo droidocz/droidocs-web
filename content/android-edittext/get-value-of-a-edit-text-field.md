@@ -3,7 +3,7 @@ metaTitle: Get Value of a Edit Text field
 title: Get Value of a Edit Text field
 ---
 
-## Context
+## Problem
 
 I am learning how to create UI elements. I have created a few EditText input fields. On the click of a Button I want to capture the content typed into that input field.
 
@@ -19,6 +19,8 @@ That's my field. How can I get the content?
 
 
 ---
+
+## Solution
 
 By using getText():
 

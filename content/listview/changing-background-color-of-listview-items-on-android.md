@@ -5,7 +5,7 @@ tags:
 title: Changing background color of ListView items on Android
 ---
 
-## Context
+## Problem
 
 How can I change background color of `ListView` items on a per-item basis. When I use `android:backgroundColor` in the `ListView` item layout I can achieve this, however the list selector is no longer visible. I can make the selector visible again by setting `drawSelectorOnTop` to true but then the selector overlays the whole item.
 
@@ -21,6 +21,8 @@ EDIT: Authors of GMail application have managed to achieve exactly this so it's 
 
 
 ---
+
+## Solution
 
 You have to create a different state drawable for each color you want to use. 
 

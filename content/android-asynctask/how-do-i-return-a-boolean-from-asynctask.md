@@ -5,7 +5,7 @@ tags:
 title: How do I return a boolean from AsyncTask
 ---
 
-## Context
+## Problem
 
 I have some EditTexts that a user enters an ftp address, username, password, port anda testConnection button. If a connection is successfully estabished it returns a boolean value of true. 
 
@@ -113,6 +113,8 @@ public class AsyncConnectTask extends AsyncTask<Void, Void, Void> {
 
 
 ---
+
+## Solution
 
 
 ```

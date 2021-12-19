@@ -7,7 +7,7 @@ tags:
 title: How to print to the console in Android Studio
 ---
 
-## Context
+## Problem
 
 I just downloaded Android Studio for Linux from: 
 <http://developer.android.com/sdk/installing/studio.html>
@@ -21,6 +21,8 @@ Neither `System.out.print(...)` nor `Log.e(...)` from `android.util.Log` seem to
 
 
 ---
+
+## Solution
 
 Run your application in **debug** *mode* by clicking on 
 

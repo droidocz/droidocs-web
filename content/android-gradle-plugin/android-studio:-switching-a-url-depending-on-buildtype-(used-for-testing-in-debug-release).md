@@ -6,7 +6,7 @@ tags:
 title: 'Android Studio: Switching a URL depending on buildtype (used for testing in debug /release)'
 ---
 
-## Context
+## Problem
 
 I have been reading something about variants and buildtypes and I don't know if I am understanding it right but I would like to store a URL for locahost (testing) and one for production (live site on the internet).
 
@@ -28,6 +28,8 @@ Any ideas?
 
 
 ---
+
+## Solution
 
 You can use the BuildConfig for supplying different URLs for each BuildType
 

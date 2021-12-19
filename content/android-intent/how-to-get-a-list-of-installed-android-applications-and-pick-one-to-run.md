@@ -3,7 +3,7 @@ metaTitle: How to get a list of installed android applications and pick one to r
 title: How to get a list of installed android applications and pick one to run
 ---
 
-## Context
+## Problem
 
 I asked a similar question to this earlier this week but I'm still not understanding how to get a list of all installed applications and then pick one to run. 
 
@@ -26,6 +26,8 @@ I also know I can use `PackageManager` to get all the installed applications, bu
 
 
 ---
+
+## Solution
 
 Here a good example:
 

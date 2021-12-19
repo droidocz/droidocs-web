@@ -6,7 +6,7 @@ tags:
 title: Using the "animated circle" in an ImageView while loading stuff
 ---
 
-## Context
+## Problem
 
 I am currently using in my application a listview that need maybe one second to be displayed.
 
@@ -38,6 +38,8 @@ Thank a lot for your help!
 
 
 ---
+
+## Solution
 
 Simply put this block of xml in your activity layout file:
 

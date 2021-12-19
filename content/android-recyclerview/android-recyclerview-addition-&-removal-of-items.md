@@ -7,7 +7,7 @@ tags:
 title: Android RecyclerView addition & removal of items
 ---
 
-## Context
+## Problem
 
 I have a RecyclerView with an TextView text box and a cross button ImageView. I have a button outside of the recyclerview that makes the cross button ImageView visible / gone.
 
@@ -131,6 +131,8 @@ How can I get something like an onClick working for my crossButton ImageView? Is
 
 
 ---
+
+## Solution
 
 Here are some visual supplemental examples. See [my fuller answer](https://stackoverflow.com/a/48959184/3681880) for examples of adding and removing a range.
 

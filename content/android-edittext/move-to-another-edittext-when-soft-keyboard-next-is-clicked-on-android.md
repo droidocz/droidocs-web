@@ -3,7 +3,7 @@ metaTitle: Move to another EditText when Soft Keyboard Next is clicked on Androi
 title: Move to another EditText when Soft Keyboard Next is clicked on Android
 ---
 
-## Context
+## Problem
 
 When I press the 'Next', the focus on the User EditText must be move to the Password. Then, from Password, it must move to the right and so on. Can you help me on how to code it?
 
@@ -72,6 +72,8 @@ When I press the 'Next', the focus on the User EditText must be move to the Pass
 
 
 ---
+
+## Solution
 
 
 ```

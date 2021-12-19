@@ -3,7 +3,7 @@ metaTitle: How to prevent RecyclerView item from blinking after notifyItemChange
 title: How to prevent RecyclerView item from blinking after notifyItemChanged(pos)
 ---
 
-## Context
+## Problem
 
 I currently have a recycler view whose data updates every 5 secs. To update the data on the list, I am using 
 
@@ -20,6 +20,8 @@ Each time I call notifyItemChanged(), the items on my recycler view update prope
 
 
 ---
+
+## Solution
 
 RecyclerView has built in animations which usually add a nice polished effect. in your case you'll want to disable them:
 

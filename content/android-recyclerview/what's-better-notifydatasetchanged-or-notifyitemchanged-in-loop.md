@@ -5,7 +5,7 @@ tags:
 title: What's better notifyDataSetChanged or notifyItemChanged in loop
 ---
 
-## Context
+## Problem
 
 So I have an activity with `RecyclerView` and I want to change `TextView` of every item in the `RecyclerView` by pressing button that has `onClickListener()` in the activity. 
 
@@ -25,6 +25,8 @@ Also I would like to know if this approach is suitable at all.
 
 
 ---
+
+## Solution
 
 If you are simply updating one part of the view, use the `notifyItemRangeChanged()`or `notifyItemChanged()` instead of `notifiyDataSetChanged()`. The difference here has to do with **structural changes** vs **item changes**. This is on the android developers `RecyclerView.Adapter` documentation found [here](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeChanged(int,%20int)). 
 

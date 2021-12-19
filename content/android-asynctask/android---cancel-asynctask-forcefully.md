@@ -3,7 +3,7 @@ metaTitle: Android - Cancel AsyncTask Forcefully
 title: Android - Cancel AsyncTask Forcefully
 ---
 
-## Context
+## Problem
 
 I have implemented AsyncTask in my one of activity:
 
@@ -30,6 +30,8 @@ I found about the `Cancel()` method of the same, but i found that calling **`can
 
 
 ---
+
+## Solution
 
 Just check `isCancelled()` once in a while:
 

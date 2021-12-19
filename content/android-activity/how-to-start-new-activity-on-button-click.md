@@ -7,13 +7,15 @@ tags:
 title: How to start new activity on button click
 ---
 
-## Context
+## Problem
 
 In an Android application, how do you start a new activity (GUI) when a button in another activity is clicked, and how do you pass data between these two activities?
 
 
 
 ---
+
+## Solution
 
 When user clicks on the button, directly inside the XML like that: 
 

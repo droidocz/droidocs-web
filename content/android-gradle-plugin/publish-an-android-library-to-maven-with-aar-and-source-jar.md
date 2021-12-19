@@ -7,13 +7,15 @@ tags:
 title: Publish an Android library to Maven with aar and source jar
 ---
 
-## Context
+## Problem
 
 Can somebody give me a hint on how to use the `maven-publish` gradle plugin to publish a `com.android.library` project/module with aar and source jar? I am able to do this with the old maven plugin - but I would like to use the new `maven-publish` plugin.
 
 
 
 ---
+
+## Solution
 
 A little tweak to dskinners answer with correct dependency generation:
 

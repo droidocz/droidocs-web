@@ -5,7 +5,7 @@ tags:
 title: How to set default app launcher programmatically
 ---
 
-## Context
+## Problem
 
 I am creating a launcher (kiosk) app that will be downloadable through google. When first installing this application the user has the ability of choosing which launcher (mine or the stock) will be the default. I am trying to bring this up manually if the user does not make my application the default launcher. I want the user to be forced into selecting ALWAYS instead of JUST ONCE when that dialog comes up, otherwise the dialog will continue to appear periodically with a friendly message. This is what I have attempted so far.
 
@@ -70,6 +70,8 @@ I can create a custom dialog for this instead of launching chooser but I need to
 
 
 ---
+
+## Solution
 
 
 > 

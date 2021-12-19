@@ -7,7 +7,7 @@ tags:
 title: Disable soft keyboard on NumberPicker
 ---
 
-## Context
+## Problem
 
 I'm trying to deactivate the soft keyboard when using a NumberPicker to enter numerical values (for aesthetic reasons). This is my layout-xml-code:
 
@@ -99,6 +99,8 @@ Sadly, the soft keyboard still shows up when clicking on a NumberPicker. Any ide
 
 
 ---
+
+## Solution
 
 Just found this and it works like a charm:
 

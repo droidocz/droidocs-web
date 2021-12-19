@@ -5,7 +5,7 @@ tags:
 title: NestedScrollview won't start from top
 ---
 
-## Context
+## Problem
 
 I have a Recyclerview in a NestedScrollview.. everything is working fine except one thig. I have total three view in NestedScrollview First two are LinearLayout then Recyclerview. when i run my app the Activity don't show top two layout it starts from top of the Recyclerview.
 
@@ -303,6 +303,8 @@ android:layout_height="match_parent">
 
 
 ---
+
+## Solution
 
 I had the same problem, and I fixed it the following way.
 

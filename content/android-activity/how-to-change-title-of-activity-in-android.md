@@ -3,7 +3,7 @@ metaTitle: How to change title of Activity in Android
 title: How to change title of Activity in Android
 ---
 
-## Context
+## Problem
 
 I am using 
 
@@ -23,6 +23,8 @@ Can anyone guide me on how to change this?
 
 
 ---
+
+## Solution
 
 Try setTitle by itself, like this:
 

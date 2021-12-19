@@ -5,7 +5,7 @@ tags:
 title: How to customize a Spinner in Android
 ---
 
-## Context
+## Problem
 
 I want to add a custom height to the dropdown of a `Spinner`, say 30dp, and I want to hide the dividers of the dropdown list of `Spinner`.
 
@@ -53,6 +53,8 @@ But nothing seems to be working.
 
 
 ---
+
+## Solution
 
 The most elegant and flexible solution I have found so far is here:
 <http://android-er.blogspot.sg/2010/12/custom-arrayadapter-for-spinner-with.html>

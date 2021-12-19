@@ -7,7 +7,7 @@ tags:
 title: Is there any way to integrate Eclipse with Gradle in Android project
 ---
 
-## Context
+## Problem
 
 I have Android project with standard build.gradle (also I added android annotations). 
 
@@ -23,6 +23,8 @@ My question is how to make Eclipse works with Gradle just like with Maven.
 
 
 ---
+
+## Solution
 
 Read [Is it possible to use the Gradle build system for Android with Eclipse?](https://stackoverflow.com/questions/17107014/is-it-possible-to-use-the-gradle-build-system-for-android-with-eclipse)
 

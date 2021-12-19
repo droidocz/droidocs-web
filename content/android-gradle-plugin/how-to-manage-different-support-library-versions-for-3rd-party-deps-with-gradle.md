@@ -7,7 +7,7 @@ tags:
 title: How to manage different support library versions for 3rd party deps with gradle
 ---
 
-## Context
+## Problem
 
 I have a bunch of third party libs that I include in my base application. I cannot control the support library those 3rd party modules include. This makes it hard to have the same version of the android support library in my application.
 
@@ -91,6 +91,8 @@ Android studio gives the following warning:
 
 
 ---
+
+## Solution
 
 This is certainly possible. In your projects build.gradle file (the top level build.gradle file) add the following code block:
 

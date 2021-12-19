@@ -5,7 +5,7 @@ tags:
 title: How to hide action bar before activity is created, and then show it again
 ---
 
-## Context
+## Problem
 
 I need to implement splash screen in my honeycomb app.
 I use this code in activity's onCreate to show splash:
@@ -48,6 +48,8 @@ but in that case getActionBar() always returns null and I found no way to show i
 
 
 ---
+
+## Solution
 
 Put your splash screen in a separate activity and use [`startActivityForResult`](http://developer.android.com/reference/android/app/Activity.html#startActivityForResult%28android.content.Intent,%20int%29) from your main activity's `onCreate` method to display it. This works because, according to the docs:
 

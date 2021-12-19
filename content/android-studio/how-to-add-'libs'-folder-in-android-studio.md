@@ -6,7 +6,7 @@ tags:
 title: How to add 'libs' folder in Android Studio
 ---
 
-## Context
+## Problem
 
 I need help in creating the 'libs' folder in Android Studio for my project (It is not auto-generated in my project).
 
@@ -22,6 +22,8 @@ I wanted to add a JAR file but I can't find libs to put in.
 
 
 ---
+
+## Solution
 
 The solution for me was very simple (after 10 hours of searching).
 Above where your folders are there is a combobox that says "android"

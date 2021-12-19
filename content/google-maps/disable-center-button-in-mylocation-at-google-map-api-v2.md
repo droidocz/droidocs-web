@@ -3,7 +3,7 @@ metaTitle: Disable center button in MyLocation at Google Map API V2
 title: Disable center button in MyLocation at Google Map API V2
 ---
 
-## Context
+## Problem
 
 I searched a lot on the web, but I haven't found anything which answered my question.
 When I enable MyLocation with 
@@ -24,6 +24,8 @@ I hope somebody of you can help me!
 
 
 ---
+
+## Solution
 
 After calling the following methods on your `GoogleMap` object:
 

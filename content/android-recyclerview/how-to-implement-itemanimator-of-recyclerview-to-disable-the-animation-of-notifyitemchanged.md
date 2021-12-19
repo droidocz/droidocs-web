@@ -5,7 +5,7 @@ tags:
 title: How to implement ItemAnimator of RecyclerView to disable the animation of notifyItemChanged
 ---
 
-## Context
+## Problem
 
 In my project I need disable the "change" animation of `RecyclerView` while `notifyItemChanged`.
 
@@ -48,6 +48,8 @@ Please help me figure out how to override `animateChange` in a correct way.
 
 
 ---
+
+## Solution
 
 I have found the correct solution to just remove the animateChange.
 

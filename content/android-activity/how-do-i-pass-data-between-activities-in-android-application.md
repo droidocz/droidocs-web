@@ -5,7 +5,7 @@ tags:
 title: How do I pass data between Activities in Android application
 ---
 
-## Context
+## Problem
 
 I have a scenario where, after logging in through a login page, there will be a sign-out `button` on each `activity`.
 
@@ -18,6 +18,8 @@ Any alternative to this case
 
 
 ---
+
+## Solution
 
 In your current Activity, create a new `Intent`:
 

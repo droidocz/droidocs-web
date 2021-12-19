@@ -3,7 +3,7 @@ metaTitle: How to customize the back button on ActionBar
 title: How to customize the back button on ActionBar
 ---
 
-## Context
+## Problem
 
 I have been able to customize the action bar's background, logo image and text color using suggestions from these:  
 
@@ -19,6 +19,8 @@ The last piece I want to customize is the back button image. It's grey by defaul
 
 
 ---
+
+## Solution
 
 So you can change it programmatically easily by using homeAsUpIndicator() function that added in android API level 18 and upper. 
 

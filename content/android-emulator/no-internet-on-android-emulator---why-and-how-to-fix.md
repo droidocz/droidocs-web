@@ -3,7 +3,7 @@ metaTitle: No internet on Android emulator - why and how to fix
 title: No internet on Android emulator - why and how to fix
 ---
 
-## Context
+## Problem
 
 I am trying to use internet with the Android emulator, but with no success.
 Any ideas?
@@ -11,6 +11,8 @@ Any ideas?
 
 
 ---
+
+## Solution
 
 Try launching the Emulator from the command line as follows:
 

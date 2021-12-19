@@ -6,7 +6,7 @@ tags:
 title: View's getWidth() and getHeight() returns 0
 ---
 
-## Context
+## Problem
 
 I am creating all of the elements in my android project dynamically. I am trying to get the width and height of a button so that I can rotate that button around. I am just trying to learn how to work with the android language. However, it returns 0. 
 
@@ -65,6 +65,8 @@ Any help is appreciated.
 
 
 ---
+
+## Solution
 
 As Ian states in [this Android Developers thread](http://groups.google.com/group/android-developers/browse_thread/thread/a53372e1c468ef01?pli=1):
 

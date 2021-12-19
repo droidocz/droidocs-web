@@ -6,7 +6,7 @@ tags:
 title: How to download Google Play Services in an Android emulator
 ---
 
-## Context
+## Problem
 
 I want to use Google Play Services API in my application, but when I open the emulator to test my application it sends me a message that says "Google Play Services must be downloaded". I know that occurs because I coded this test in my `MainActivity` in the method `onResume()`.  
 
@@ -15,6 +15,8 @@ I want to know how I can install Google Play Services in my emulator, because so
 
 
 ---
+
+## Solution
 
 Check out [Setting Up Google Play Services](http://developer.android.com/google/play-services/setup.html) which says:
 

@@ -5,7 +5,7 @@ tags:
 title: Getting the current Fragment instance in the viewpager
 ---
 
-## Context
+## Problem
 
 Below is my code which has `3 Fragment classes` each embedded with each of the 3 tabs on `ViewPager`. I have a menu option. As shown in the `onOptionsItemSelected()`, by selecting an option, I need to update the fragment that is currently visible. To update that I have to call a method which is in the fragment class. Can someone please suggest how to call that method?
 
@@ -200,6 +200,8 @@ Suppose below is the fragment class with the method `updateList()` I want to cal
 
 
 ---
+
+## Solution
 
 
 ```

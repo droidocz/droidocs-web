@@ -7,7 +7,7 @@ tags:
 title: Change EditText hint color when using TextInputLayout
 ---
 
-## Context
+## Problem
 
 I am using the new `TextInputLayout` from the design library. I am able to get it to show and to change the color of the floating label. Unfortunately the actual `EditText` hint is now always white. 
 
@@ -52,6 +52,8 @@ And here is the style I am using for the `TextInputLayout` (I tried making the `
 
 
 ---
+
+## Solution
 
 With the [Material Components library](https://github.com/material-components/material-components-android) you can customize the [`TextInputLayout`](https://github.com/material-components/material-components-android/blob/master/docs/components/TextInputLayout.md) the hint text color using:
 

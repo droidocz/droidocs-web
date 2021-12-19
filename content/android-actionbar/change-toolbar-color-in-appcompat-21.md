@@ -7,7 +7,7 @@ tags:
 title: Change Toolbar color in Appcompat 21
 ---
 
-## Context
+## Problem
 
 I am testing out the new Appcompat 21 Material Design features. Therefore I've created a Toolbar like this:
 
@@ -80,6 +80,8 @@ But they won't affect the text color. What am I missing? Instead of the black te
 
 
 ---
+
+## Solution
 
 **UPDATE 12/11/2019: Material Components Library**
 

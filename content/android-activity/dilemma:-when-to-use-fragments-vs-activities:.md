@@ -6,7 +6,7 @@ tags:
 title: 'Dilemma: when to use Fragments vs Activities:'
 ---
 
-## Context
+## Problem
 
 I know that `Activities` are designed to represent a single screen of my application, while `Fragments` are designed to be reusable UI layouts with logic embedded inside of them.
 
@@ -36,6 +36,8 @@ That way the action bar stays intact on all the flow's screens, but is being rec
 
 
 ---
+
+## Solution
 
 Experts will tell you: "When I see the UI, I will know whether to use an `Activity` or a `Fragment`". In the beginning this will not have any sense, but in time, you will actually be able to tell if you need `Fragment` or not. 
 

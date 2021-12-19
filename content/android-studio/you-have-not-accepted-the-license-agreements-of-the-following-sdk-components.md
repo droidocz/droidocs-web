@@ -6,7 +6,7 @@ tags:
 title: You have not accepted the license agreements of the following SDK components
 ---
 
-## Context
+## Problem
 
 I downloaded the latest Android SDK tools version 24.4.1. I used the command line to install SDKs. I typed `y` when asked 
 
@@ -39,6 +39,8 @@ I checked `~/.android` and `/opt/android-sdk` where Android tools are put. Neith
 
 
 ---
+
+## Solution
 
 I have resolve the problem by using the command:
 

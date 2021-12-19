@@ -3,7 +3,7 @@ metaTitle: Android ListView Headers
 title: Android ListView Headers
 ---
 
-## Context
+## Problem
 
 How do you make those standard header labels in the ListView Control?
 
@@ -16,6 +16,8 @@ If possible please provide some code snippets on how to construct the grouped da
 
 
 ---
+
+## Solution
 
 You can use my [`MergeAdapter`](http://github.com/commonsguy/cwac-merge) or Jeff Sharkey's [`SeparatedListAdapter`](http://jsharkey.org/blog/2008/08/18/separating-lists-with-headers-in-android-09/) for that.
 

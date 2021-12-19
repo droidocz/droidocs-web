@@ -6,13 +6,15 @@ tags:
 title: Android - Showing Phonebook contacts and selecting one
 ---
 
-## Context
+## Problem
 
 I want to show the list of contacts in phonebook on a click of a button and then select one of the contacts from it and then retrieve its contact number? I dont want to make my custom list, is there a way to use androids built in functionality?
 
 
 
 ---
+
+## Solution
 
 
 ```

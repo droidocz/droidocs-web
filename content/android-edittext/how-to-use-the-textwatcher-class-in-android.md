@@ -5,7 +5,7 @@ tags:
 title: How to use the TextWatcher class in Android
 ---
 
-## Context
+## Problem
 
 Can anyone tell me how to mask the **substring** in `EditText` or how to change `EditText` **substring input to password type** or **replace** by another **character** like this 123xxxxxxxxx3455
 
@@ -22,6 +22,8 @@ Please, tell me how I can use the `TextWatcher` method in Android.
 
 
 ---
+
+## Solution
 
 Supplemental answer
 ===================

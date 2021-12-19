@@ -5,13 +5,15 @@ tags:
 title: Get root view from current activity
 ---
 
-## Context
+## Problem
 
 I know how to get the root view with [View.getRootView()](http://developer.android.com/reference/android/view/View.html#getRootView%28%29). I am also able to get the view from a button's `onClick` event where the argument is a [View](http://developer.android.com/reference/android/view/View.html). But how can I get the **view** in an [activity](http://developer.android.com/reference/android/app/Activity.html)?
 
 
 
 ---
+
+## Solution
 
 ### Get root view from current activity.
 

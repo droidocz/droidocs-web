@@ -6,13 +6,15 @@ tags:
 title: Custom Adapter for List View
 ---
 
-## Context
+## Problem
 
 I want to create a `custom adapter` for my list view. Is there any article that can walk me through how to create one and also explain how it works?
 
 
 
 ---
+
+## Solution
 
 
 ```

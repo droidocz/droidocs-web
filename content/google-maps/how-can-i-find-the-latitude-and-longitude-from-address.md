@@ -5,7 +5,7 @@ tags:
 title: How can I find the latitude and longitude from address
 ---
 
-## Context
+## Problem
 
 I want to show the location of an address in Google Maps.
 
@@ -15,6 +15,8 @@ How do I get the latitude and longitude of an address using the Google Maps API?
 
 
 ---
+
+## Solution
 
 If you want to place your address in google map then easy way to use following
 

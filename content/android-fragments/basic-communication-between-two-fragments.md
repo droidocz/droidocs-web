@@ -3,7 +3,7 @@ metaTitle: Basic communication between two fragments
 title: Basic communication between two fragments
 ---
 
-## Context
+## Problem
 
 I have one activity - `MainActivity`. Within this activity I have two fragments, both of which I created declaratively within the xml. 
 
@@ -16,6 +16,8 @@ I am aware that a fragment can get a reference to it's activity using `getActivi
 
 
 ---
+
+## Solution
 
 Some of the other examples (and even the [documentation](https://developer.android.com/training/basics/fragments/fragment-ui.html) at the time of this writing) use outdated `onAttach` methods. Here is a full updated example.
 

@@ -5,7 +5,7 @@ tags:
 title: Multi flavor app based on multi flavor library in Android Gradle
 ---
 
-## Context
+## Problem
 
 My app has several flavors for several markets in-app-billing systems.
 
@@ -39,6 +39,8 @@ I'm using android studio 0.8.2.
 
 
 ---
+
+## Solution
 
 There are one problem with [Ali](https://stackoverflow.com/questions/24860659/multi-flavor-app-based-on-multi-flavor-library-in-android-gradle/24910671#24910671) answer. We are losing one very important dimension in our build variants. If we want to have all options (in my example below 4 (2 x 2)) we just have to add **custom configurations** in *main module build.gradle* file to be able to use all multi-flavor multi-buildType in `Build Variants`. We also have to set **publishNonDefault true** in the *library module build.gradle* file.
 

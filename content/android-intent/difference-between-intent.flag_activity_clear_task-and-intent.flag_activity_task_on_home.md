@@ -3,7 +3,7 @@ metaTitle: Difference between Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_AC
 title: Difference between Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_TASK_ON_HOME
 ---
 
-## Context
+## Problem
 
 From the Android documentation:
 
@@ -70,6 +70,8 @@ The way I understand, in either code snippet we create a new task which has just
 
 
 ---
+
+## Solution
 
 There is a difference between the 2 snippets. Here's some important background information:
 

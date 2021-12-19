@@ -7,7 +7,7 @@ tags:
 title: How to get Toolbar from fragment
 ---
 
-## Context
+## Problem
 
 I have `ActionBarActivity` with `NavigationDrawer` and use support\_v7 `Toolbar` as ActionBar. In one of my fragments toolbar has custom view. In other fragments `Toolbar` should show title.
 
@@ -29,6 +29,8 @@ In my case
 
 
 ---
+
+## Solution
 
 You need to cast your activity from `getActivity()` to `AppCompatActivity` first. Here's an example:
 

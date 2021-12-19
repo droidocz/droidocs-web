@@ -5,7 +5,7 @@ tags:
 title: 'Example: Communication between Activity and Service using Messaging'
 ---
 
-## Context
+## Problem
 
 I couldn't find any examples of how to send messages between an activity and a service, and I have spent far too many hours figuring this out. Here is an example project for others to reference.
 
@@ -497,6 +497,8 @@ public class MyService extends Service {
 
 
 ---
+
+## Solution
 
 Look at the [LocalService example](http://developer.android.com/reference/android/app/Service.html#LocalServiceSample).
 

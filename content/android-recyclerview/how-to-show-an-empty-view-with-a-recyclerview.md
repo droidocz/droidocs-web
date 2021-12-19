@@ -6,7 +6,7 @@ tags:
 title: How to show an empty view with a RecyclerView
 ---
 
-## Context
+## Problem
 
 I am used to put an special view inside the layout file as [described in the `ListActivity` documentation](http://developer.android.com/reference/android/app/ListActivity.html) to be **displayed when there is no data**. This view has the id `"android:id/empty"`.
 
@@ -26,6 +26,8 @@ I wonder how this can be done with the new [`RecyclerView`](http://developer.and
 
 
 ---
+
+## Solution
 
 I use ViewSwitcher
 

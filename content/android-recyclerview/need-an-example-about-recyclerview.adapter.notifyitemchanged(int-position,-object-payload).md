@@ -5,7 +5,7 @@ tags:
 title: Need an example about RecyclerView.Adapter.notifyItemChanged(int position, Object payload)
 ---
 
-## Context
+## Problem
 
 According to `RecyclerView` documentation about medthod [notifyItemChanged(int position, Object payload)](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemChanged(int,%20java.lang.Object)) 
 
@@ -26,6 +26,8 @@ So, If you know about this method, please show me a clear example about it. Than
 
 
 ---
+
+## Solution
 
 If you want to update **not all** holder View but just **part of it**, this method is what you need.
 

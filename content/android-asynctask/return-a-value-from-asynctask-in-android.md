@@ -7,7 +7,7 @@ tags:
 title: Return a value from AsyncTask in Android
 ---
 
-## Context
+## Problem
 
 One simple question: is it possible to return a value in `AsyncTask`?
 
@@ -59,6 +59,8 @@ I was coming from C so I didn't know much about this. But it seems that lots of 
 
 
 ---
+
+## Solution
 
 Easiest way is to pass the calling object into the async task (upon constructing it if you like):
 

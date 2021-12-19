@@ -5,13 +5,15 @@ tags:
 title: AsyncTaskLoader basic example. (Android)
 ---
 
-## Context
+## Problem
 
 I am using a Loader in my application and based on the result I get from the query I perform on COntacts using this Loader I perform some calculations and store them back in a Sqlite DB. I want this operation to be Asynchronous, however I am confused between using an Async task, as I have lot of different data types to return or should I use a simple handler or an AsyncTaskLoader, I want it to be simple as I am new to Loaders. I tried to search around for examples of AsyncTaskLoader but it seems rocket science, a basic and simple functional example of any of the three in the context of my scenario would be a lot helpful. 
 
 
 
 ---
+
+## Solution
 
 If you wish to use AsyncTaskLoader, [**here's**](https://github.com/alexjlockwood/AppListLoader) a nice sample for you.
 

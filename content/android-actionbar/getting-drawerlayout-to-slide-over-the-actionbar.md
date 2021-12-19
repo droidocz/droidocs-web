@@ -7,7 +7,7 @@ tags:
 title: Getting DrawerLayout to Slide over the ActionBar
 ---
 
-## Context
+## Problem
 
 I have a sliding drawer menu in an activity, which has an actionbar with some tabs on it. 
 
@@ -35,6 +35,8 @@ Note: I understand that I might be breaking some conventions and UI patterns her
 
 
 ---
+
+## Solution
 
 
 > 

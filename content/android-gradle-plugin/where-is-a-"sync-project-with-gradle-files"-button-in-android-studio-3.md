@@ -6,7 +6,7 @@ tags:
 title: Where is a "Sync project with gradle files" button in Android Studio 3
 ---
 
-## Context
+## Problem
 
 This button disappeared from a new 3.1 version of AS Toolbar. Before it showed as:
 [![enter image description here](https://i.stack.imgur.com/d15o5.png)](https://i.stack.imgur.com/d15o5.png)
@@ -20,6 +20,8 @@ Now it's missing:
 
 
 ---
+
+## Solution
 
 **EDIT**: They like to keep playing with the toolbar.
 

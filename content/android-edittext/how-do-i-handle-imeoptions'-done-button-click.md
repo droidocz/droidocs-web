@@ -5,7 +5,7 @@ tags:
 title: How do I handle ImeOptions' done button click
 ---
 
-## Context
+## Problem
 
 I am having an `EditText` where I am setting the following property so that I can display the done button on the keyboard when user click on the EditText.
 
@@ -27,6 +27,8 @@ How can I track done button when it is hit from screen keyboard?
 
 
 ---
+
+## Solution
 
 Try this, it should work for what you need: 
 

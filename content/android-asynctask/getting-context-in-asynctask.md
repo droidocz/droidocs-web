@@ -6,7 +6,7 @@ tags:
 title: getting context in AsyncTask
 ---
 
-## Context
+## Problem
 
 I am trying to get the context in my AsyncTask of the class called Opciones(this class is the only one that call that task) but I don't know how to do it, I saw some code like this:
 
@@ -25,6 +25,8 @@ But it doesn't work for me it says: `"No enclosing instance of the type Opciones
 
 
 ---
+
+## Solution
 
 Holding a weak reference to the host Activity will prevent memory leaks.
 

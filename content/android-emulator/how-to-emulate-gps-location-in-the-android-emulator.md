@@ -6,7 +6,7 @@ tags:
 title: How to emulate GPS location in the Android Emulator
 ---
 
-## Context
+## Problem
 
 I want to get longitude and latitude in Android emulator for testing.
 
@@ -19,6 +19,8 @@ How do I set the location of the emulator to a test position?
 
 
 ---
+
+## Solution
 
 Assuming you've got a mapview set up and running:
 

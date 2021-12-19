@@ -6,7 +6,7 @@ tags:
 title: How to include an Android library module in another library
 ---
 
-## Context
+## Problem
 
 I am building an Android library that is packaged as an aar and distributed to 3rd party developers.
 
@@ -48,6 +48,8 @@ Is this still not possible? I would assume that splitting up your code into mult
 
 
 ---
+
+## Solution
 
 
 > 

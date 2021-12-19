@@ -6,7 +6,7 @@ tags:
 title: 'Android: show soft keyboard automatically when focus is on an EditText'
 ---
 
-## Context
+## Problem
 
 I'm showing an input box using `AlertDialog`. The `EditText` inside the dialog itself is automatically focused when I call `AlertDialog.show()`, but the soft keyboard is not automatically shown.
 
@@ -16,6 +16,8 @@ How do I make the soft keyboard automatically show when the dialog is shown? (an
 
 
 ---
+
+## Solution
 
 To show keyboard, for me, I had to do the following
 

@@ -5,7 +5,7 @@ tags:
 title: How to center items of a recyclerview
 ---
 
-## Context
+## Problem
 
 I need to center elements in each row so they will be like in this mockup.
 I've been searching if there is any layout that works that way without look.
@@ -20,6 +20,8 @@ This is how it looks now in my code.![enter image description here](https://i.st
 
 
 ---
+
+## Solution
 
 I am assuming that you are using a `LinearLayoutManager` with a `RecyclerView` for a `ListView`-style effect. In that case, use a `horizontal` `LinearLayout` for each row, with `android:gravity="center"` to center its contents.
 

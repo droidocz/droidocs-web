@@ -5,7 +5,7 @@ tags:
 title: In AVD emulator how to see sdcard folder and Install apk to AVD
 ---
 
-## Context
+## Problem
 
 I have created an **Android emulator** (*Android Virtual Device*), but I am unable to find out the SD card I have built during creation of this.
 
@@ -15,6 +15,8 @@ How can I find the SD card and its content and also how to install **APK** files
 
 
 ---
+
+## Solution
 
 1. switch to **DDMS** perspective
 2. select the emulator in **devices** list, whose sdcard you want to explore.

@@ -3,13 +3,15 @@ metaTitle: How to open standard Google Map application from my application
 title: How to open standard Google Map application from my application
 ---
 
-## Context
+## Problem
 
 Once user presses button in my application, I would like to open standard Google Map application and to show particular location. How can I do it? (without using `com.google.android.maps.MapView`)
 
 
 
 ---
+
+## Solution
 
 You can also simply use <http://maps.google.com/maps> as your URI
 

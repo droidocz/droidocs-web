@@ -5,13 +5,15 @@ tags:
 title: Launch custom android application from android browser
 ---
 
-## Context
+## Problem
 
 Can anybody please guide me regarding how to launch my android application from the android browser? 
 
 
 
 ---
+
+## Solution
 
 All above answers didn't work for me with `CHROME` as of 28 Jan 2014
 

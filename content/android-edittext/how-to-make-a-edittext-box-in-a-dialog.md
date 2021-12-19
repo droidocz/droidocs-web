@@ -5,7 +5,7 @@ tags:
 title: How to make a edittext box in a dialog
 ---
 
-## Context
+## Problem
 
 I am trying to make a edittext box in a dialog box for entering a password.
 and when I am doing I am not able to do. I am a beginner in it.
@@ -149,6 +149,8 @@ I want to get as
 
 
 ---
+
+## Solution
 
 Simplest of all would be.
 

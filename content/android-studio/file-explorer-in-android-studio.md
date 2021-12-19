@@ -3,7 +3,7 @@ metaTitle: File Explorer in Android Studio
 title: File Explorer in Android Studio
 ---
 
-## Context
+## Problem
 
 Can anyone tell where the file explorer is located in Android Studio?
 
@@ -13,6 +13,8 @@ I tried to search in windows menu but there isn't any option like "show view" th
 
 
 ---
+
+## Solution
 
 You can start Android Device Monitor from the Android Studio (green robot icon on the toolbar, to the left of the help icon). From the ADM, select the device/emulator, then select the File Explorer tab.
 

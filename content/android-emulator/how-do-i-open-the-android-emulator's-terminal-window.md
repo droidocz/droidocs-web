@@ -6,7 +6,7 @@ tags:
 title: How do I open the android emulator's terminal window
 ---
 
-## Context
+## Problem
 
 In order to enable logging for medailytics plug in, I need to enter this into the emulator's terminal
 
@@ -27,6 +27,8 @@ Also I won't be surprised if anyone tells me that there are in fact 150 more ste
 
 
 ---
+
+## Solution
 
 On Windows, it's called the Command Prompt and can be found in your Start menu.
 

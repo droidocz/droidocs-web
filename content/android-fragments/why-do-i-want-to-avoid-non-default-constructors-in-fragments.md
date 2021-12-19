@@ -3,7 +3,7 @@ metaTitle: Why do I want to avoid non-default constructors in fragments
 title: Why do I want to avoid non-default constructors in fragments
 ---
 
-## Context
+## Problem
 
 I am creating an app with `Fragments` and in one of them, I created a non-default constructor and got this warning:
 
@@ -38,6 +38,8 @@ Without using the non-default constructor?
 
 
 ---
+
+## Solution
 
 It seems like none of the answers actually answer "why use bundle for passing parameters rather than non default constructors"
 

@@ -5,7 +5,7 @@ tags:
 title: Android Fragments and animation
 ---
 
-## Context
+## Problem
 
 How should you implement the sort of sliding that for example the Honeycomb Gmail client uses?
 
@@ -15,6 +15,8 @@ Can `TransactionManager` handle this automatically by adding and removing the Fr
 
 
 ---
+
+## Solution
 
 I'd highly suggest you use this instead of creating the animation file because it's a much better solution. Android Studio already provides **default** `animation` you can use without creating any new XML file. The animations' names are **android.R.anim.slide\_in\_left** and **android.R.anim.slide\_out\_right** and you can use them as follows:
 

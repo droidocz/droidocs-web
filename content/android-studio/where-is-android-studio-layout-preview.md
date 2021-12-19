@@ -5,7 +5,7 @@ tags:
 title: Where is Android Studio layout preview
 ---
 
-## Context
+## Problem
 
 I installed Android Studio, but when I edit my layout files, I can't find live preview! I just see an XML file. How can I see my layout in graphical view?
 
@@ -19,6 +19,8 @@ This is how it looks like in my case:
 
 
 ---
+
+## Solution
 
 Several people seem to have the same problem. The issue is that the IDE only displays the preview if editing a layout file in the `res/layout*` directory of an Android project.
 

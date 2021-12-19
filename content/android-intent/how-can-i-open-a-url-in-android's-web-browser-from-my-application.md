@@ -6,7 +6,7 @@ tags:
 title: How can I open a URL in Android's web browser from my application
 ---
 
-## Context
+## Problem
 
 How to open an URL from code in the built-in web browser rather than within my application?
 
@@ -38,6 +38,8 @@ No activity found to handle Intent{action=android.intent.action.VIEW data =www.g
 
 
 ---
+
+## Solution
 
 ### a common way to achieve this is with the next code:
 

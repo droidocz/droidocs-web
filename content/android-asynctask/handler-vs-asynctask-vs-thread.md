@@ -6,7 +6,7 @@ tags:
 title: Handler vs AsyncTask vs Thread
 ---
 
-## Context
+## Problem
 
 I got slightly confused about the differences between `Handlers`, `AsyncTask` and `Threads` in Android. I've read quite a few blogs and questions here in StackOverflow. 
 
@@ -28,6 +28,8 @@ Meanwhile, the [documentation](https://developer.android.com/reference/android/o
 
 
 ---
+
+## Solution
 
 If we look at the source code, we will see `AsyncTask` and `Handler` is purely written in Java. (There are some exceptions, though. But that is not an important point)
 

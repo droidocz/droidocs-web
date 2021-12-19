@@ -5,7 +5,7 @@ tags:
 title: How to hide underbar in EditText
 ---
 
-## Context
+## Problem
 
 How can I hide the EditText underbar (the prompt line with little serifs at the ends)?
 
@@ -21,6 +21,8 @@ As a stop-gap measure, I'm going to implement this by removing the EditText and 
 
 
 ---
+
+## Solution
 
 Here's a way to hide it, without ruining the default padding:
 
