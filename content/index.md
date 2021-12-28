@@ -8,7 +8,7 @@ Droidocs is an automatically generated documentation for the Android API, with d
 
 # Why?
 Building and keeping documentation updated is not always easy, it takes time and it's not the most appealing task developers are willing to take :).
-In the meanwhile, we kept Q&A discussions rich and active when trying to understand how to approach coding tasks we were struggling with. The result is a vast amount of valuable content data in those platforms.
+However, Q&A discussions on stackoverflow are rich and active and the result is a vast amount of valuable content data in the platform.
 So, the goal with this website work is to select and treat some of this data, while giving it a more suitable format for community maintenance.
 
 # Currently Available APIs
