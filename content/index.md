@@ -15,6 +15,7 @@ So, the goal with this website work is to select and treat some of this data, wh
 - [Android Activity](/android-activity)
 - [Android Actionbar](/android-actionbar)
 - [Android Asynctask](/android-asynctask)
+- [Android Edittext](/android-edittext)
 - [Android Emulator](/android-emulator)
 - [Android Intent](/android-intent)
 - [Android Recyclerview](/android-recyclerview)
